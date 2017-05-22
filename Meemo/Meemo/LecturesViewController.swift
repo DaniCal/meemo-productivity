@@ -11,25 +11,31 @@ import UIKit
 class LecturesViewController: UIViewController {
 
     var lectures = Lecture.fetchLectures()
-    let cellScalingX:CGFloat = 0.76
-    let cellScalingY:CGFloat = 0.63
+    var cellScalingX:CGFloat = 0.653
+    var cellScalingY:CGFloat = 0.72
 
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let screenSize = UIScreen.main.bounds.size
-//
+        
+        //If iphone 5 screen
+        if(screenSize.height == 568.0){
+            cellScalingX = 0.78
+        }
+        
         let cellWidth = floor(screenSize.width * cellScalingX)
         let cellHeight = floor(screenSize.height * cellScalingY)
-//
+
         let insetX = (view.bounds.width - cellWidth) / 2
         let insetY = (view.bounds.height - cellHeight) / 2
-//
-//        let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.itemSize = CGSize(width: cellWidth , height: cellHeight)
-//
+
+        let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: cellWidth , height: cellHeight)
+
         collectionView?.contentInset = UIEdgeInsets(top: insetY ,left: insetX , bottom: insetY, right: insetX)
 
         collectionView?.dataSource = self

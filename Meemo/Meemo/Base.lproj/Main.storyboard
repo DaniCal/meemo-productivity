@@ -39,44 +39,52 @@
                                                     <frame key="frameInset" width="245" height="475"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ymm-Q7-4Dk">
+                                                    <frame key="frameInset" width="245" height="475"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv1-44-hr0">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="dba-Hm-dAE"/>
+                                                        <constraint firstAttribute="width" constant="58" id="kA6-hd-eHm"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchButtonGreen" translatesAutoresizingMaskIntoConstraints="NO" id="A6d-Ya-ffa">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="39" id="Zsl-3Z-hvp"/>
-                                                        <constraint firstAttribute="width" constant="162" id="umx-9l-YmW"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-dg-MpG">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="164" id="5OV-tX-DO1"/>
+                                                        <constraint firstAttribute="height" constant="164" id="VcH-BC-Nij"/>
+                                                        <constraint firstAttribute="width" constant="207" id="af3-Ob-wj5"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Create better notes">
                                                             <attributes>
                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <font key="NSFont" size="49" name="Avenir-Black"/>
+                                                                <font key="NSFont" size="45" name="Avenir-Black"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.71999999999999997" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchButtonGreen" translatesAutoresizingMaskIntoConstraints="NO" id="A6d-Ya-ffa">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="39" id="BR2-PA-CN7"/>
+                                                        <constraint firstAttribute="width" constant="162" id="fxq-Ui-7Ev"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="n0i-dg-MpG" secondAttribute="trailing" constant="11" id="FLS-5k-uDX"/>
-                                            <constraint firstItem="A6d-Ya-ffa" firstAttribute="top" secondItem="n0i-dg-MpG" secondAttribute="bottom" constant="26" id="Jq1-0R-Tm8"/>
-                                            <constraint firstItem="A6d-Ya-ffa" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="OeB-QX-dCD"/>
-                                            <constraint firstItem="zv1-44-hr0" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="topMargin" constant="132" id="UvW-9B-TUd"/>
-                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="leading" secondItem="XDV-7d-TfL" secondAttribute="leadingMargin" constant="11" id="fzx-N1-kzF"/>
-                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="top" secondItem="zv1-44-hr0" secondAttribute="bottom" constant="1" id="lTT-PP-mIL"/>
-                                            <constraint firstItem="zv1-44-hr0" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="nkD-s7-ImO"/>
-                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="rmS-RO-lUb"/>
+                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="5Xj-8F-fEN"/>
+                                            <constraint firstItem="A6d-Ya-ffa" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="7ig-MH-uiA"/>
+                                            <constraint firstItem="zv1-44-hr0" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="91y-Xj-9iw"/>
+                                            <constraint firstItem="A6d-Ya-ffa" firstAttribute="top" secondItem="n0i-dg-MpG" secondAttribute="bottom" constant="26" id="97x-DH-lAk"/>
+                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="top" secondItem="zv1-44-hr0" secondAttribute="bottom" constant="1" id="UgA-S1-C9e"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="A6d-Ya-ffa" secondAttribute="bottom" constant="38" id="kOr-cg-UbO"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dayLabel" destination="zv1-44-hr0" id="Tiu-8Z-HgP"/>

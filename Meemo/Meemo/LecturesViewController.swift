@@ -8,11 +8,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class LecturesViewController: UIViewController {
 
+    var lectures = Lecture.fetchLectures()
+    let cellScaling:CGFloat = 0.6
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		77F0FF10F7A9FE801EA02A63 /* Pods_Meemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD17427DE877CC8134440F18 /* Pods_Meemo.framework */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
-		821D60751ED3258B00A8574C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* HomeViewController.swift */; };
+		821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* LecturesViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
 		821D607A1ED3258B00A8574C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 821D60791ED3258B00A8574C /* Assets.xcassets */; };
 		821D607D1ED3258B00A8574C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */; };
 		821D60881ED3258B00A8574C /* MeemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60871ED3258B00A8574C /* MeemoTests.swift */; };
 		821D60931ED3258B00A8574C /* MeemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60921ED3258B00A8574C /* MeemoUITests.swift */; };
 		821D60A21ED32B4200A8574C /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60A11ED32B4200A8574C /* Lecture.swift */; };
+		821D60A41ED33BAC00A8574C /* LectureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60A31ED33BAC00A8574C /* LectureCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 		2BEF91E1ECE6F1A8462E6706 /* Pods-Meemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.release.xcconfig"; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		821D60741ED3258B00A8574C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		821D60741ED3258B00A8574C /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
 		821D60771ED3258B00A8574C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		821D60791ED3258B00A8574C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		821D607C1ED3258B00A8574C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		821D60921ED3258B00A8574C /* MeemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeemoUITests.swift; sourceTree = "<group>"; };
 		821D60941ED3258B00A8574C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		821D60A11ED32B4200A8574C /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		821D60A31ED33BAC00A8574C /* LectureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureCollectionViewCell.swift; sourceTree = "<group>"; };
 		87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD17427DE877CC8134440F18 /* Pods_Meemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,8 +127,9 @@
 			children = (
 				821D60A01ED32AB600A8574C /* Model */,
 				821D60721ED3258B00A8574C /* AppDelegate.swift */,
-				821D60741ED3258B00A8574C /* HomeViewController.swift */,
+				821D60741ED3258B00A8574C /* LecturesViewController.swift */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
+				821D60A31ED33BAC00A8574C /* LectureCollectionViewCell.swift */,
 				821D60791ED3258B00A8574C /* Assets.xcassets */,
 				821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */,
 				821D607E1ED3258B00A8574C /* Info.plist */,
@@ -349,7 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				821D60A21ED32B4200A8574C /* Lecture.swift in Sources */,
-				821D60751ED3258B00A8574C /* HomeViewController.swift in Sources */,
+				821D60A41ED33BAC00A8574C /* LectureCollectionViewCell.swift in Sources */,
+				821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */,
 				821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

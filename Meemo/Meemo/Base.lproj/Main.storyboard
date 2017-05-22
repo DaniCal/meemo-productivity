@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Lectures View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Meemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LecturesViewController" customModule="Meemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="65" minY="0.0" maxX="65" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XDV-7d-TfL">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XDV-7d-TfL" customClass="LectureCollectionViewCell" customModule="Meemo" customModuleProvider="target">
                                         <rect key="frame" x="65" y="14" width="245" height="475"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -40,7 +40,19 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-Ac-mIl">
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchButtonGreen" translatesAutoresizingMaskIntoConstraints="NO" id="A6d-Ya-ffa">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="162" id="LI9-3e-zj9"/>
+                                                                <constraint firstAttribute="height" constant="39" id="cvq-CK-4fE"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="A6d-Ya-ffa" secondAttribute="bottom" constant="27" id="QS2-1u-eXx"/>
+                                                        <constraint firstItem="A6d-Ya-ffa" firstAttribute="centerX" secondItem="P1v-Ac-mIl" secondAttribute="centerX" id="Wrj-y4-zMP"/>
+                                                    </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv1-44-hr0">
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
@@ -62,13 +74,6 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNL-N1-UW0">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="39" id="XA6-UQ-BU9"/>
-                                                        <constraint firstAttribute="width" constant="162" id="YR3-Cp-5RR"/>
-                                                    </constraints>
-                                                    <state key="normal" backgroundImage="watchButtonGreen"/>
-                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -79,15 +84,19 @@
                                             <constraint firstItem="P1v-Ac-mIl" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="top" id="KtH-S5-hnE"/>
                                             <constraint firstItem="zv1-44-hr0" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="topMargin" constant="172" id="UvW-9B-TUd"/>
                                             <constraint firstItem="P1v-Ac-mIl" firstAttribute="centerY" secondItem="XDV-7d-TfL" secondAttribute="centerY" id="Y4w-J1-vKZ"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="qNL-N1-UW0" secondAttribute="bottom" constant="39" id="Zcf-d5-CFo"/>
                                             <constraint firstItem="n0i-dg-MpG" firstAttribute="leading" secondItem="XDV-7d-TfL" secondAttribute="leadingMargin" constant="11" id="fzx-N1-kzF"/>
                                             <constraint firstItem="n0i-dg-MpG" firstAttribute="top" secondItem="zv1-44-hr0" secondAttribute="bottom" constant="1" id="lTT-PP-mIL"/>
                                             <constraint firstItem="zv1-44-hr0" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="nkD-s7-ImO"/>
                                             <constraint firstAttribute="trailing" secondItem="P1v-Ac-mIl" secondAttribute="trailing" id="pdO-3e-cLd"/>
-                                            <constraint firstItem="qNL-N1-UW0" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="reh-Cj-1X2"/>
                                             <constraint firstItem="n0i-dg-MpG" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="rmS-RO-lUb"/>
                                             <constraint firstItem="P1v-Ac-mIl" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="xg7-BY-Lk5"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="zv1-44-hr0" id="Tiu-8Z-HgP"/>
+                                            <outlet property="featuredImageView" destination="2nz-5x-bBs" id="q8D-Mn-PQZ"/>
+                                            <outlet property="titleLabel" destination="n0i-dg-MpG" id="yOH-Uq-isT"/>
+                                            <outlet property="watchImageView" destination="A6d-Ya-ffa" id="6XB-W7-FbB"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

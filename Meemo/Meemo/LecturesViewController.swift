@@ -73,5 +73,9 @@ extension LecturesViewController: UIScrollViewDelegate, UICollectionViewDelegate
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //
+    }
 }
 

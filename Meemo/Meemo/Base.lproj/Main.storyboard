@@ -19,17 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-1M-2fZ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-1M-2fZ">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OaK-J8-uxI">
                                     <size key="itemSize" width="245" height="475"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="65" minY="0.0" maxX="65" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="65" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XDV-7d-TfL" customClass="LectureCollectionViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="65" y="14" width="245" height="475"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LectureCell" id="XDV-7d-TfL" customClass="LectureCollectionViewCell" customModule="Meemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="14" width="245" height="475"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="245" height="475"/>
@@ -39,27 +39,18 @@
                                                     <frame key="frameInset" width="245" height="475"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-Ac-mIl">
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchButtonGreen" translatesAutoresizingMaskIntoConstraints="NO" id="A6d-Ya-ffa">
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="162" id="LI9-3e-zj9"/>
-                                                                <constraint firstAttribute="height" constant="39" id="cvq-CK-4fE"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="A6d-Ya-ffa" secondAttribute="bottom" constant="27" id="QS2-1u-eXx"/>
-                                                        <constraint firstItem="A6d-Ya-ffa" firstAttribute="centerX" secondItem="P1v-Ac-mIl" secondAttribute="centerX" id="Wrj-y4-zMP"/>
-                                                    </constraints>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv1-44-hr0">
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-dg-MpG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchButtonGreen" translatesAutoresizingMaskIntoConstraints="NO" id="A6d-Ya-ffa">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="39" id="Zsl-3Z-hvp"/>
+                                                        <constraint firstAttribute="width" constant="162" id="umx-9l-YmW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-dg-MpG">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="164" id="5OV-tX-DO1"/>
                                                     </constraints>
@@ -68,7 +59,7 @@
                                                             <attributes>
                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <font key="NSFont" size="49" name="Avenir-Black"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.71999999999999997" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="0.71999999999999997" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -78,18 +69,14 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="leading" secondItem="XDV-7d-TfL" secondAttribute="leading" id="AmP-nw-UU6"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="n0i-dg-MpG" secondAttribute="trailing" constant="11" id="FLS-5k-uDX"/>
-                                            <constraint firstAttribute="bottom" secondItem="P1v-Ac-mIl" secondAttribute="bottom" id="KBj-5U-8ah"/>
-                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="top" id="KtH-S5-hnE"/>
-                                            <constraint firstItem="zv1-44-hr0" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="topMargin" constant="172" id="UvW-9B-TUd"/>
-                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="centerY" secondItem="XDV-7d-TfL" secondAttribute="centerY" id="Y4w-J1-vKZ"/>
+                                            <constraint firstItem="A6d-Ya-ffa" firstAttribute="top" secondItem="n0i-dg-MpG" secondAttribute="bottom" constant="26" id="Jq1-0R-Tm8"/>
+                                            <constraint firstItem="A6d-Ya-ffa" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="OeB-QX-dCD"/>
+                                            <constraint firstItem="zv1-44-hr0" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="topMargin" constant="132" id="UvW-9B-TUd"/>
                                             <constraint firstItem="n0i-dg-MpG" firstAttribute="leading" secondItem="XDV-7d-TfL" secondAttribute="leadingMargin" constant="11" id="fzx-N1-kzF"/>
                                             <constraint firstItem="n0i-dg-MpG" firstAttribute="top" secondItem="zv1-44-hr0" secondAttribute="bottom" constant="1" id="lTT-PP-mIL"/>
                                             <constraint firstItem="zv1-44-hr0" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="nkD-s7-ImO"/>
-                                            <constraint firstAttribute="trailing" secondItem="P1v-Ac-mIl" secondAttribute="trailing" id="pdO-3e-cLd"/>
                                             <constraint firstItem="n0i-dg-MpG" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="rmS-RO-lUb"/>
-                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="xg7-BY-Lk5"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dayLabel" destination="zv1-44-hr0" id="Tiu-8Z-HgP"/>
@@ -109,6 +96,9 @@
                             <constraint firstItem="XcV-1M-2fZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="65" id="lbs-ls-JCs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="XcV-1M-2fZ" id="1ia-IA-CA3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

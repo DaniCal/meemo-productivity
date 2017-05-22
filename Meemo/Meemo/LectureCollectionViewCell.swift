@@ -39,7 +39,7 @@ class LectureCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 0.0
+        layer.cornerRadius = 3.0
         layer.shadowRadius = 2
         layer.shadowOpacity = 0.8
         layer.shadowOffset = CGSize(width: 5, height: 10)

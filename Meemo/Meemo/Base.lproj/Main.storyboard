@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,11 +18,96 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-1M-2fZ">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OaK-J8-uxI">
+                                    <size key="itemSize" width="245" height="475"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="65" minY="0.0" maxX="65" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XDV-7d-TfL">
+                                        <rect key="frame" x="65" y="14" width="245" height="475"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="245" height="475"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carouselBackgroundPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="2nz-5x-bBs">
+                                                    <frame key="frameInset" width="245" height="475"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-Ac-mIl">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv1-44-hr0">
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-dg-MpG">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="164" id="5OV-tX-DO1"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Create better notes">
+                                                            <attributes>
+                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="49" name="Avenir-Black"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.71999999999999997" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNL-N1-UW0">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="39" id="XA6-UQ-BU9"/>
+                                                        <constraint firstAttribute="width" constant="162" id="YR3-Cp-5RR"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="watchButtonGreen"/>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="leading" secondItem="XDV-7d-TfL" secondAttribute="leading" id="AmP-nw-UU6"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="n0i-dg-MpG" secondAttribute="trailing" constant="11" id="FLS-5k-uDX"/>
+                                            <constraint firstAttribute="bottom" secondItem="P1v-Ac-mIl" secondAttribute="bottom" id="KBj-5U-8ah"/>
+                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="top" id="KtH-S5-hnE"/>
+                                            <constraint firstItem="zv1-44-hr0" firstAttribute="top" secondItem="XDV-7d-TfL" secondAttribute="topMargin" constant="172" id="UvW-9B-TUd"/>
+                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="centerY" secondItem="XDV-7d-TfL" secondAttribute="centerY" id="Y4w-J1-vKZ"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="qNL-N1-UW0" secondAttribute="bottom" constant="39" id="Zcf-d5-CFo"/>
+                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="leading" secondItem="XDV-7d-TfL" secondAttribute="leadingMargin" constant="11" id="fzx-N1-kzF"/>
+                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="top" secondItem="zv1-44-hr0" secondAttribute="bottom" constant="1" id="lTT-PP-mIL"/>
+                                            <constraint firstItem="zv1-44-hr0" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="nkD-s7-ImO"/>
+                                            <constraint firstAttribute="trailing" secondItem="P1v-Ac-mIl" secondAttribute="trailing" id="pdO-3e-cLd"/>
+                                            <constraint firstItem="qNL-N1-UW0" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="reh-Cj-1X2"/>
+                                            <constraint firstItem="n0i-dg-MpG" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="rmS-RO-lUb"/>
+                                            <constraint firstItem="P1v-Ac-mIl" firstAttribute="centerX" secondItem="XDV-7d-TfL" secondAttribute="centerX" id="xg7-BY-Lk5"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XcV-1M-2fZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Efx-Ka-2Kl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XcV-1M-2fZ" secondAttribute="bottom" constant="79" id="FBg-ga-afK"/>
+                            <constraint firstAttribute="trailing" secondItem="XcV-1M-2fZ" secondAttribute="trailing" id="PHd-9b-Xdy"/>
+                            <constraint firstItem="XcV-1M-2fZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="65" id="lbs-ls-JCs"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="carouselBackgroundPlaceholder" width="122" height="237"/>
+        <image name="watchButtonGreen" width="81" height="19"/>
+    </resources>
 </document>

@@ -1,0 +1,12 @@
+PODS:
+  - MXParallaxHeader (0.5.2)
+
+DEPENDENCIES:
+  - MXParallaxHeader
+
+SPEC CHECKSUMS:
+  MXParallaxHeader: 5070ba8e8af27ec793c0d32ae82cfd2318e59635
+
+PODFILE CHECKSUM: 92a0adbf5ce0e6cd9b34e1eeb4c361bfe750ea3b
+
+COCOAPODS: 1.0.1

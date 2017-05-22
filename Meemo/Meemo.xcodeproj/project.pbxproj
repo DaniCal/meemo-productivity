@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77F0FF10F7A9FE801EA02A63 /* Pods_Meemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD17427DE877CC8134440F18 /* Pods_Meemo.framework */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
 		821D60751ED3258B00A8574C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* ViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BEF91E1ECE6F1A8462E6706 /* Pods-Meemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.release.xcconfig"; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		821D60741ED3258B00A8574C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		821D608E1ED3258B00A8574C /* MeemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60921ED3258B00A8574C /* MeemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeemoUITests.swift; sourceTree = "<group>"; };
 		821D60941ED3258B00A8574C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.debug.xcconfig"; sourceTree = "<group>"; };
+		FD17427DE877CC8134440F18 /* Pods_Meemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77F0FF10F7A9FE801EA02A63 /* Pods_Meemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26D7A558387E83B482DA306E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD17427DE877CC8134440F18 /* Pods_Meemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6959F02993A85CC402148F62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */,
+				2BEF91E1ECE6F1A8462E6706 /* Pods-Meemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		821D60661ED3258B00A8574C = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,8 @@
 				821D60861ED3258B00A8574C /* MeemoTests */,
 				821D60911ED3258B00A8574C /* MeemoUITests */,
 				821D60701ED3258B00A8574C /* Products */,
+				6959F02993A85CC402148F62 /* Pods */,
+				26D7A558387E83B482DA306E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 821D60971ED3258B00A8574C /* Build configuration list for PBXNativeTarget "Meemo" */;
 			buildPhases = (
+				F2A2CF0FF1EE9EBC9F2FF241 /* [CP] Check Pods Manifest.lock */,
 				821D606B1ED3258B00A8574C /* Sources */,
 				821D606C1ED3258B00A8574C /* Frameworks */,
 				821D606D1ED3258B00A8574C /* Resources */,
+				97CA9755DC6D49041318CDBF /* [CP] Embed Pods Frameworks */,
+				45E6C683A0BDC0407449FFD4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +283,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45E6C683A0BDC0407449FFD4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meemo/Pods-Meemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97CA9755DC6D49041318CDBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meemo/Pods-Meemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2A2CF0FF1EE9EBC9F2FF241 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		821D606B1ED3258B00A8574C /* Sources */ = {
@@ -411,6 +486,7 @@
 		};
 		821D60981ED3258B00A8574C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 83QAZKHQQY;
@@ -424,6 +500,7 @@
 		};
 		821D60991ED3258B00A8574C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BEF91E1ECE6F1A8462E6706 /* Pods-Meemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 83QAZKHQQY;
@@ -512,6 +589,7 @@
 				821D60991ED3258B00A8574C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		821D609A1ED3258B00A8574C /* Build configuration list for PBXNativeTarget "MeemoTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +598,7 @@
 				821D609C1ED3258B00A8574C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		821D609D1ED3258B00A8574C /* Build configuration list for PBXNativeTarget "MeemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +607,7 @@
 				821D609F1ED3258B00A8574C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		77F0FF10F7A9FE801EA02A63 /* Pods_Meemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD17427DE877CC8134440F18 /* Pods_Meemo.framework */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
-		821D60751ED3258B00A8574C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* ViewController.swift */; };
+		821D60751ED3258B00A8574C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* HomeViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
 		821D607A1ED3258B00A8574C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 821D60791ED3258B00A8574C /* Assets.xcassets */; };
 		821D607D1ED3258B00A8574C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		2BEF91E1ECE6F1A8462E6706 /* Pods-Meemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.release.xcconfig"; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		821D60741ED3258B00A8574C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		821D60741ED3258B00A8574C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		821D60771ED3258B00A8574C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		821D60791ED3258B00A8574C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		821D607C1ED3258B00A8574C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				821D60721ED3258B00A8574C /* AppDelegate.swift */,
-				821D60741ED3258B00A8574C /* ViewController.swift */,
+				821D60741ED3258B00A8574C /* HomeViewController.swift */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
 				821D60791ED3258B00A8574C /* Assets.xcassets */,
 				821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */,
@@ -337,7 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821D60751ED3258B00A8574C /* ViewController.swift in Sources */,
+				821D60751ED3258B00A8574C /* HomeViewController.swift in Sources */,
 				821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

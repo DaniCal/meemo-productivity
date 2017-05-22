@@ -21,6 +21,7 @@ class LecturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let screenSize = UIScreen.main.bounds.size
         
         //If iphone 5 screen

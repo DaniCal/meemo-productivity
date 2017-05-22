@@ -10,15 +10,29 @@ import UIKit
 import MXParallaxHeader
 
 
-class SessionsViewController: MXScrollViewController {
-    @IBOutlet weak var dismissButton: UIButton!
-    
+class SessionsViewController: MXScrollViewController {    
     
     var headerSegueIdentifier = "sessionsHeader"
     var sessionsListIdentifier = "sessionsList"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let overlay = DismissView()
+        overlay.frame = self.view.bounds
+        overlay.button.addTarget(self, action: #selector(self.dismissSessionsList), for: UIControlEvents.touchUpInside)
+        self.view.addSubview(overlay)
+
+
+    }
+    
+    func dismissSessionsList(){
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dismissButton(_ sender: AnyObject) {

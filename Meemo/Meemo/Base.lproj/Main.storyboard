@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EAR-Uz-wUA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -117,6 +117,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="XcV-1M-2fZ" id="1ia-IA-CA3"/>
+                        <segue destination="EAR-Uz-wUA" kind="presentation" identifier="showSessions" id="3Wa-3B-jN2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,7 +135,26 @@
                     <view key="view" contentMode="scaleToFill" id="oTh-Jd-7tm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsw-Tq-XhO">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="IyU-Ef-zfo"/>
+                                    <constraint firstAttribute="height" constant="30" id="gjs-Ux-1u7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButton:" destination="EAR-Uz-wUA" eventType="touchUpInside" id="sqa-kZ-0aI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hsw-Tq-XhO" firstAttribute="leading" secondItem="oTh-Jd-7tm" secondAttribute="leadingMargin" id="PUy-7b-s44"/>
+                            <constraint firstItem="hsw-Tq-XhO" firstAttribute="top" secondItem="ssm-Y8-BVc" secondAttribute="bottom" id="xjl-bq-A5o"/>
+                        </constraints>
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
@@ -145,6 +165,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="dismissButton" destination="hsw-Tq-XhO" id="ryt-fs-JCu"/>
                         <segue destination="3qx-gu-Uh2" kind="custom" identifier="sessionsHeader" customClass="MXParallaxHeaderSegue" id="CVu-Zc-aUN"/>
                         <segue destination="PvA-ZC-nx9" kind="custom" identifier="sessionsList" customClass="MXScrollViewControllerSegue" id="An6-Qc-bhn"/>
                     </connections>
@@ -234,6 +255,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="6es-dw-yQc">
+                                    <rect key="frame" x="0.0" y="178" width="375" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PO-7z-HCq">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="245" id="4gu-bO-HwZ"/>
+                                                <constraint firstAttribute="height" constant="45" id="w7t-FK-ywj"/>
+                                            </constraints>
+                                            <state key="normal" title=" " image="startCourseButton"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="3PO-7z-HCq" firstAttribute="centerX" secondItem="6es-dw-yQc" secondAttribute="centerX" id="oUA-nV-tpz"/>
+                                        <constraint firstItem="3PO-7z-HCq" firstAttribute="centerY" secondItem="6es-dw-yQc" secondAttribute="centerY" id="vdu-I9-xWb"/>
+                                    </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sessionCell" rowHeight="70" id="fgM-Lf-vhF" customClass="SessionTableViewCell" customModule="Meemo" customModuleProvider="target">

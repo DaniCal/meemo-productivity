@@ -13,6 +13,7 @@ class LecturesViewController: UIViewController {
     var lectures = Lecture.fetchLectures()
     var cellScalingX:CGFloat = 0.653
     var cellScalingY:CGFloat = 0.72
+    let sessionsSegueIdentifier = "showSessions"
 
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -74,8 +75,9 @@ extension LecturesViewController: UIScrollViewDelegate, UICollectionViewDelegate
         targetContentOffset.pointee = offset
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: sessionsSegueIdentifier , sender: indexPath)
+
     }
 }
 

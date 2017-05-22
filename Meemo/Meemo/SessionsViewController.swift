@@ -11,6 +11,8 @@ import MXParallaxHeader
 
 
 class SessionsViewController: MXScrollViewController {
+    @IBOutlet weak var dismissButton: UIButton!
+    
     
     var headerSegueIdentifier = "sessionsHeader"
     var sessionsListIdentifier = "sessionsList"
@@ -19,6 +21,9 @@ class SessionsViewController: MXScrollViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func dismissButton(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

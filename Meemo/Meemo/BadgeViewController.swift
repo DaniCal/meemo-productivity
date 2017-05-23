@@ -10,6 +10,8 @@ import UIKit
 
 class BadgeViewController: UIViewController {
 
+    var sourceView: VideoViewController?
+
     
     @IBOutlet weak var popupView: UIView!
     override func viewDidLoad() {
@@ -20,14 +22,17 @@ class BadgeViewController: UIViewController {
     
     @IBAction func watchNextButtonTouch(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+        sourceView?.playNextVideo()
     }
     
     @IBAction func closeButtonTouch(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+        sourceView?.dismissVideoView()
     }
     
     @IBAction func backButtonTouch(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+        sourceView?.dismissVideoView()
     }
     
     override var prefersStatusBarHidden: Bool {

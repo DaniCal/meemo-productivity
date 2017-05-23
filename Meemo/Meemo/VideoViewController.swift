@@ -26,6 +26,23 @@ class VideoViewController: UIViewController {
 
     let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
 
+    func dismissVideoView(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func playNextVideo(){
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == showBadgeIdentidier){
+            if let destination = segue.destination as? BadgeViewController{
+                destination.sourceView = self
+            }
+        }
+    }
+    
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let percentThreshold:CGFloat = 0.3

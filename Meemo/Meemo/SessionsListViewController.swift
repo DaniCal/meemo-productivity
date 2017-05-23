@@ -45,6 +45,13 @@ class SessionsListViewController: UIViewController{
             destination.duration = (sessions?[blogIndex].duration)!
             
         }
+        else if segue.identifier == summarySegueIdentifier,
+                let destination = segue.destination as? SummaryViewController
+        {
+            destination.transitioningDelegate = self
+            destination.interactor = interactor
+        }
+
     }
     
     @IBAction func readSummary(_ sender: AnyObject) {

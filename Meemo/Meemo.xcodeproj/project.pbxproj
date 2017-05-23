@@ -32,6 +32,7 @@
 		821D60AC1ED36A7300A8574C /* SessionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60AB1ED36A7300A8574C /* SessionsListViewController.swift */; };
 		821D60AE1ED374CC00A8574C /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60AD1ED374CC00A8574C /* SessionTableViewCell.swift */; };
 		821D60B01ED37DD400A8574C /* DismissView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821D60AF1ED37DD400A8574C /* DismissView.xib */; };
+		8239D7801ED47BC000E49FD7 /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239D77F1ED47BC000E49FD7 /* BadgeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		821D60AB1ED36A7300A8574C /* SessionsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsListViewController.swift; sourceTree = "<group>"; };
 		821D60AD1ED374CC00A8574C /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		821D60AF1ED37DD400A8574C /* DismissView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DismissView.xib; sourceTree = "<group>"; };
+		8239D77F1ED47BC000E49FD7 /* BadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
 		87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD17427DE877CC8134440F18 /* Pods_Meemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -205,6 +207,7 @@
 				821D60A01ED32AB600A8574C /* Model */,
 				821D60721ED3258B00A8574C /* AppDelegate.swift */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
+				8239D77F1ED47BC000E49FD7 /* BadgeViewController.swift */,
 				821D60791ED3258B00A8574C /* Assets.xcassets */,
 				821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */,
 				821D607E1ED3258B00A8574C /* Info.plist */,
@@ -438,6 +441,7 @@
 				821D60A21ED32B4200A8574C /* Lecture.swift in Sources */,
 				821D60AA1ED3699E00A8574C /* SessionsHeaderViewController.swift in Sources */,
 				821D60AE1ED374CC00A8574C /* SessionTableViewCell.swift in Sources */,
+				8239D7801ED47BC000E49FD7 /* BadgeViewController.swift in Sources */,
 				82038E211ED4227B00665C1E /* Interactor.swift in Sources */,
 				82038E1F1ED4219400665C1E /* VideoViewController.swift in Sources */,
 				82038E271ED42BE300665C1E /* VideoView.swift in Sources */,

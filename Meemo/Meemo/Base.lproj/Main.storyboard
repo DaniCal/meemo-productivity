@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-1M-2fZ">
@@ -29,7 +29,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LectureCell" id="XDV-7d-TfL" customClass="LectureCollectionViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2" width="245" height="400"/>
+                                        <rect key="frame" x="0.0" y="52" width="245" height="400"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="245" height="400"/>
@@ -149,7 +149,7 @@
                         <viewControllerLayoutGuide type="bottom" id="d4e-mp-fkO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oTh-Jd-7tm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -242,7 +242,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VSn-fe-LSN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cFN-2s-BiN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -250,6 +250,9 @@
                             <outletCollection property="gestureRecognizers" destination="kxC-m3-XBa" appends="YES" id="nY3-fo-SyZ"/>
                         </connections>
                     </view>
+                    <connections>
+                        <segue destination="jfk-rm-drW" kind="presentation" identifier="showBadge" id="YCJ-mk-1c9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZe-DU-QPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="kxC-m3-XBa">
@@ -260,18 +263,24 @@
             </objects>
             <point key="canvasLocation" x="2919" y="-90"/>
         </scene>
-        <!--View Controller-->
+        <!--Badge View Controller-->
         <scene sceneID="lsX-p4-LGz">
             <objects>
-                <viewController id="jfk-rm-drW" sceneMemberID="viewController">
+                <viewController id="jfk-rm-drW" customClass="BadgeViewController" customModule="Meemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bNa-3W-PZl"/>
                         <viewControllerLayoutGuide type="bottom" id="C3p-0E-Pic"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5He-bf-57O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-Cw-3JQ">
+                                <color key="backgroundColor" white="0.0" alpha="0.38210506889763779" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="backButtonTouch:" destination="jfk-rm-drW" eventType="touchUpInside" id="h4M-uL-oXT"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LrD-S7-zj4">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCI-NR-IfI">
@@ -280,6 +289,9 @@
                                             <constraint firstAttribute="width" constant="22" id="x0b-pK-54u"/>
                                         </constraints>
                                         <state key="normal" image="badgeCloseIcon"/>
+                                        <connections>
+                                            <action selector="closeButtonTouch:" destination="jfk-rm-drW" eventType="touchUpInside" id="TZU-xd-mQ6"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badgeEmojiFire" translatesAutoresizingMaskIntoConstraints="NO" id="BXN-gZ-SZn">
                                         <constraints>
@@ -316,6 +328,9 @@ video. On to the next one!</string>
                                                 <state key="normal" title="WATCH NEXT">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="watchNextButtonTouch:" destination="jfk-rm-drW" eventType="touchUpInside" id="TOk-FZ-49o"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.36862745098039218" green="0.86274509803921573" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
@@ -347,16 +362,25 @@ video. On to the next one!</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="C3p-0E-Pic" firstAttribute="top" secondItem="ccN-Cw-3JQ" secondAttribute="bottom" id="4Zv-XF-Rxv"/>
+                            <constraint firstItem="ccN-Cw-3JQ" firstAttribute="leading" secondItem="5He-bf-57O" secondAttribute="leading" id="4aI-Ms-lUN"/>
+                            <constraint firstItem="ccN-Cw-3JQ" firstAttribute="centerY" secondItem="5He-bf-57O" secondAttribute="centerY" id="EVO-ft-zC9"/>
+                            <constraint firstItem="ccN-Cw-3JQ" firstAttribute="centerX" secondItem="5He-bf-57O" secondAttribute="centerX" id="VpV-9W-X9p"/>
+                            <constraint firstItem="ccN-Cw-3JQ" firstAttribute="top" secondItem="5He-bf-57O" secondAttribute="top" id="XNM-Ev-Cn4"/>
                             <constraint firstItem="LrD-S7-zj4" firstAttribute="centerY" secondItem="5He-bf-57O" secondAttribute="centerY" id="XjG-6n-tap"/>
+                            <constraint firstAttribute="trailing" secondItem="ccN-Cw-3JQ" secondAttribute="trailing" id="ckZ-I2-R5o"/>
                             <constraint firstItem="LrD-S7-zj4" firstAttribute="centerX" secondItem="5He-bf-57O" secondAttribute="centerX" id="km7-y7-WRO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popupView" destination="LrD-S7-zj4" id="slw-Y0-Wpx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8t-Vz-aES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3830.625" y="-79.225352112676063"/>
+            <point key="canvasLocation" x="3847.1999999999998" y="-90.404797601199405"/>
         </scene>
         <!--Sessions List View Controller-->
         <scene sceneID="JVg-ny-Ip8">
@@ -367,18 +391,18 @@ video. On to the next one!</string>
                         <viewControllerLayoutGuide type="bottom" id="jmT-m6-iMg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s7W-P5-fhc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BF1-7Q-ebo">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="MnK-4u-gMk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="6es-dw-yQc">
-                                    <rect key="frame" x="0.0" y="178" width="320" height="118"/>
+                                    <rect key="frame" x="0.0" y="178" width="375" height="118"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PO-7z-HCq">
@@ -400,10 +424,10 @@ video. On to the next one!</string>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sessionCell" rowHeight="70" id="fgM-Lf-vhF" customClass="SessionTableViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="108" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgM-Lf-vhF" id="dho-oK-qnh">
-                                            <frame key="frameInset" width="320" height="69.5"/>
+                                            <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playButtonEmptyGreen" translatesAutoresizingMaskIntoConstraints="NO" id="6pI-io-yrx">
@@ -487,7 +511,7 @@ video. On to the next one!</string>
                         <viewControllerLayoutGuide type="bottom" id="KPS-Dq-1zR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sXr-gW-nF0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79P-gP-Y07">
@@ -500,7 +524,7 @@ video. On to the next one!</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Sxx-So-TGg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundTopSummary" translatesAutoresizingMaskIntoConstraints="NO" id="Opg-p9-Gjh">
@@ -558,10 +582,10 @@ video. On to the next one!</string>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="summaryCell" id="vi1-lL-Q7W" customClass="SummaryTableViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="178" width="320" height="150"/>
+                                        <rect key="frame" x="0.0" y="178" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vi1-lL-Q7W" id="XDI-W8-JWs">
-                                            <frame key="frameInset" width="320" height="150"/>
+                                            <frame key="frameInset" width="375" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture everything that is around you. Take all physical things and put them in 1 place. " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qy-UX-ZmF">

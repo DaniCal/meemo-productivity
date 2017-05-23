@@ -91,8 +91,6 @@ extension SessionsListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.performSegue(withIdentifier: videoSegueIdentifier , sender: indexPath)
-
-        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

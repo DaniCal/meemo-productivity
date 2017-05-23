@@ -12,8 +12,9 @@ import UIKit
 
     var view: UIView!
 
+    @IBOutlet weak var videoProgress: UIProgressView!
     open func setPogress(_ progress: Float){
-        //        videoProgress.setProgress(progress, animated: true)
+        videoProgress.setProgress(progress, animated: true)
     }
     
     func xibSetup() {

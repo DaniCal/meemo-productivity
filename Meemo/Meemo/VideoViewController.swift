@@ -14,8 +14,12 @@ class VideoViewController: UIViewController {
 
     var interactor:Interactor? = nil
     var videoURL:String?
+    var duration:Int?
+    var timer = Timer.init()
+
+    var overlay:VideoView?
     
-    public var player:AVPlayer?
+    var player:AVPlayer?
     var playerLayer:AVPlayerLayer?
     let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
 
@@ -36,7 +40,7 @@ class VideoViewController: UIViewController {
         switch sender.state {
         case .began:
             player?.pause()
-//            timer.invalidate()
+            timer.invalidate()
             interactor.hasStarted = true
             dismiss(animated: true, completion: nil)
         case .changed:
@@ -52,7 +56,7 @@ class VideoViewController: UIViewController {
             }else{
                 interactor.cancel()
                 player?.play()
-//                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateVideoProgress), userInfo: nil,repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateVideoProgress), userInfo: nil,repeats: true)
             }
         default: break
             
@@ -63,14 +67,14 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         self.player?.pause()
         playVideo()
         
-        let overlay = VideoView()
-        overlay.frame = self.view.bounds
-        self.view.addSubview(overlay)
+         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
+        
+        overlay = VideoView()
+        overlay?.frame = self.view.bounds
+        self.view.addSubview(overlay!)
         
     }
 
@@ -84,7 +88,6 @@ class VideoViewController: UIViewController {
     }
     
     func playVideo(){
-       // let time = self.player?.currentTime()
         
         let videoURL = NSURL(string: videoTestURL)
         self.player = AVPlayer(url: videoURL as! URL)
@@ -95,13 +98,22 @@ class VideoViewController: UIViewController {
         playerLayer?.frame = self.view.bounds
         self.view.layer.addSublayer(playerLayer!)
         self.player?.play()
-//        NotificationCenter.default.addObserver(self,selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
-//        
-        
-//        if(time != nil){
-//            self.player?.seek(to: time!)
-//        }
+        NotificationCenter.default.addObserver(self,selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
 
+
+    }
+    
+    func playerDidFinishPlaying(){
+        timer.invalidate()
+        overlay?.setPogress(1)
+
+        //            self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
+    }
+    
+    func updateVideoProgress(){
+        let time = Float((self.player?.currentTime().seconds)!)
+        let ratio = time / Float(self.duration!)
+        overlay?.setPogress(ratio)
     }
     
 }

@@ -39,6 +39,7 @@ class SessionsListViewController: UIViewController{
             destination.transitioningDelegate = self
             destination.interactor = interactor
             destination.videoURL = (sessions?[blogIndex].url)!
+            destination.duration = (sessions?[blogIndex].duration)!
             
         }
     }

@@ -18,8 +18,8 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-rf-CHe">
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="7Ne-dU-4cg"/>
-                        <constraint firstAttribute="height" constant="30" id="8wu-ZV-9Nl"/>
+                        <constraint firstAttribute="height" constant="30" id="A2n-wP-xdn"/>
+                        <constraint firstAttribute="width" constant="30" id="U7Y-pB-IWg"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                     <state key="normal" title="X">
@@ -29,8 +29,8 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Hqa-rf-CHe" secondAttribute="trailing" constant="17" id="HHY-fT-XbZ"/>
-                <constraint firstItem="Hqa-rf-CHe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="jp2-4M-cwK"/>
+                <constraint firstItem="Hqa-rf-CHe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="SXa-Je-47s"/>
+                <constraint firstAttribute="trailing" secondItem="Hqa-rf-CHe" secondAttribute="trailing" constant="17" id="yxG-EJ-sLK"/>
             </constraints>
         </view>
     </objects>

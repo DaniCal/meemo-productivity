@@ -10,6 +10,7 @@ import UIKit
 
 class LectureCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var featuredImageView: UIImageView!
     @IBOutlet weak var dayLabel: UILabel!
@@ -28,6 +29,7 @@ class LectureCollectionViewCell: UICollectionViewCell {
             self.featuredImageView.image = lecture.featuredImage
             self.dayLabel.text = lecture.dayTitle()
             self.watchImageView.image = lecture.watchButtonImage()
+            self.completedLabel.isHidden = (lecture.watched == false)
         }else{
             self.titleLabel.text = nil
             self.featuredImageView.image = nil

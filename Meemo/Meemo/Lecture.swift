@@ -28,7 +28,7 @@ class Lecture{
     static func fetchLectures() -> [Lecture]{
         return[
             Lecture(title: "Capture what's on your mind", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 1,  locked: false, watched: true),
-            Lecture(title: "Capture", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 2,  locked: true, watched: false),
+            Lecture(title: "Capture", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 2,  locked: false, watched: false),
             Lecture(title: "Capture", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 3,  locked: true, watched: false),
             Lecture(title: "Capture", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 4,  locked: true, watched: false),
             Lecture(title: "Capture", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 5,  locked: true, watched: false),
@@ -47,9 +47,9 @@ class Lecture{
         if(locked){
             return UIImage(named: "lockedButton")!
         }else if(watched){
-            return UIImage(named: "watchButtonGreen")!
-        }else{
             return UIImage(named: "watchButtonWhite")!
+        }else{
+            return UIImage(named: "watchButtonGreen")!
         }
     }
     

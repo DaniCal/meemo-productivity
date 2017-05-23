@@ -13,6 +13,7 @@ class Session{
     var title = ""
     var duration:Int
     var watched:Bool
+    var next:Bool
     var url:String
     
     static let testURL1 = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
@@ -27,42 +28,43 @@ class Session{
     static let testURL6 = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/06_summary_6_min.mp4?alt=media&token=a340ffcc-a46d-4a8c-86a0-cecaad0d5ec3"
     
     
-    init(title: String, duration:Int, watched:Bool, url:String){
+    init(title: String, duration:Int, watched:Bool, next:Bool, url:String){
         self.title = title
         self.duration = duration
         self.watched = watched
+        self.next = next
         self.url = url
     }
     
     static func fetchSessions() -> [Session]{
         return[
-            Session(title: "Capture your physical things", duration: 80, watched: true, url: testURL1),
-            Session(title: "Mind Sweep", duration: 91, watched: false, url: testURL2),
-            Session(title: "Tools for your Mind Sweep", duration: 57, watched: false, url: testURL3),
-            Session(title: "Tools and Best Practice", duration: 101, watched: false, url: testURL4),
-            Session(title: "Final Thoughts", duration: 71, watched: false, url: testURL5),
-            Session(title: "Summary", duration: 64, watched: false, url: testURL6)
+            Session(title: "Capture your physical things", duration: 80, watched: true, next:false, url: testURL1),
+            Session(title: "Mind Sweep", duration: 91, watched: true, next:false, url: testURL2),
+            Session(title: "Tools for your Mind Sweep", duration: 57, watched: false, next:true, url: testURL3),
+            Session(title: "Tools and Best Practice", duration: 101, watched: false, next:false, url: testURL4),
+            Session(title: "Final Thoughts", duration: 71, watched: false, next:false, url: testURL5),
+            Session(title: "Summary", duration: 64, watched: false, next:false, url: testURL6)
         ]
     }
     
-    func timeAsString() -> String{
-        let minutes = Int(duration / 60)
-        let seconds = duration - (minutes * 60)
-        var secondsString = String(seconds)
-        if(seconds < 10){
-            secondsString = "0\(secondsString)"
-        }
-        
-        return "\(String(minutes)):\(secondsString)"
-    }
+//    func timeAsString() -> String{
+//        let minutes = Int(duration / 60)
+//        let seconds = duration - (minutes * 60)
+//        var secondsString = String(seconds)
+//        if(seconds < 10){
+//            secondsString = "0\(secondsString)"
+//        }
+//        
+//        return "\(String(minutes)):\(secondsString)"
+//    }
     
-    func playImage() -> UIImage{
-        if(watched){
-            return UIImage(named: "playButtonFullGreen")!
-        }else{
-            return UIImage(named: "playButtonEmptyGreen")!
-        }
-    }
+//    func playImage() -> UIImage{
+//        if(watched){
+//            return UIImage(named: "playButtonEmptyGreen")!
+//        }else{
+//            return UIImage(named: "playButtonGrey")!
+//        }
+//    }
 
     
 }

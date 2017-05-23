@@ -41,8 +41,8 @@ class SessionsListViewController: UIViewController{
         {
             destination.transitioningDelegate = self
             destination.interactor = interactor
-            destination.videoURL = (sessions?[blogIndex].url)!
-            destination.duration = (sessions?[blogIndex].duration)!
+            destination.sessions = sessions!
+            destination.index = blogIndex
             
         }
         else if segue.identifier == summarySegueIdentifier,

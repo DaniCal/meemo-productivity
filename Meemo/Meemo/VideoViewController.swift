@@ -13,10 +13,9 @@ import AVFoundation
 class VideoViewController: UIViewController {
 
     var interactor:Interactor? = nil
-    var videoURL:String?
-    var duration:Int?
     var timer = Timer.init()
 
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var overlay:VideoView?
     
     var player:AVPlayer?
@@ -24,6 +23,10 @@ class VideoViewController: UIViewController {
     
     let showBadgeIdentidier = "showBadge"
 
+    var sessions:[Session]?
+    var index:Int?
+    var currentSession:Session?
+    
     let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
 
     func dismissVideoView(){
@@ -31,8 +34,17 @@ class VideoViewController: UIViewController {
     }
     
     func playNextVideo(){
-        
+        if(index! + 1 < (sessions?.count)!){
+            index = index! + 1
+            currentSession = sessions?[(index)!]
+            playVideo()
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
+            overlay = VideoView()
+            overlay?.frame = self.view.bounds
+            self.view.addSubview(overlay!)
+        }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -86,11 +98,12 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentSession = sessions?[index!]
         
         self.player?.pause()
         playVideo()
         
-         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
         
         overlay = VideoView()
         overlay?.frame = self.view.bounds
@@ -109,7 +122,10 @@ class VideoViewController: UIViewController {
     
     func playVideo(){
         
-        let url = NSURL(string: videoURL!)
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
+        let url = NSURL(string: (currentSession?.url)!)
         self.player = AVPlayer(url: url as! URL)
         
         
@@ -120,19 +136,24 @@ class VideoViewController: UIViewController {
         self.player?.play()
         NotificationCenter.default.addObserver(self,selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
 
+        
 
     }
     
     func playerDidFinishPlaying(){
         timer.invalidate()
         overlay?.setPogress(1)
+        overlay?.removeFromSuperview()
         playerLayer?.removeFromSuperlayer()
         self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
     }
     
     func updateVideoProgress(){
         let time = Float((self.player?.currentTime().seconds)!)
-        let ratio = time / Float(self.duration!)
+        let ratio = time / Float((currentSession?.duration)!)
+        if(ratio > 0){
+           spinner.isHidden = true
+        }
         overlay?.setPogress(ratio)
     }
     

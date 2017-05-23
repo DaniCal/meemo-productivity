@@ -244,13 +244,21 @@
                     <view key="view" contentMode="scaleToFill" id="cFN-2s-BiN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="oE6-mn-0zk"/>
+                        </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="oE6-mn-0zk" firstAttribute="centerX" secondItem="cFN-2s-BiN" secondAttribute="centerX" id="3hP-AQ-2AK"/>
+                            <constraint firstItem="oE6-mn-0zk" firstAttribute="centerY" secondItem="cFN-2s-BiN" secondAttribute="centerY" id="JE5-7e-VyL"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="kxC-m3-XBa" appends="YES" id="nY3-fo-SyZ"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="spinner" destination="oE6-mn-0zk" id="RaA-J5-sJn"/>
                         <segue destination="jfk-rm-drW" kind="presentation" identifier="showBadge" id="YCJ-mk-1c9"/>
                     </connections>
                 </viewController>
@@ -276,7 +284,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-Cw-3JQ">
-                                <color key="backgroundColor" white="0.0" alpha="0.38210506889763779" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="backButtonTouch:" destination="jfk-rm-drW" eventType="touchUpInside" id="h4M-uL-oXT"/>
                                 </connections>

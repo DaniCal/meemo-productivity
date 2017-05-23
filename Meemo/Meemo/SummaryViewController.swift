@@ -11,7 +11,9 @@ import UIKit
 class SummaryViewController: UIViewController {
 
     var interactor:Interactor? = nil
-
+    var testAdvices = Advice.fetchAdvices()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let percentThreshold:CGFloat = 0.3
@@ -49,6 +51,7 @@ class SummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
     }
 
    
@@ -57,4 +60,18 @@ class SummaryViewController: UIViewController {
     }
     
 
+}
+
+
+extension SummaryViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (testAdvices.count)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath) as! SummaryTableViewCell
+        cell.advice = self.testAdvices[indexPath.row]
+        return cell
+    }
 }

@@ -12,6 +12,8 @@ class SessionsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var sessions:[Session]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,18 +33,13 @@ class SessionsListViewController: UIViewController {
 extension SessionsListViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return (sessions?.count)!
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath) as! SessionTableViewCell
-//        let session = self.course?.sessions[indexPath.row]
-//        cell.name.text = session!.name
-//        cell.isSessionlocked((session?.locked)!)
-//        
-//        cell.selectionStyle = UITableViewCellSelectionStyle.none
-        
+        cell.session = self.sessions?[indexPath.row]        
         return cell
     }
 

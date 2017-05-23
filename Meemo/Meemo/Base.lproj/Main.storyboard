@@ -313,6 +313,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="playButtonImage" destination="6pI-io-yrx" id="Jpk-C9-hse"/>
+                                            <outlet property="timeLabel" destination="R47-Jz-yQy" id="mfa-hr-DN8"/>
+                                            <outlet property="titleLabel" destination="7vK-Al-zgp" id="hBH-qu-8ja"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

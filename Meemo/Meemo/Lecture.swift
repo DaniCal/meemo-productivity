@@ -15,6 +15,14 @@ class Lecture{
     var number: Int
     var locked: Bool
     var watched: Bool
+    var sessions:[Session]
+    
+    /*
+     TODO
+     var backgroundURL:String
+     var parallaxURL:String
+     var summaryPoints:[SummaryPoint]
+    */
     
     init(title: String, featuredImage: UIImage, number: Int, locked: Bool, watched: Bool){
         self.title = title
@@ -22,7 +30,7 @@ class Lecture{
         self.number = number
         self.locked = locked
         self.watched = watched
-        
+        self.sessions = Session.fetchSessions()
     }
     
     static func fetchLectures() -> [Lecture]{
@@ -37,6 +45,10 @@ class Lecture{
             Lecture(title: "Capture", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 8,  locked: true, watched: false)
 
         ]
+    }
+    
+    static func fetchLecture() -> Lecture{
+        return Lecture(title: "Capture what's on your mind", featuredImage: UIImage(named: "carouselBackgroundPlaceholder")!, number: 1,  locked: false, watched: true)
     }
     
     func dayTitle()-> String{

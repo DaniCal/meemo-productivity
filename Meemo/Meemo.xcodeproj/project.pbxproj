@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		77F0FF10F7A9FE801EA02A63 /* Pods_Meemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD17427DE877CC8134440F18 /* Pods_Meemo.framework */; };
 		82038E181ED37F0700665C1E /* DismissView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E171ED37F0700665C1E /* DismissView.swift */; };
+		82038E1A1ED3FADB00665C1E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E191ED3FADB00665C1E /* Session.swift */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
 		821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* LecturesViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		2BEF91E1ECE6F1A8462E6706 /* Pods-Meemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.release.xcconfig"; sourceTree = "<group>"; };
 		82038E171ED37F0700665C1E /* DismissView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissView.swift; sourceTree = "<group>"; };
+		82038E191ED3FADB00665C1E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		821D60741ED3258B00A8574C /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				821D60A11ED32B4200A8574C /* Lecture.swift */,
+				82038E191ED3FADB00665C1E /* Session.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82038E1A1ED3FADB00665C1E /* Session.swift in Sources */,
 				821D60A81ED3688E00A8574C /* SessionsViewController.swift in Sources */,
 				821D60AC1ED36A7300A8574C /* SessionsListViewController.swift in Sources */,
 				821D60A21ED32B4200A8574C /* Lecture.swift in Sources */,

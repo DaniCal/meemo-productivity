@@ -15,6 +15,8 @@ class SessionsViewController: MXScrollViewController {
     var headerSegueIdentifier = "sessionsHeader"
     var sessionsListIdentifier = "sessionsList"
 
+    var testLecture = Lecture.fetchLecture()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +44,16 @@ class SessionsViewController: MXScrollViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //Triggers when segues to ProgramView
-//        if  segue.identifier == headerSegueIdentifier,
-//            let destination = segue.destination as? TopicHeaderViewController
-//        {
-//            //destination.something
-//            
-//        }else if segue.identifier == topicListIdentifier,
-//            let destination = segue.destination as? TopicListViewController
-//        {
-//            //destination.something
-//        }
+        if  segue.identifier == headerSegueIdentifier,
+            let destination = segue.destination as? SessionsHeaderViewController
+        {
+            //destination.something
+            
+        }else if segue.identifier == sessionsListIdentifier,
+            let destination = segue.destination as? SessionsListViewController
+        {
+            destination.sessions = testLecture.sessions
+        }
     }
     
 }

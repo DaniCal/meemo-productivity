@@ -10,11 +10,12 @@ import UIKit
 
 class LectureCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var completeImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var featuredImageView: UIImageView!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var watchImageView: UIImageView!
+    @IBOutlet weak var overlayView: UIView!
     
     var lecture: Lecture?{
         didSet{
@@ -29,7 +30,8 @@ class LectureCollectionViewCell: UICollectionViewCell {
             self.featuredImageView.image = lecture.featuredImage
             self.dayLabel.text = lecture.dayTitle()
             self.watchImageView.image = lecture.watchButtonImage()
-            self.completedLabel.isHidden = (lecture.watched == false)
+            self.completeImage.isHidden = (lecture.watched == false)
+            self.overlayView.alpha = getOverlayAlpha()
         }else{
             self.titleLabel.text = nil
             self.featuredImageView.image = nil
@@ -37,6 +39,15 @@ class LectureCollectionViewCell: UICollectionViewCell {
             self.watchImageView.image = nil
         }
         
+    }
+
+    private func getOverlayAlpha() -> CGFloat{
+        if(lecture?.locked)!{
+            return CGFloat(1)
+        }else{
+            return CGFloat(0.4)
+        }
+    
     }
     
     override func layoutSubviews() {

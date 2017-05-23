@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carouselBackgroundPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="jtm-Wm-eOg"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientParallax" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-QU-yRC"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientSessionsList" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-QU-yRC"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSm-Sx-WFJ">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="92h-lG-sS8"/>
@@ -481,6 +481,11 @@ video. On to the next one!</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientWatchButton" translatesAutoresizingMaskIntoConstraints="NO" id="utE-9S-BYx">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="SFU-wh-g0t"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="np6-rm-Yyj">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="245" id="gWb-Qd-Kl7"/>
@@ -491,7 +496,11 @@ video. On to the next one!</string>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="utE-9S-BYx" secondAttribute="trailing" id="1hN-Vo-gQF"/>
+                            <constraint firstItem="utE-9S-BYx" firstAttribute="centerX" secondItem="s7W-P5-fhc" secondAttribute="centerX" id="9M3-FZ-gWU"/>
+                            <constraint firstItem="utE-9S-BYx" firstAttribute="leading" secondItem="s7W-P5-fhc" secondAttribute="leading" id="KSf-YX-nSK"/>
                             <constraint firstItem="jmT-m6-iMg" firstAttribute="top" secondItem="BF1-7Q-ebo" secondAttribute="bottom" id="MfU-Sp-0vc"/>
+                            <constraint firstItem="utE-9S-BYx" firstAttribute="top" secondItem="s7W-P5-fhc" secondAttribute="top" id="Upv-BE-uqF"/>
                             <constraint firstItem="BF1-7Q-ebo" firstAttribute="leading" secondItem="s7W-P5-fhc" secondAttribute="leading" id="V3u-a0-tqq"/>
                             <constraint firstItem="np6-rm-Yyj" firstAttribute="top" secondItem="s7W-P5-fhc" secondAttribute="top" id="Y6B-Pf-M5C"/>
                             <constraint firstAttribute="trailing" secondItem="BF1-7Q-ebo" secondAttribute="trailing" id="g2R-2m-LOJ"/>
@@ -677,7 +686,8 @@ video. On to the next one!</string>
         <image name="badgeCloseIcon" width="19" height="19"/>
         <image name="badgeEmojiFire" width="108" height="139"/>
         <image name="carouselBackgroundPlaceholder" width="122" height="237"/>
-        <image name="gradientParallax" width="375" height="438"/>
+        <image name="gradientSessionsList" width="187" height="209"/>
+        <image name="gradientWatchButton" width="750" height="204"/>
         <image name="playButtonEmptyGreen" width="51" height="51"/>
         <image name="startCourseButton" width="288" height="52"/>
         <image name="summaryButton" width="236" height="52"/>

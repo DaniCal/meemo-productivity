@@ -14,11 +14,7 @@ class SessionTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var playButtonImage: UIImageView!
     
-    let fontWatched = UIFont (name: "Avenir-Light", size: 16)
-    let fontLocked = UIFont (name: "Avenir-Light", size: 16)
-    let fontNext = UIFont (name: "Avenir-Heavy", size: 16)
-    
-    override func awakeFromNib() {
+       override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

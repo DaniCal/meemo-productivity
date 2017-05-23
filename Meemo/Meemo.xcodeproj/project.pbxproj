@@ -13,6 +13,8 @@
 		82038E1F1ED4219400665C1E /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E1E1ED4219400665C1E /* VideoViewController.swift */; };
 		82038E211ED4227B00665C1E /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E201ED4227B00665C1E /* Interactor.swift */; };
 		82038E231ED4240600665C1E /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E221ED4240600665C1E /* DismissAnimator.swift */; };
+		82038E251ED42AC300665C1E /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82038E241ED42AC300665C1E /* VideoView.xib */; };
+		82038E271ED42BE300665C1E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E261ED42BE300665C1E /* VideoView.swift */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
 		821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* LecturesViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		82038E1E1ED4219400665C1E /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		82038E201ED4227B00665C1E /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		82038E221ED4240600665C1E /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
+		82038E241ED42AC300665C1E /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
+		82038E261ED42BE300665C1E /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		821D60741ED3258B00A8574C /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				82038E1E1ED4219400665C1E /* VideoViewController.swift */,
 				82038E201ED4227B00665C1E /* Interactor.swift */,
 				82038E221ED4240600665C1E /* DismissAnimator.swift */,
+				82038E241ED42AC300665C1E /* VideoView.xib */,
+				82038E261ED42BE300665C1E /* VideoView.swift */,
 			);
 			name = VideoView;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 				821D607D1ED3258B00A8574C /* LaunchScreen.storyboard in Resources */,
 				821D607A1ED3258B00A8574C /* Assets.xcassets in Resources */,
 				821D60781ED3258B00A8574C /* Main.storyboard in Resources */,
+				82038E251ED42AC300665C1E /* VideoView.xib in Resources */,
 				821D60B01ED37DD400A8574C /* DismissView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +421,7 @@
 				821D60AE1ED374CC00A8574C /* SessionTableViewCell.swift in Sources */,
 				82038E211ED4227B00665C1E /* Interactor.swift in Sources */,
 				82038E1F1ED4219400665C1E /* VideoViewController.swift in Sources */,
+				82038E271ED42BE300665C1E /* VideoView.swift in Sources */,
 				82038E181ED37F0700665C1E /* DismissView.swift in Sources */,
 				821D60A41ED33BAC00A8574C /* LectureCollectionViewCell.swift in Sources */,
 				821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */,

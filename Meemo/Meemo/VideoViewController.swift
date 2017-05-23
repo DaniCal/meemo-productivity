@@ -35,7 +35,7 @@ class VideoViewController: UIViewController {
         
         switch sender.state {
         case .began:
-//            player?.pause()
+            player?.pause()
 //            timer.invalidate()
             interactor.hasStarted = true
             dismiss(animated: true, completion: nil)
@@ -51,7 +51,7 @@ class VideoViewController: UIViewController {
                 interactor.finish()
             }else{
                 interactor.cancel()
-//                player?.play()
+                player?.play()
 //                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateVideoProgress), userInfo: nil,repeats: true)
             }
         default: break
@@ -63,8 +63,15 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         self.player?.pause()
         playVideo()
+        
+        let overlay = VideoView()
+        overlay.frame = self.view.bounds
+        self.view.addSubview(overlay)
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,10 +12,13 @@ class SessionsListViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     var sessions:[Session]?
     let interactor = Interactor()
     let videoSegueIdentifier = "showVideo"
+    let summarySegueIdentifier = "showSummary"
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +45,10 @@ class SessionsListViewController: UIViewController{
             destination.duration = (sessions?[blogIndex].duration)!
             
         }
+    }
+    
+    @IBAction func readSummary(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: summarySegueIdentifier , sender: nil)
     }
     
 }

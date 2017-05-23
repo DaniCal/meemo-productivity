@@ -15,6 +15,7 @@
 		82038E231ED4240600665C1E /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E221ED4240600665C1E /* DismissAnimator.swift */; };
 		82038E251ED42AC300665C1E /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82038E241ED42AC300665C1E /* VideoView.xib */; };
 		82038E271ED42BE300665C1E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E261ED42BE300665C1E /* VideoView.swift */; };
+		82038E2A1ED4560000665C1E /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E291ED4560000665C1E /* SummaryViewController.swift */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
 		821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* LecturesViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		82038E221ED4240600665C1E /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
 		82038E241ED42AC300665C1E /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
 		82038E261ED42BE300665C1E /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		82038E291ED4560000665C1E /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		821D60741ED3258B00A8574C /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 			name = VideoView;
 			sourceTree = "<group>";
 		};
+		82038E281ED455F000665C1E /* SummaryView */ = {
+			isa = PBXGroup;
+			children = (
+				82038E291ED4560000665C1E /* SummaryViewController.swift */,
+			);
+			name = SummaryView;
+			sourceTree = "<group>";
+		};
 		821D60661ED3258B00A8574C = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 		821D60711ED3258B00A8574C /* Meemo */ = {
 			isa = PBXGroup;
 			children = (
+				82038E281ED455F000665C1E /* SummaryView */,
 				82038E1D1ED4217100665C1E /* VideoView */,
 				82038E1C1ED4215500665C1E /* LecturesView */,
 				82038E1B1ED4213400665C1E /* SessionsView */,
@@ -427,6 +438,7 @@
 				821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */,
 				82038E231ED4240600665C1E /* DismissAnimator.swift in Sources */,
 				821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */,
+				82038E2A1ED4560000665C1E /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

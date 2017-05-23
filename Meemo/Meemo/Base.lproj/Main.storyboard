@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-1M-2fZ">
@@ -29,7 +29,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LectureCell" id="XDV-7d-TfL" customClass="LectureCollectionViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2" width="245" height="400"/>
+                                        <rect key="frame" x="0.0" y="52" width="245" height="400"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="245" height="400"/>
@@ -149,7 +149,7 @@
                         <viewControllerLayoutGuide type="bottom" id="d4e-mp-fkO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oTh-Jd-7tm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -242,7 +242,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VSn-fe-LSN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cFN-2s-BiN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -269,18 +269,18 @@
                         <viewControllerLayoutGuide type="bottom" id="jmT-m6-iMg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s7W-P5-fhc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BF1-7Q-ebo">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="MnK-4u-gMk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="6es-dw-yQc">
-                                    <rect key="frame" x="0.0" y="178" width="320" height="118"/>
+                                    <rect key="frame" x="0.0" y="178" width="375" height="118"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PO-7z-HCq">
@@ -289,6 +289,9 @@
                                                 <constraint firstAttribute="width" constant="223" id="v5c-uU-LG1"/>
                                             </constraints>
                                             <state key="normal" title=" " image="summaryButton"/>
+                                            <connections>
+                                                <action selector="readSummary:" destination="PvA-ZC-nx9" eventType="touchUpInside" id="nar-ot-ryl"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -299,10 +302,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sessionCell" rowHeight="70" id="fgM-Lf-vhF" customClass="SessionTableViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="108" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgM-Lf-vhF" id="dho-oK-qnh">
-                                            <frame key="frameInset" width="320" height="69"/>
+                                            <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playButtonEmptyGreen" translatesAutoresizingMaskIntoConstraints="NO" id="6pI-io-yrx">
@@ -377,24 +380,22 @@
             </objects>
             <point key="canvasLocation" x="1820" y="407.0464767616192"/>
         </scene>
-        <!--View Controller-->
+        <!--Summary View Controller-->
         <scene sceneID="y4H-fW-Vdi">
             <objects>
-                <viewController id="0iQ-Bc-q6U" sceneMemberID="viewController">
+                <viewController id="0iQ-Bc-q6U" customClass="SummaryViewController" customModule="Meemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X1Z-0d-STN"/>
                         <viewControllerLayoutGuide type="bottom" id="KPS-Dq-1zR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sXr-gW-nF0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-fI-Ca3">
-                                <frame key="frameInset" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-fI-Ca3">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Sxx-So-TGg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is what" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-xe-rEu">
@@ -435,10 +436,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vi1-lL-Q7W">
-                                        <rect key="frame" x="0.0" y="161" width="320" height="150"/>
+                                        <rect key="frame" x="0.0" y="161" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vi1-lL-Q7W" id="XDI-W8-JWs">
-                                            <frame key="frameInset" width="320" height="149"/>
+                                            <frame key="frameInset" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzk-yU-8OS">
@@ -480,6 +481,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cfh-fI-Ca3" secondAttribute="trailing" id="DlG-ZO-Dfa"/>
+                            <constraint firstItem="cfh-fI-Ca3" firstAttribute="centerX" secondItem="sXr-gW-nF0" secondAttribute="centerX" id="R9e-5n-2sa"/>
+                            <constraint firstItem="cfh-fI-Ca3" firstAttribute="centerY" secondItem="sXr-gW-nF0" secondAttribute="centerY" id="ihb-Tl-TCo"/>
+                            <constraint firstItem="KPS-Dq-1zR" firstAttribute="top" secondItem="cfh-fI-Ca3" secondAttribute="bottom" id="jmQ-ae-c7g"/>
+                            <constraint firstItem="cfh-fI-Ca3" firstAttribute="top" secondItem="sXr-gW-nF0" secondAttribute="top" id="nPu-Cl-LkI"/>
+                            <constraint firstItem="cfh-fI-Ca3" firstAttribute="leading" secondItem="sXr-gW-nF0" secondAttribute="leading" id="zUy-dE-cvB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0YI-li-Vkk" userLabel="First Responder" sceneMemberID="firstResponder"/>

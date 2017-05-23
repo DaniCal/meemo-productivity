@@ -21,6 +21,7 @@ class VideoViewController: UIViewController {
     
     var player:AVPlayer?
     var playerLayer:AVPlayerLayer?
+
     let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
 
     
@@ -89,8 +90,8 @@ class VideoViewController: UIViewController {
     
     func playVideo(){
         
-        let videoURL = NSURL(string: videoTestURL)
-        self.player = AVPlayer(url: videoURL as! URL)
+        let url = NSURL(string: videoURL!)
+        self.player = AVPlayer(url: url as! URL)
         
         
         

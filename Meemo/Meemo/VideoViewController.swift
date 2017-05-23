@@ -22,6 +22,8 @@ class VideoViewController: UIViewController {
     var playerLayer:AVPlayerLayer?
     
     let showBadgeIdentidier = "showBadge"
+    let showFinalBadgeIdentidier = "showFinalBadge"
+
 
     var sessions:[Session]?
     var index:Int?
@@ -34,15 +36,12 @@ class VideoViewController: UIViewController {
     }
     
     func playNextVideo(){
-        if(index! + 1 < (sessions?.count)!){
-            index = index! + 1
-            currentSession = sessions?[(index)!]
             playVideo()
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
             overlay = VideoView()
             overlay?.frame = self.view.bounds
             self.view.addSubview(overlay!)
-        }
+        
     }
     
     
@@ -50,6 +49,10 @@ class VideoViewController: UIViewController {
         
         if (segue.identifier == showBadgeIdentidier){
             if let destination = segue.destination as? BadgeViewController{
+                destination.sourceView = self
+            }
+        }else if (segue.identifier == showFinalBadgeIdentidier){
+            if let destination = segue.destination as? FinalBadgeViewController{
                 destination.sourceView = self
             }
         }
@@ -128,8 +131,6 @@ class VideoViewController: UIViewController {
         let url = NSURL(string: (currentSession?.url)!)
         self.player = AVPlayer(url: url as! URL)
         
-        
-        
         playerLayer = AVPlayerLayer(player: player)
         playerLayer?.frame = self.view.bounds
         self.view.layer.addSublayer(playerLayer!)
@@ -141,11 +142,23 @@ class VideoViewController: UIViewController {
     }
     
     func playerDidFinishPlaying(){
+        sessions?[index!].watched = true
+        sessions?[index!].next = false
+        
         timer.invalidate()
         overlay?.setPogress(1)
         overlay?.removeFromSuperview()
         playerLayer?.removeFromSuperlayer()
-        self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
+        
+        if(index! + 1 < (sessions?.count)!){
+            index = index! + 1
+            currentSession = sessions?[(index)!]
+            sessions?[index!].next = true
+            self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
+        }else{
+            self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
+        }
+        
     }
     
     func updateVideoProgress(){

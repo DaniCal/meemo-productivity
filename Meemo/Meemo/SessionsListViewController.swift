@@ -33,6 +33,10 @@ class SessionsListViewController: UIViewController{
         tableView?.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if  segue.identifier == videoSegueIdentifier,

@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-1M-2fZ">
@@ -29,7 +29,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LectureCell" id="XDV-7d-TfL" customClass="LectureCollectionViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="52" width="245" height="400"/>
+                                        <rect key="frame" x="0.0" y="2" width="245" height="400"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="245" height="400"/>
@@ -151,7 +151,7 @@
                         <viewControllerLayoutGuide type="bottom" id="d4e-mp-fkO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oTh-Jd-7tm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -244,7 +244,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VSn-fe-LSN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cFN-2s-BiN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="oE6-mn-0zk"/>
@@ -283,7 +283,7 @@
                         <viewControllerLayoutGuide type="bottom" id="C3p-0E-Pic"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5He-bf-57O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-Cw-3JQ">
@@ -402,18 +402,18 @@ video. On to the next one!</string>
                         <viewControllerLayoutGuide type="bottom" id="jmT-m6-iMg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s7W-P5-fhc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BF1-7Q-ebo">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="MnK-4u-gMk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="6es-dw-yQc">
-                                    <rect key="frame" x="0.0" y="178" width="375" height="118"/>
+                                    <rect key="frame" x="0.0" y="178" width="320" height="118"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PO-7z-HCq">
@@ -435,10 +435,10 @@ video. On to the next one!</string>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sessionCell" rowHeight="70" id="fgM-Lf-vhF" customClass="SessionTableViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="108" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgM-Lf-vhF" id="dho-oK-qnh">
-                                            <frame key="frameInset" width="375" height="69"/>
+                                            <frame key="frameInset" width="320" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playButtonEmptyGreen" translatesAutoresizingMaskIntoConstraints="NO" id="6pI-io-yrx">
@@ -531,7 +531,7 @@ video. On to the next one!</string>
                         <viewControllerLayoutGuide type="bottom" id="KPS-Dq-1zR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sXr-gW-nF0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79P-gP-Y07">
@@ -544,7 +544,7 @@ video. On to the next one!</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Sxx-So-TGg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundTopSummary" translatesAutoresizingMaskIntoConstraints="NO" id="Opg-p9-Gjh">
@@ -602,10 +602,10 @@ video. On to the next one!</string>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="summaryCell" id="vi1-lL-Q7W" customClass="SummaryTableViewCell" customModule="Meemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="178" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="178" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vi1-lL-Q7W" id="XDI-W8-JWs">
-                                            <frame key="frameInset" width="375" height="150"/>
+                                            <frame key="frameInset" width="320" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture everything that is around you. Take all physical things and put them in 1 place. " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qy-UX-ZmF">
@@ -683,20 +683,23 @@ video. On to the next one!</string>
             </objects>
             <point key="canvasLocation" x="2915.625" y="649.64788732394368"/>
         </scene>
-        <!--View Controller-->
+        <!--Final Badge View Controller-->
         <scene sceneID="D44-MF-6Dv">
             <objects>
-                <viewController id="WQQ-dK-tKP" sceneMemberID="viewController">
+                <viewController id="WQQ-dK-tKP" customClass="FinalBadgeViewController" customModule="Meemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GJi-d8-KKE"/>
                         <viewControllerLayoutGuide type="bottom" id="3qN-s5-45g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="W9R-zc-Zyi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-vU-hXo">
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="backButtonTouch:" destination="WQQ-dK-tKP" eventType="touchUpInside" id="wbI-Wt-8uX"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imc-k2-T5d">
                                 <subviews>
@@ -707,6 +710,7 @@ video. On to the next one!</string>
                                         </constraints>
                                         <state key="normal" image="badgeCloseIconWhite"/>
                                         <connections>
+                                            <action selector="closeButtonTouch:" destination="WQQ-dK-tKP" eventType="touchUpInside" id="DJJ-H2-kus"/>
                                             <action selector="closeButtonTouch:" destination="jfk-rm-drW" eventType="touchUpInside" id="exS-gu-IHK"/>
                                         </connections>
                                     </button>
@@ -749,6 +753,9 @@ video. On to the next one!</string>
                                                 <state key="normal" title="YES PLEASE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="turnOnNotificationTouch:" destination="WQQ-dK-tKP" eventType="touchUpInside" id="dwR-MB-sRT"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.36862745098039218" green="0.86274509803921573" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
@@ -811,6 +818,9 @@ video. On to the next one!</string>
                             <constraint firstItem="3qN-s5-45g" firstAttribute="top" secondItem="ppr-vU-hXo" secondAttribute="bottom" id="fqd-og-yCw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popupView" destination="imc-k2-T5d" id="bA8-1O-B9K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJS-az-PMB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

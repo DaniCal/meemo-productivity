@@ -28,7 +28,7 @@ class SessionsViewController: MXScrollViewController {
         let overlay = DismissView()
         overlay.frame = self.view.bounds
         overlay.button.addTarget(self, action: #selector(self.dismissSessionsList), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(overlay)
+        //self.view.addSubview(overlay)
 
 
     }

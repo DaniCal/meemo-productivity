@@ -10,6 +10,9 @@
 		77F0FF10F7A9FE801EA02A63 /* Pods_Meemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD17427DE877CC8134440F18 /* Pods_Meemo.framework */; };
 		82038E181ED37F0700665C1E /* DismissView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E171ED37F0700665C1E /* DismissView.swift */; };
 		82038E1A1ED3FADB00665C1E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E191ED3FADB00665C1E /* Session.swift */; };
+		82038E1F1ED4219400665C1E /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E1E1ED4219400665C1E /* VideoViewController.swift */; };
+		82038E211ED4227B00665C1E /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E201ED4227B00665C1E /* Interactor.swift */; };
+		82038E231ED4240600665C1E /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E221ED4240600665C1E /* DismissAnimator.swift */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
 		821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* LecturesViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		2BEF91E1ECE6F1A8462E6706 /* Pods-Meemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.release.xcconfig"; sourceTree = "<group>"; };
 		82038E171ED37F0700665C1E /* DismissView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissView.swift; sourceTree = "<group>"; };
 		82038E191ED3FADB00665C1E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		82038E1E1ED4219400665C1E /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		82038E201ED4227B00665C1E /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		82038E221ED4240600665C1E /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		821D60741ED3258B00A8574C /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +120,38 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		82038E1B1ED4213400665C1E /* SessionsView */ = {
+			isa = PBXGroup;
+			children = (
+				821D60AF1ED37DD400A8574C /* DismissView.xib */,
+				821D60A91ED3699E00A8574C /* SessionsHeaderViewController.swift */,
+				821D60A71ED3688E00A8574C /* SessionsViewController.swift */,
+				82038E171ED37F0700665C1E /* DismissView.swift */,
+				821D60AB1ED36A7300A8574C /* SessionsListViewController.swift */,
+				821D60AD1ED374CC00A8574C /* SessionTableViewCell.swift */,
+			);
+			name = SessionsView;
+			sourceTree = "<group>";
+		};
+		82038E1C1ED4215500665C1E /* LecturesView */ = {
+			isa = PBXGroup;
+			children = (
+				821D60741ED3258B00A8574C /* LecturesViewController.swift */,
+				821D60A31ED33BAC00A8574C /* LectureCollectionViewCell.swift */,
+			);
+			name = LecturesView;
+			sourceTree = "<group>";
+		};
+		82038E1D1ED4217100665C1E /* VideoView */ = {
+			isa = PBXGroup;
+			children = (
+				82038E1E1ED4219400665C1E /* VideoViewController.swift */,
+				82038E201ED4227B00665C1E /* Interactor.swift */,
+				82038E221ED4240600665C1E /* DismissAnimator.swift */,
+			);
+			name = VideoView;
+			sourceTree = "<group>";
+		};
 		821D60661ED3258B00A8574C = {
 			isa = PBXGroup;
 			children = (
@@ -139,20 +177,15 @@
 		821D60711ED3258B00A8574C /* Meemo */ = {
 			isa = PBXGroup;
 			children = (
+				82038E1D1ED4217100665C1E /* VideoView */,
+				82038E1C1ED4215500665C1E /* LecturesView */,
+				82038E1B1ED4213400665C1E /* SessionsView */,
 				821D60A01ED32AB600A8574C /* Model */,
 				821D60721ED3258B00A8574C /* AppDelegate.swift */,
-				821D60741ED3258B00A8574C /* LecturesViewController.swift */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
-				821D60A91ED3699E00A8574C /* SessionsHeaderViewController.swift */,
-				821D60A71ED3688E00A8574C /* SessionsViewController.swift */,
-				82038E171ED37F0700665C1E /* DismissView.swift */,
-				821D60AB1ED36A7300A8574C /* SessionsListViewController.swift */,
-				821D60AD1ED374CC00A8574C /* SessionTableViewCell.swift */,
-				821D60A31ED33BAC00A8574C /* LectureCollectionViewCell.swift */,
 				821D60791ED3258B00A8574C /* Assets.xcassets */,
 				821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */,
 				821D607E1ED3258B00A8574C /* Info.plist */,
-				821D60AF1ED37DD400A8574C /* DismissView.xib */,
 			);
 			path = Meemo;
 			sourceTree = "<group>";
@@ -379,9 +412,12 @@
 				821D60A21ED32B4200A8574C /* Lecture.swift in Sources */,
 				821D60AA1ED3699E00A8574C /* SessionsHeaderViewController.swift in Sources */,
 				821D60AE1ED374CC00A8574C /* SessionTableViewCell.swift in Sources */,
+				82038E211ED4227B00665C1E /* Interactor.swift in Sources */,
+				82038E1F1ED4219400665C1E /* VideoViewController.swift in Sources */,
 				82038E181ED37F0700665C1E /* DismissView.swift in Sources */,
 				821D60A41ED33BAC00A8574C /* LectureCollectionViewCell.swift in Sources */,
 				821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */,
+				82038E231ED4240600665C1E /* DismissAnimator.swift in Sources */,
 				821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

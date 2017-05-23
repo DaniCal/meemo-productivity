@@ -13,7 +13,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-rf-CHe">
@@ -32,6 +32,7 @@
                 <constraint firstItem="Hqa-rf-CHe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="SXa-Je-47s"/>
                 <constraint firstAttribute="trailing" secondItem="Hqa-rf-CHe" secondAttribute="trailing" constant="17" id="yxG-EJ-sLK"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>

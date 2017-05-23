@@ -8,12 +8,14 @@
 
 import UIKit
 
-class SessionsListViewController: UIViewController {
+class SessionsListViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
     var sessions:[Session]?
-    
+    let interactor = Interactor()
+    let videoSegueIdentifier = "showVideo"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,8 +26,32 @@ class SessionsListViewController: UIViewController {
         tableView.backgroundView = nil
 
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableView?.dataSource = self
+        tableView?.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if  segue.identifier == videoSegueIdentifier,
+            let destination = segue.destination as? VideoViewController,
+            let blogIndex = tableView.indexPathForSelectedRow?.row
+        {
+            destination.transitioningDelegate = self
+            destination.interactor = interactor
+            destination.videoURL = (sessions?[blogIndex].url)!
+            
+        }
+    }
+    
+}
+
+extension SessionsListViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
     }
     
 }
@@ -49,7 +75,9 @@ extension SessionsListViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: videoSegueIdentifier , sender: indexPath)
+
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

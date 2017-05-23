@@ -17,6 +17,7 @@ class Lecture{
     var watched: Bool
     var sessions:[Session]
     
+    
     /*
      TODO
      var backgroundURL:String

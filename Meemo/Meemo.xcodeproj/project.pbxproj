@@ -16,6 +16,7 @@
 		82038E251ED42AC300665C1E /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82038E241ED42AC300665C1E /* VideoView.xib */; };
 		82038E271ED42BE300665C1E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E261ED42BE300665C1E /* VideoView.swift */; };
 		82038E2A1ED4560000665C1E /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E291ED4560000665C1E /* SummaryViewController.swift */; };
+		82038E2C1ED45C1300665C1E /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82038E2B1ED45C1300665C1E /* Advice.swift */; };
 		821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60721ED3258B00A8574C /* AppDelegate.swift */; };
 		821D60751ED3258B00A8574C /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821D60741ED3258B00A8574C /* LecturesViewController.swift */; };
 		821D60781ED3258B00A8574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821D60761ED3258B00A8574C /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		82038E241ED42AC300665C1E /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
 		82038E261ED42BE300665C1E /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		82038E291ED4560000665C1E /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		82038E2B1ED45C1300665C1E /* Advice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advice.swift; sourceTree = "<group>"; };
 		821D606F1ED3258B00A8574C /* Meemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821D60721ED3258B00A8574C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		821D60741ED3258B00A8574C /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				821D60A11ED32B4200A8574C /* Lecture.swift */,
 				82038E191ED3FADB00665C1E /* Session.swift */,
+				82038E2B1ED45C1300665C1E /* Advice.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				82038E1A1ED3FADB00665C1E /* Session.swift in Sources */,
 				821D60A81ED3688E00A8574C /* SessionsViewController.swift in Sources */,
 				821D60AC1ED36A7300A8574C /* SessionsListViewController.swift in Sources */,
+				82038E2C1ED45C1300665C1E /* Advice.swift in Sources */,
 				821D60A21ED32B4200A8574C /* Lecture.swift in Sources */,
 				821D60AA1ED3699E00A8574C /* SessionsHeaderViewController.swift in Sources */,
 				821D60AE1ED374CC00A8574C /* SessionTableViewCell.swift in Sources */,

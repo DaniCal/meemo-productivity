@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class VideoViewController: UIViewController {
 
     var interactor:Interactor? = nil
     var videoURL:String?
+    
+    public var player:AVPlayer?
+    var playerLayer:AVPlayerLayer?
+    let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
+
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let percentThreshold:CGFloat = 0.3
@@ -55,8 +62,9 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.player?.pause()
+        playVideo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,4 +75,26 @@ class VideoViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    func playVideo(){
+       // let time = self.player?.currentTime()
+        
+        let videoURL = NSURL(string: videoTestURL)
+        self.player = AVPlayer(url: videoURL as! URL)
+        
+        
+        
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.frame = self.view.bounds
+        self.view.layer.addSublayer(playerLayer!)
+        self.player?.play()
+//        NotificationCenter.default.addObserver(self,selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+//        
+        
+//        if(time != nil){
+//            self.player?.seek(to: time!)
+//        }
+
+    }
+    
 }

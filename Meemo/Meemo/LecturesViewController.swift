@@ -15,6 +15,7 @@ class LecturesViewController: UIViewController {
     var cellScalingY:CGFloat = 0.72
     let sessionsSegueIdentifier = "showSessions"
 
+    var selectedIndex:Int = 0
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -42,6 +43,16 @@ class LecturesViewController: UIViewController {
 
         collectionView?.dataSource = self
         collectionView?.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //Triggers when segues to ProgramView
+        if  segue.identifier == sessionsSegueIdentifier,
+            let destination = segue.destination as? SessionsViewController
+        {
+            destination.lecture = lectures[selectedIndex]
+        }
     }
     
     
@@ -77,7 +88,14 @@ extension LecturesViewController: UIScrollViewDelegate, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if(self.lectures[indexPath.item].locked){
+            return
+        }
+        
+        selectedIndex = indexPath.item
         self.performSegue(withIdentifier: sessionsSegueIdentifier , sender: indexPath)
+        
 
     }
 }

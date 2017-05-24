@@ -12,8 +12,11 @@ class SessionsListViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func watchButtonAction(_ sender: AnyObject) {
+    }
     
-    var sessions:[Session]?
+    @IBOutlet weak var watchButton: UIButton!
+    var lecture:Lecture?
     let interactor = Interactor()
     let videoSegueIdentifier = "showVideo"
     let summarySegueIdentifier = "showSummary"
@@ -31,7 +34,19 @@ class SessionsListViewController: UIViewController{
         
         tableView?.dataSource = self
         tableView?.delegate = self
+        
+        if(lecture?.watched)!{
+            watchButton.setImage(UIImage(named: "watchAgainButton"), for: .normal)
+        }else if(lecture?.sessions[0].next)!{
+            watchButton.setImage(UIImage(named: "watchCourseButton"), for: .normal)
+        }else{
+            watchButton.setImage(UIImage(named: "watchContinueButton"), for: .normal)
+        }
+        
     }
+    
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -45,7 +60,7 @@ class SessionsListViewController: UIViewController{
         {
             destination.transitioningDelegate = self
             destination.interactor = interactor
-            destination.sessions = sessions!
+            destination.sessions = lecture?.sessions
             destination.index = blogIndex
             
         }
@@ -78,13 +93,13 @@ extension SessionsListViewController: UIViewControllerTransitioningDelegate {
 extension SessionsListViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (sessions?.count)!
+        return (lecture?.sessions.count)!
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath) as! SessionTableViewCell
-        cell.session = self.sessions?[indexPath.row]        
+        cell.session = self.lecture?.sessions[indexPath.row]
         return cell
     }
 

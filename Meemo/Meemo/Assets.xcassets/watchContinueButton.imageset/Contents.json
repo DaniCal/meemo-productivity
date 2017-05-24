@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "ContinuteWatchingButton.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WatchAgainEmptyWhite.png",
       "scale" : "2x"
     },
     {

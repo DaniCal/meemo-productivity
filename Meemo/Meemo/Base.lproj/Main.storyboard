@@ -494,7 +494,10 @@ video. On to the next one!</string>
                                     <constraint firstAttribute="width" constant="245" id="gWb-Qd-Kl7"/>
                                     <constraint firstAttribute="height" constant="45" id="ysE-N0-BaT"/>
                                 </constraints>
-                                <state key="normal" title=" " image="startCourseButton"/>
+                                <state key="normal" title=" " image="watchCourseButton"/>
+                                <connections>
+                                    <action selector="watchButtonAction:" destination="PvA-ZC-nx9" eventType="touchUpInside" id="jz1-dY-QuY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -514,6 +517,7 @@ video. On to the next one!</string>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="BF1-7Q-ebo" id="DN4-WP-AnQ"/>
+                        <outlet property="watchButton" destination="np6-rm-Yyj" id="m0A-hq-fIS"/>
                         <segue destination="G3g-WT-JIJ" kind="presentation" identifier="showVideo" id="G8t-Q6-SSw"/>
                         <segue destination="0iQ-Bc-q6U" kind="presentation" identifier="showSummary" id="vJu-xj-Uo0"/>
                     </connections>
@@ -839,8 +843,8 @@ video. On to the next one!</string>
         <image name="gradientWatchButton" width="750" height="204"/>
         <image name="lectureCompleted" width="245" height="37"/>
         <image name="playButtonEmptyGreen" width="51" height="51"/>
-        <image name="startCourseButton" width="288" height="52"/>
         <image name="summaryButton" width="236" height="52"/>
         <image name="watchButtonGreen" width="188" height="50"/>
+        <image name="watchCourseButton" width="288" height="52"/>
     </resources>
 </document>

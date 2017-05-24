@@ -58,7 +58,7 @@ class SessionsViewController: MXScrollViewController {
             let destination = segue.destination as? SessionsListViewController
         {
             destination.lecture = self.lecture
-//            destination.sessions = testLecture.sessions
+            destination.sourceView = self
         }
     }
     

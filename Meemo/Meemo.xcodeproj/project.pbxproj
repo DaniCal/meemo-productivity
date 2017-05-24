@@ -34,6 +34,8 @@
 		821D60B01ED37DD400A8574C /* DismissView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821D60AF1ED37DD400A8574C /* DismissView.xib */; };
 		8239D7801ED47BC000E49FD7 /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239D77F1ED47BC000E49FD7 /* BadgeViewController.swift */; };
 		823A6EC81ED4CF23005EF673 /* FinalBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A6EC71ED4CF23005EF673 /* FinalBadgeViewController.swift */; };
+		823A6ECA1ED5D837005EF673 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A6EC91ED5D837005EF673 /* CoreData.framework */; };
+		823A6ECD1ED5D86B005EF673 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 823A6ECB1ED5D86B005EF673 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		821D60AF1ED37DD400A8574C /* DismissView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DismissView.xib; sourceTree = "<group>"; };
 		8239D77F1ED47BC000E49FD7 /* BadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
 		823A6EC71ED4CF23005EF673 /* FinalBadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalBadgeViewController.swift; sourceTree = "<group>"; };
+		823A6EC91ED5D837005EF673 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		823A6ECC1ED5D86B005EF673 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD17427DE877CC8134440F18 /* Pods_Meemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				823A6ECA1ED5D837005EF673 /* CoreData.framework in Frameworks */,
 				77F0FF10F7A9FE801EA02A63 /* Pods_Meemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +125,7 @@
 		26D7A558387E83B482DA306E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				823A6EC91ED5D837005EF673 /* CoreData.framework */,
 				FD17427DE877CC8134440F18 /* Pods_Meemo.framework */,
 			);
 			name = Frameworks;
@@ -207,13 +213,13 @@
 				82038E1C1ED4215500665C1E /* LecturesView */,
 				82038E1B1ED4213400665C1E /* SessionsView */,
 				821D60A01ED32AB600A8574C /* Model */,
-				821D60721ED3258B00A8574C /* AppDelegate.swift */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
 				823A6EC71ED4CF23005EF673 /* FinalBadgeViewController.swift */,
 				8239D77F1ED47BC000E49FD7 /* BadgeViewController.swift */,
 				821D60791ED3258B00A8574C /* Assets.xcassets */,
 				821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */,
 				821D607E1ED3258B00A8574C /* Info.plist */,
+				823A6ECB1ED5D86B005EF673 /* Model.xcdatamodeld */,
 			);
 			path = Meemo;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			children = (
 				821D60A11ED32B4200A8574C /* Lecture.swift */,
 				82038E191ED3FADB00665C1E /* Session.swift */,
+				821D60721ED3258B00A8574C /* AppDelegate.swift */,
 				82038E2B1ED45C1300665C1E /* Advice.swift */,
 			);
 			name = Model;
@@ -443,6 +450,7 @@
 				82038E2C1ED45C1300665C1E /* Advice.swift in Sources */,
 				821D60A21ED32B4200A8574C /* Lecture.swift in Sources */,
 				821D60AA1ED3699E00A8574C /* SessionsHeaderViewController.swift in Sources */,
+				823A6ECD1ED5D86B005EF673 /* Model.xcdatamodeld in Sources */,
 				821D60AE1ED374CC00A8574C /* SessionTableViewCell.swift in Sources */,
 				8239D7801ED47BC000E49FD7 /* BadgeViewController.swift in Sources */,
 				82038E211ED4227B00665C1E /* Interactor.swift in Sources */,
@@ -726,6 +734,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		823A6ECB1ED5D86B005EF673 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				823A6ECC1ED5D86B005EF673 /* Model.xcdatamodel */,
+			);
+			currentVersion = 823A6ECC1ED5D86B005EF673 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 821D60671ED3258B00A8574C /* Project object */;
 }

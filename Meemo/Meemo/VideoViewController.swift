@@ -14,6 +14,8 @@ class VideoViewController: UIViewController {
 
     var interactor:Interactor? = nil
     var timer = Timer.init()
+    
+    var sourceView:SessionsListViewController?
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     var overlay:VideoView?
@@ -32,6 +34,11 @@ class VideoViewController: UIViewController {
     let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
 
     func dismissVideoView(){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func lectureCompleted(){
+        sourceView?.lectureCompleted()
         dismiss(animated: true, completion: nil)
     }
     

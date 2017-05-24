@@ -15,16 +15,16 @@ class FinalBadgeViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     @IBAction func backButtonTouch(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
-        sourceView?.dismissVideoView()
+        sourceView?.lectureCompleted()
     }
     
     @IBAction func closeButtonTouch(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
-        sourceView?.dismissVideoView()
+        sourceView?.lectureCompleted()
     }
     
     @IBAction func turnOnNotificationTouch(_ sender: AnyObject) {
-        sourceView?.dismissVideoView()
+        sourceView?.lectureCompleted()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -40,10 +40,10 @@ class Session{
         return[
             Session(title: "Capture your physical things", duration: 80, watched: true, next:false, url: testURL1),
             Session(title: "Mind Sweep", duration: 91, watched: true, next:false, url: testURL2),
-            Session(title: "Tools for your Mind Sweep", duration: 57, watched: false, next:true, url: testURL3),
-            Session(title: "Tools and Best Practice", duration: 101, watched: false, next:false, url: testURL4),
-            Session(title: "Final Thoughts", duration: 71, watched: false, next:false, url: testURL5),
-            Session(title: "Summary", duration: 64, watched: false, next:false, url: testURL6)
+            Session(title: "Tools for your Mind Sweep", duration: 57, watched: true, next:false, url: testURL3),
+            Session(title: "Tools and Best Practice", duration: 101, watched: true, next:false, url: testURL4),
+            Session(title: "Final Thoughts", duration: 71, watched: true, next:false, url: testURL5),
+            Session(title: "Summary", duration: 64, watched: false, next:true, url: testURL6)
         ]
     }
     

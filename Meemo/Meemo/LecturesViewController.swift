@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import CoreData
 
 class LecturesViewController: UIViewController {
 
@@ -53,6 +55,16 @@ class LecturesViewController: UIViewController {
         {
             destination.lecture = lectures[selectedIndex]
         }
+    }
+    
+    
+    func fetchData(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let lesson = LectureMO(context: context)
+        lesson.title = ""
+
+        
     }
     
     

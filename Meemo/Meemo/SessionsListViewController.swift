@@ -20,7 +20,7 @@ class SessionsListViewController: UIViewController{
     let videoSegueIdentifier = "showVideo"
     let summarySegueIdentifier = "showSummary"
     var selectedRow:Int = 0
-
+    var sourceView:SessionsViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +50,6 @@ class SessionsListViewController: UIViewController{
         if(lecture?.watched)!{
             self.performSegue(withIdentifier: videoSegueIdentifier , sender: 0)
         }else{
-            
-            
             var count = 0
             count = (lecture?.sessions.count)! - 1
             for index in 1...count{
@@ -59,12 +57,13 @@ class SessionsListViewController: UIViewController{
                     selectedRow = index
                 }
             }
-            
-            
             self.performSegue(withIdentifier: videoSegueIdentifier , sender: nil)
         }
-        
-
+    }
+    
+    func lectureCompleted(){
+        lecture?.watched = true
+        sourceView?.dismiss(animated: true, completion: nil)
     }
     
     
@@ -83,6 +82,7 @@ class SessionsListViewController: UIViewController{
             destination.interactor = interactor
             destination.sessions = lecture?.sessions
             destination.index = selectedRow
+            destination.sourceView = self
             
         }
         else if segue.identifier == summarySegueIdentifier,

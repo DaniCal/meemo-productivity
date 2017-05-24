@@ -12,14 +12,14 @@ class SessionsListViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func watchButtonAction(_ sender: AnyObject) {
-    }
+   
     
     @IBOutlet weak var watchButton: UIButton!
     var lecture:Lecture?
     let interactor = Interactor()
     let videoSegueIdentifier = "showVideo"
     let summarySegueIdentifier = "showSummary"
+    var selectedRow:Int = 0
 
     
     override func viewDidLoad() {
@@ -45,6 +45,28 @@ class SessionsListViewController: UIViewController{
         
     }
     
+    @IBAction func watchButtonAction(_ sender: AnyObject) {
+        
+        if(lecture?.watched)!{
+            self.performSegue(withIdentifier: videoSegueIdentifier , sender: 0)
+        }else{
+            
+            
+            var count = 0
+            count = (lecture?.sessions.count)! - 1
+            for index in 1...count{
+                if(lecture?.sessions[index].next)!{
+                    selectedRow = index
+                }
+            }
+            
+            
+            self.performSegue(withIdentifier: videoSegueIdentifier , sender: nil)
+        }
+        
+
+    }
+    
     
     
     
@@ -55,13 +77,12 @@ class SessionsListViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if  segue.identifier == videoSegueIdentifier,
-            let destination = segue.destination as? VideoViewController,
-            let blogIndex = tableView.indexPathForSelectedRow?.row
+            let destination = segue.destination as? VideoViewController
         {
             destination.transitioningDelegate = self
             destination.interactor = interactor
             destination.sessions = lecture?.sessions
-            destination.index = blogIndex
+            destination.index = selectedRow
             
         }
         else if segue.identifier == summarySegueIdentifier,
@@ -109,6 +130,7 @@ extension SessionsListViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        selectedRow = indexPath.row
         self.performSegue(withIdentifier: videoSegueIdentifier , sender: indexPath)
     }
     

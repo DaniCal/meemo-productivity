@@ -29,7 +29,7 @@ class SessionsViewController: MXScrollViewController {
         overlay.frame = self.view.bounds
         overlay.button.addTarget(self, action: #selector(self.dismissSessionsList), for: UIControlEvents.touchUpInside)
         //self.view.addSubview(overlay)
-
+        
 
     }
     
@@ -47,13 +47,22 @@ class SessionsViewController: MXScrollViewController {
         if  segue.identifier == headerSegueIdentifier,
             let destination = segue.destination as? SessionsHeaderViewController
         {
-            //destination.something
+            
+            let button = UIButton(frame: CGRect(x: 20 , y: 30 , width: 20, height: 20))
+            button.setTitle("", for: .normal)
+            button.setImage(UIImage(named: "badgeCloseIconWhite"), for: .normal)
+            button.addTarget(self, action: #selector(closeButtonTouch), for: .touchUpInside)
+            destination.view.addSubview(button)
             
         }else if segue.identifier == sessionsListIdentifier,
             let destination = segue.destination as? SessionsListViewController
         {
             destination.sessions = testLecture.sessions
         }
+    }
+    
+    func closeButtonTouch(){
+        dismiss(animated: true, completion: nil)
     }
     
 }

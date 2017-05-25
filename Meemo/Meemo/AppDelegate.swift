@@ -70,13 +70,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         let context = self.persistentContainer.viewContext
         
         let lecture = LectureMO(context: context)
-        lecture.number = 1
+        lecture.number = 0
         lecture.watched = false
         lecture.locked = false
         
         let session = SessionMO(context: context)
         session.next = true
         session.watched = false
+        session.number = 0
         
         lecture.addToSessions(session)
     

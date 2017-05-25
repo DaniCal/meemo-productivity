@@ -17,7 +17,7 @@ class SessionsListViewController: UIViewController{
     @IBOutlet weak var watchButton: UIButton!
     var lectures:[Lecture] = []
     var lecture:Lecture?
-    var lectureNumber:Int?
+    var lectureNumber:Int = 0
     let interactor = Interactor()
     let videoSegueIdentifier = "showVideo"
     let summarySegueIdentifier = "showSummary"
@@ -28,7 +28,7 @@ class SessionsListViewController: UIViewController{
         super.viewDidLoad()
         
         lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
-        lecture = lectures[lectureNumber!]
+        lecture = lectures[lectureNumber]
         
         tableView.separatorStyle = .none
         
@@ -51,6 +51,9 @@ class SessionsListViewController: UIViewController{
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+        lecture = lectures[lectureNumber]
+
         if(lecture?.watched)!{
             watchButton.setImage(UIImage(named: "watchAgainButton"), for: .normal)
         }else if(lecture?.sessions[0].next)!{
@@ -77,7 +80,6 @@ class SessionsListViewController: UIViewController{
     }
     
     func lectureCompleted(){
-        lecture?.watched = true
         sourceView?.dismiss(animated: true, completion: nil)
     }
     
@@ -97,6 +99,7 @@ class SessionsListViewController: UIViewController{
             destination.interactor = interactor
 //            destination.lecture = lecture
 //            destination.sessions = lecture?.sessions
+            destination.lectureNumber = self.lectureNumber
             destination.sessionNumber = selectedRow
             destination.sourceView = self
             

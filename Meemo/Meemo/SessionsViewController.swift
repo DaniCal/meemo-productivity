@@ -62,7 +62,7 @@ class SessionsViewController: MXScrollViewController {
             let destination = segue.destination as? SessionsListViewController
         {
 //            destination.lecture = self.lecture
-            destination.lectureNumber = self.lectureNumber
+            destination.lectureNumber = self.lectureNumber!
             destination.sourceView = self
         }
     }

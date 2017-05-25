@@ -46,12 +46,12 @@ class VideoViewController: UIViewController {
     }
     
     func playNextVideo(){
+            sessionNumber = sessionNumber + 1
             playVideo()
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
             overlay = VideoView()
             overlay?.frame = self.view.bounds
             self.view.addSubview(overlay!)
-        
     }
     
     
@@ -154,12 +154,11 @@ class VideoViewController: UIViewController {
 
     }
     
-    func playerDidFinishPlaying(){
-        
+    func sessionWatched(){
+        //Set Session as watched and not the next
         var sessions = lectures[lectureNumber].sessions
         sessions[sessionNumber].watched = true
         sessions[sessionNumber].next = false
-        
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -167,71 +166,106 @@ class VideoViewController: UIViewController {
         do{
             lecturesMO = try context.fetch(LectureMO.fetchRequest())
             let sessionsMO = lecturesMO[lectureNumber].sessions?.allObjects as! [SessionMO]
-            sessionsMO[sessionNumber].watched = true
-            sessionsMO[sessionNumber].next = false
+            for sessionMO in sessionsMO {
+                if(sessionMO.number == Int16(sessionNumber)){
+                    sessionMO.watched = true
+                    sessionMO.next = false
+                }
+            }
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-
+            
         }catch{
             print("Fetching failed!")
         }
+    }
     
+    func sessionNext(){
+        var sessions = lectures[lectureNumber].sessions
+        sessions[sessionNumber + 1].next = true
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        var lecturesMO: [LectureMO] = []
+        do{
+            lecturesMO = try context.fetch(LectureMO.fetchRequest())
+            let session = SessionMO(context: context)
+            session.next = true
+            session.watched = false
+            session.number = Int16(sessionNumber + 1)
+            lecturesMO[lectureNumber].addToSessions(session)
+            
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+        }catch{
+            print("Fetching failed!")
+        }
+    }
+    
+    func lectureWatched(){
+        lectures[lectureNumber].watched = true
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        var lecturesMO: [LectureMO] = []
+        do{
+            lecturesMO = try context.fetch(LectureMO.fetchRequest())
+            lecturesMO[lectureNumber].watched = true
+            
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+        }catch{
+            print("Fetching failed!")
+        }
+
+    }
+    
+    func lectureUnlock(){
+        lectures[lectureNumber + 1].locked = false
+        lectures[lectureNumber + 1].sessions[0].next = true
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let lecture = LectureMO(context: context)
-        lecture.number = 1
+        lecture.number = lectureNumber + 1
         lecture.watched = false
         lecture.locked = false
         
+        let session = SessionMO(context: context)
+        session.next = true
+        session.watched = false
         
+        lecture.addToSessions(session)
         
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
+    func playerDidFinishPlaying(){
         
         timer.invalidate()
         overlay?.setPogress(1)
         overlay?.removeFromSuperview()
         playerLayer?.removeFromSuperlayer()
         
-        if(sessionNumber < (sessions.count - 1)){
-            sessionNumber = sessionNumber + 1
-            sessions[sessionNumber].next = true
+        sessionWatched()
+        
+        if(sessionNumber < (lectures[lectureNumber].sessions.count - 1)){ // Are there more sessions to watch?
             
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            
-            var lecturesMO: [LectureMO] = []
-            do{
-                lecturesMO = try context.fetch(LectureMO.fetchRequest())
-                let session = SessionMO(context: context)
-                session.next = true
-                session.watched = false
-                lecturesMO[lectureNumber].addToSessions(session)
+            //Set next session as next
+            if(lectures[lectureNumber].sessions[sessionNumber + 1].watched == false){
                 
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                
-            }catch{
-                print("Fetching failed!")
+                sessionNext()
             }
-
+            
             
             self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
-        }else{
-            lectures[lectureNumber].watched = true
+        }
+        else{ // Lecture was completed
+            
+           lectureWatched()
+            
+            //Set next lecture as unlocked
             if(lectureNumber < lectures.count - 1){
-                lectures[lectureNumber + 1].locked = false
-                lectures[lectureNumber + 1].sessions[0].next = true
-                
-                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                
-                let lecture = LectureMO(context: context)
-                lecture.number = lectureNumber + 1
-                lecture.watched = false
-                lecture.locked = false
-                
-                let session = SessionMO(context: context)
-                session.next = true
-                session.watched = false
-                
-                lecture.addToSessions(session)
-                
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                
+               lectureUnlock()
                 
                 self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
             }else{

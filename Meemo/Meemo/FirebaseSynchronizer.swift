@@ -75,9 +75,16 @@ class FirebaseSynchronizer: NSObject{
             
             if((lecture.number - 1) < lecturesMO.count && index < (lecturesMO[lecture.number - 1].sessions?.count)!){
                 let sessions = lecturesMO[lecture.number - 1].sessions?.allObjects as! [SessionMO]
-                let sessionMO = sessions[index]
                 
-                lecture.sessions.append(parseSession(session, next: sessionMO.next, watched: sessionMO.watched))
+                for sessionMO in sessions{
+                    if(sessionMO.number == Int16(index)){
+                        print(sessionMO.number)
+                        lecture.sessions.append(parseSession(session, next: sessionMO.next, watched: sessionMO.watched))
+                    }
+                }
+                
+                
+                
             }else{
                 lecture.sessions.append(parseSession(session, next: false, watched: false))
             }

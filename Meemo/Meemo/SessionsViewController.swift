@@ -57,6 +57,9 @@ class SessionsViewController: MXScrollViewController {
             button.setImage(UIImage(named: "badgeCloseIconWhite"), for: .normal)
             button.addTarget(self, action: #selector(closeButtonTouch), for: .touchUpInside)
             destination.view.addSubview(button)
+            destination.lectureNumber = self.lectureNumber!
+            
+            
             
         }else if segue.identifier == sessionsListIdentifier,
             let destination = segue.destination as? SessionsListViewController

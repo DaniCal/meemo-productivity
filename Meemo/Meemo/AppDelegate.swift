@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     var lecturesMO:[LectureMO] = []
     var loadedImages: Int = 0
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -90,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         self.lectures = lectures
         loadImages()
     }
+    
     
     
     func showLecturesViewController(){

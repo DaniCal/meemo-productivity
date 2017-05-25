@@ -11,7 +11,9 @@ import Foundation
 import CoreData
 
 class LecturesViewController: UIViewController {
+    @IBOutlet weak var progressLabel: UILabel!
 
+    @IBOutlet weak var progressView: UIProgressView!
     var lectures:[Lecture] = []
     var cellScalingX:CGFloat = 0.72
     var cellScalingY:CGFloat = 0.70
@@ -48,11 +50,39 @@ class LecturesViewController: UIViewController {
 
         collectionView?.dataSource = self
         collectionView?.delegate = self
+        
+        let progress = calculateUserProgress()
+        self.progressView.setProgress(progress, animated: true)
+        let progressString = Int(progress * 100)
+        self.progressLabel.text = "\(progressString)% completed"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let progress = calculateUserProgress()
+        self.progressView.setProgress(progress, animated: true)
+        let progressString = Int(progress * 100)
+        self.progressLabel.text = "\(progressString)% completed"
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         collectionView.reloadData()
     }
+    
+    func calculateUserProgress()-> Float{
+        var total = 0
+        var completed = 0
+        for lecture in lectures{
+            for session in lecture.sessions{
+                if(session.watched){
+                    completed = completed + 1
+                }
+                total = total + 1
+            }
+        }
+        return Float(completed) / Float(total)
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

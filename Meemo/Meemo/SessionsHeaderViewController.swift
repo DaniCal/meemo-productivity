@@ -11,9 +11,16 @@ import UIKit
 
 class SessionsHeaderViewController: UIViewController {
     
-    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    var lectureNumber = 0
+    var lectures: [Lecture] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+        titleLabel.text = lectures[lectureNumber].title
+        backgroundImageView.image = lectures[lectureNumber].featuredImage
+
     }
     
     override func didReceiveMemoryWarning() {

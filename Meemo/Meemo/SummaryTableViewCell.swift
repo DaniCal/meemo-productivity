@@ -28,7 +28,7 @@ class SummaryTableViewCell: UITableViewCell {
         
         if let advice = advice {
             title.text = advice.title
-            descriptionLabel.text = advice.description
+            descriptionLabel.text = advice.text
             numberImage.image = advice.numberImage()
             
         }else{

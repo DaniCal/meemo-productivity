@@ -60,6 +60,8 @@ class VideoViewController: UIViewController {
         if (segue.identifier == showBadgeIdentidier){
             if let destination = segue.destination as? BadgeViewController{
                 destination.sourceView = self
+                destination.lectureNumber = self.lectureNumber
+                destination.sessionNumber = self.sessionNumber
             }
         }else if (segue.identifier == showFinalBadgeIdentidier){
             if let destination = segue.destination as? FinalBadgeViewController{

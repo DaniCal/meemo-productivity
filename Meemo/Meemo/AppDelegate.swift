@@ -18,15 +18,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
 
     var window: UIWindow?
     var lectures:[Lecture] = []
+    var lecturesMO:[LectureMO] = []
     var loadedImages: Int = 0
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        let context = persistentContainer.viewContext
+        do{
+            lecturesMO = try context.fetch(LectureMO.fetchRequest())
+        }catch{
+            print("Fetching failed!")
+        }
+        
+        if(lecturesMO.count == 0){
+            setUpData()
+        }
+        
+        getData()
+        
         FIRApp.configure()
         loadContentFromFB()
         return true
     }
+    
+    func getData(){
+        let context = persistentContainer.viewContext
+        do{
+            lecturesMO = try context.fetch(LectureMO.fetchRequest())
+        }catch{
+            print("Fetching failed!")
+        }
+        
+        print(lecturesMO.count)
+        print(lecturesMO[0].locked)
+        print(lecturesMO[0].watched)
+        print(lecturesMO[0].number)
+        
+        let sessionsMO = lecturesMO[0].sessions?.allObjects as! [SessionMO]
+        
+        print(sessionsMO[0].watched)
+        print(sessionsMO[0].next)
+        
+
+        
+    }
+    
+    func setUpData(){
+        let context = self.persistentContainer.viewContext
+        
+        let lecture = LectureMO(context: context)
+        lecture.number = 1
+        lecture.watched = false
+        lecture.locked = false
+        
+        let session = SessionMO(context: context)
+        session.next = true
+        session.watched = false
+        
+        lecture.addToSessions(session)
+    
+        self.saveContext()
+    }
+    
+    
     
     func firebaseDidLoadLectures(_ lectures:[Lecture]){
         self.lectures = lectures
@@ -37,7 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     func showLecturesViewController(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LecturesViewController")
@@ -47,18 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         
     }
     
-    func setUpDataModel(){
-        let lecture = LectureMO()
-        lecture.number = 1
-        lecture.watched = false
-        lecture.locked = false
-        
-        let session = SessionMO()
-        session.next = true
-        session.watched = false
-        lecture.sessions?.adding(session)
-        
-    }
+
     
     func loadImages(){
         for lecture in lectures {

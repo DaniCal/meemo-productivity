@@ -50,21 +50,51 @@ class FirebaseSynchronizer: NSObject{
         lecture.imageURL = (lectureSnapshot.childSnapshot(forPath: "imageURL").value as? String)!
         lecture.number = (lectureSnapshot.childSnapshot(forPath: "number").value as? Int)!
         
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        var lecturesMO: [LectureMO] = []
+        do{
+            lecturesMO = try context.fetch(LectureMO.fetchRequest())
+        }catch{
+            print("Fetching failed!")
+        }
+        
+        if(lecturesMO.count < lecture.number){
+            lecture.locked = true
+            lecture.watched = false
+        }else{
+            lecture.locked = lecturesMO[lecture.number - 1].locked
+            lecture.watched = lecturesMO[lecture.number - 1].watched
+        }
+        
+        
         let sessions = lectureSnapshot.childSnapshot(forPath: "sessions")
         let enumerator = sessions.children
-
+        
+        var index = 0
         while let session = enumerator.nextObject() as? FIRDataSnapshot{
-            lecture.sessions.append(parseSession(session))
+            
+            if((lecture.number - 1) < lecturesMO.count && index < (lecturesMO[lecture.number - 1].sessions?.count)!){
+                let sessions = lecturesMO[lecture.number - 1].sessions?.allObjects as! [SessionMO]
+                let sessionMO = sessions[index]
+                
+                lecture.sessions.append(parseSession(session, next: sessionMO.next, watched: sessionMO.watched))
+            }else{
+                lecture.sessions.append(parseSession(session, next: false, watched: false))
+            }
+            index = index + 1
         }
         
         return lecture
     }
     
-    static func parseSession(_ sessionSnapshot: FIRDataSnapshot)->Session{
+    static func parseSession(_ sessionSnapshot: FIRDataSnapshot, next: Bool, watched: Bool)->Session{
         let session = Session()
         session.title = (sessionSnapshot.childSnapshot(forPath: "title").value as? String)!
         session.url = (sessionSnapshot.childSnapshot(forPath: "url").value as? String)!
         session.duration = (sessionSnapshot.childSnapshot(forPath: "duration").value as? Int)!
+        session.next = next
+        session.watched = watched
+        
         return session
     }
     

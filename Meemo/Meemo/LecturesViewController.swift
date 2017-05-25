@@ -62,7 +62,6 @@ class LecturesViewController: UIViewController {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let lesson = LectureMO(context: context)
-        lesson.title = ""
 
         
     }

@@ -36,6 +36,8 @@
 		823A6EC81ED4CF23005EF673 /* FinalBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A6EC71ED4CF23005EF673 /* FinalBadgeViewController.swift */; };
 		823A6ECA1ED5D837005EF673 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A6EC91ED5D837005EF673 /* CoreData.framework */; };
 		823A6ECD1ED5D86B005EF673 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 823A6ECB1ED5D86B005EF673 /* Model.xcdatamodeld */; };
+		826203361ED6C79100470CDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 826203351ED6C79100470CDB /* GoogleService-Info.plist */; };
+		826203381ED6CA0400470CDB /* FirebaseSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826203371ED6CA0400470CDB /* FirebaseSynchronizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		823A6EC71ED4CF23005EF673 /* FinalBadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalBadgeViewController.swift; sourceTree = "<group>"; };
 		823A6EC91ED5D837005EF673 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		823A6ECC1ED5D86B005EF673 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		826203351ED6C79100470CDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		826203371ED6CA0400470CDB /* FirebaseSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSynchronizer.swift; sourceTree = "<group>"; };
 		87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD17427DE877CC8134440F18 /* Pods_Meemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -214,11 +218,14 @@
 				82038E1B1ED4213400665C1E /* SessionsView */,
 				821D60A01ED32AB600A8574C /* Model */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
+				821D60721ED3258B00A8574C /* AppDelegate.swift */,
+				826203371ED6CA0400470CDB /* FirebaseSynchronizer.swift */,
 				823A6EC71ED4CF23005EF673 /* FinalBadgeViewController.swift */,
 				8239D77F1ED47BC000E49FD7 /* BadgeViewController.swift */,
 				821D60791ED3258B00A8574C /* Assets.xcassets */,
 				821D607B1ED3258B00A8574C /* LaunchScreen.storyboard */,
 				821D607E1ED3258B00A8574C /* Info.plist */,
+				826203351ED6C79100470CDB /* GoogleService-Info.plist */,
 				823A6ECB1ED5D86B005EF673 /* Model.xcdatamodeld */,
 			);
 			path = Meemo;
@@ -247,7 +254,6 @@
 			children = (
 				821D60A11ED32B4200A8574C /* Lecture.swift */,
 				82038E191ED3FADB00665C1E /* Session.swift */,
-				821D60721ED3258B00A8574C /* AppDelegate.swift */,
 				82038E2B1ED45C1300665C1E /* Advice.swift */,
 			);
 			name = Model;
@@ -369,6 +375,7 @@
 				821D607D1ED3258B00A8574C /* LaunchScreen.storyboard in Resources */,
 				821D607A1ED3258B00A8574C /* Assets.xcassets in Resources */,
 				821D60781ED3258B00A8574C /* Main.storyboard in Resources */,
+				826203361ED6C79100470CDB /* GoogleService-Info.plist in Resources */,
 				82038E251ED42AC300665C1E /* VideoView.xib in Resources */,
 				821D60B01ED37DD400A8574C /* DismissView.xib in Resources */,
 			);
@@ -463,6 +470,7 @@
 				82038E231ED4240600665C1E /* DismissAnimator.swift in Sources */,
 				821D60731ED3258B00A8574C /* AppDelegate.swift in Sources */,
 				82038E2A1ED4560000665C1E /* SummaryViewController.swift in Sources */,
+				826203381ED6CA0400470CDB /* FirebaseSynchronizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +624,7 @@
 				DEVELOPMENT_TEAM = 83QAZKHQQY;
 				INFOPLIST_FILE = Meemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.superstudio.Meemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.superstudio.MeemoProductivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -630,7 +638,7 @@
 				DEVELOPMENT_TEAM = 83QAZKHQQY;
 				INFOPLIST_FILE = Meemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.superstudio.Meemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.superstudio.MeemoProductivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

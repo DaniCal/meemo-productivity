@@ -10,12 +10,16 @@ import UIKit
 
 class LectureCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var completeImage: UIImageView!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var featuredImageView: UIImageView!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var watchImageView: UIImageView!
-    @IBOutlet weak var overlayView: UIView!
+    
+    let color01 = UIColor(red: 155/255, green: 234/255, blue: 201/255, alpha: 1.0)
+    let color02 = UIColor(red: 234/255, green: 163/255, blue: 155/255, alpha: 1.0)
+    let color03 = UIColor(red: 155/255, green: 214/255, blue: 234/255, alpha: 1.0)
     
     var lecture: Lecture?{
         didSet{
@@ -30,8 +34,21 @@ class LectureCollectionViewCell: UICollectionViewCell {
             self.featuredImageView.image = lecture.featuredImage
             self.dayLabel.text = lecture.dayTitle()
             self.watchImageView.image = lecture.watchButtonImage()
-            self.completeImage.isHidden = (lecture.watched == false)
-            self.overlayView.alpha = getOverlayAlpha()
+            switch(lecture.number){
+            case 1:
+                self.mainView.backgroundColor = color01
+                break
+            case 2:
+                self.mainView.backgroundColor = color02
+                break
+            case 3:
+                self.mainView.backgroundColor = color03
+                break
+            default:
+                self.mainView.backgroundColor = color01
+                break
+            }
+            
         }else{
             self.titleLabel.text = nil
             self.featuredImageView.image = nil
@@ -39,23 +56,27 @@ class LectureCollectionViewCell: UICollectionViewCell {
             self.watchImageView.image = nil
         }
         
-    }
-
-    fileprivate func getOverlayAlpha() -> CGFloat{
-        if(lecture?.locked)!{
-            return CGFloat(1)
-        }else{
-            return CGFloat(0.4)
+        let screenSize = UIScreen.main.bounds.size
+        
+        //If iphone 5 screen
+        if(screenSize.height == 568.0){
+            authorLabel.isHidden = true
         }
-    
+
+        
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 3.0
+        layer.cornerRadius = 20
+        
         layer.shadowRadius = 2
         layer.shadowOpacity = 0.8
         layer.shadowOffset = CGSize(width: 5, height: 10)
-        self.clipsToBounds = false
+        
+        layer.masksToBounds = true
+        
+
     }
 }

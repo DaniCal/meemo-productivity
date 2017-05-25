@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "DavidAllenRound.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "RedoButton.png",
       "scale" : "2x"
     },
     {

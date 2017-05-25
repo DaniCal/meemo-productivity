@@ -13,8 +13,8 @@ import CoreData
 class LecturesViewController: UIViewController {
 
     var lectures:[Lecture] = []
-    var cellScalingX:CGFloat = 0.653
-    var cellScalingY:CGFloat = 0.72
+    var cellScalingX:CGFloat = 0.72
+    var cellScalingY:CGFloat = 0.70
     let sessionsSegueIdentifier = "showSessions"
 
     var selectedIndex:Int = 0
@@ -32,6 +32,7 @@ class LecturesViewController: UIViewController {
         //If iphone 5 screen
         if(screenSize.height == 568.0){
             cellScalingX = 0.78
+            cellScalingY = 0.71
         }
         
         let cellWidth = floor(screenSize.width * cellScalingX)

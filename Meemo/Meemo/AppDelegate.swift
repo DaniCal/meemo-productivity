@@ -26,7 +26,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     }
     
     func firebaseDidLoadLectures(lectures:[Lecture]){
-        print(lectures)
+        self.lectures = lectures
+        showLecturesViewController()
+    }
+    
+    
+    func showLecturesViewController(){
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LecturesViewController")
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
     }
 
     func loadContentFromFB(){

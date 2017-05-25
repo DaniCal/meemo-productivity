@@ -12,7 +12,7 @@ import CoreData
 
 class LecturesViewController: UIViewController {
 
-    var lectures = Lecture.fetchLectures()
+    var lectures:[Lecture] = []
     var cellScalingX:CGFloat = 0.653
     var cellScalingY:CGFloat = 0.72
     let sessionsSegueIdentifier = "showSessions"
@@ -24,6 +24,8 @@ class LecturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
         
         let screenSize = UIScreen.main.bounds.size
         

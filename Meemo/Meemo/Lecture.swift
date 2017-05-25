@@ -39,7 +39,7 @@ class Lecture:NSObject{
         self.title = ""
         self.featuredImage = UIImage(named: "carouselBackgroundPlaceholder")!
         self.number = 0
-        self.locked = true
+        self.locked = false
         self.watched = false
         self.sessions = []
 

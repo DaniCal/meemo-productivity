@@ -15,11 +15,15 @@ class SessionsViewController: MXScrollViewController {
     var headerSegueIdentifier = "sessionsHeader"
     var sessionsListIdentifier = "sessionsList"
 
-    var testLecture = Lecture.fetchLecture()
-    var lecture:Lecture?
+//    var testLecture = Lecture.fetchLecture()
+    var lectures:[Lecture] = []
+
+    var lectureNumber:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+
         
     }
     
@@ -57,7 +61,8 @@ class SessionsViewController: MXScrollViewController {
         }else if segue.identifier == sessionsListIdentifier,
             let destination = segue.destination as? SessionsListViewController
         {
-            destination.lecture = self.lecture
+//            destination.lecture = self.lecture
+            destination.lectureNumber = self.lectureNumber
             destination.sourceView = self
         }
     }

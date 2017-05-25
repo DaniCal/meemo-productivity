@@ -15,6 +15,9 @@ class VideoViewController: UIViewController {
     var interactor:Interactor? = nil
     var timer = Timer.init()
     
+    var lectures:[Lecture] = []
+    var sessionNumber:Int = 0
+    var lectureNumber:Int = 0
     var sourceView:SessionsListViewController?
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -27,11 +30,11 @@ class VideoViewController: UIViewController {
     let showFinalBadgeIdentidier = "showFinalBadge"
 
 
-    var sessions:[Session]?
-    var index:Int?
-    var currentSession:Session?
+//    var sessions:[Session]?
+//    var index:Int?
+//    var currentSession:Session?
     
-    let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
+//    let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
 
     func dismissVideoView(){
         dismiss(animated: true, completion: nil)
@@ -108,7 +111,10 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentSession = sessions?[index!]
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+
+        
+//        currentSession = sessions?[index!]
         
         self.player?.pause()
         playVideo()
@@ -135,8 +141,8 @@ class VideoViewController: UIViewController {
         spinner.isHidden = false
         spinner.startAnimating()
         
-        let url = URL(string: (currentSession?.url)!)
-        self.player = AVPlayer(url: url as! URL)
+        let url = URL(string: (lectures[lectureNumber].sessions[sessionNumber].url))
+        self.player = AVPlayer(url: url!)
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer?.frame = self.view.bounds
@@ -149,18 +155,19 @@ class VideoViewController: UIViewController {
     }
     
     func playerDidFinishPlaying(){
-        sessions?[index!].watched = true
-        sessions?[index!].next = false
+        
+        var sessions = lectures[lectureNumber].sessions
+        sessions[sessionNumber].watched = true
+        sessions[sessionNumber].next = false
         
         timer.invalidate()
         overlay?.setPogress(1)
         overlay?.removeFromSuperview()
         playerLayer?.removeFromSuperlayer()
         
-        if(index! + 1 < (sessions?.count)!){
-            index = index! + 1
-            currentSession = sessions?[(index)!]
-            sessions?[index!].next = true
+        if(sessionNumber < (sessions.count - 1)){
+            sessionNumber = sessionNumber + 1
+            sessions[sessionNumber].next = true
             self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
         }else{
             self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
@@ -170,7 +177,7 @@ class VideoViewController: UIViewController {
     
     func updateVideoProgress(){
         let time = Float((self.player?.currentTime().seconds)!)
-        let ratio = time / Float((currentSession?.duration)!)
+        let ratio = time / Float((lectures[lectureNumber].sessions[sessionNumber].duration))
         if(ratio > 0){
            spinner.isHidden = true
         }

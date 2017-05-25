@@ -55,20 +55,10 @@ class LecturesViewController: UIViewController {
         if  segue.identifier == sessionsSegueIdentifier,
             let destination = segue.destination as? SessionsViewController
         {
-            destination.lecture = lectures[selectedIndex]
+//            destination.lecture = lectures[selectedIndex]
+            destination.lectureNumber = selectedIndex
         }
     }
-    
-    
-    func fetchData(){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let lesson = LectureMO(context: context)
-
-        
-    }
-    
-    
 
 }
 

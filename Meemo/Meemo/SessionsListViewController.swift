@@ -15,7 +15,9 @@ class SessionsListViewController: UIViewController{
    
     
     @IBOutlet weak var watchButton: UIButton!
+    var lectures:[Lecture] = []
     var lecture:Lecture?
+    var lectureNumber:Int?
     let interactor = Interactor()
     let videoSegueIdentifier = "showVideo"
     let summarySegueIdentifier = "showSummary"
@@ -24,6 +26,9 @@ class SessionsListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+        lecture = lectures[lectureNumber!]
         
         tableView.separatorStyle = .none
         
@@ -80,8 +85,9 @@ class SessionsListViewController: UIViewController{
         {
             destination.transitioningDelegate = self
             destination.interactor = interactor
-            destination.sessions = lecture?.sessions
-            destination.index = selectedRow
+//            destination.lecture = lecture
+//            destination.sessions = lecture?.sessions
+            destination.sessionNumber = selectedRow
             destination.sourceView = self
             
         }

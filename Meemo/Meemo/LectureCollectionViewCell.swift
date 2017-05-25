@@ -23,7 +23,7 @@ class LectureCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func updateUI(){
+    fileprivate func updateUI(){
         
         if let lecture = lecture {
             self.titleLabel.text = lecture.title
@@ -41,7 +41,7 @@ class LectureCollectionViewCell: UICollectionViewCell {
         
     }
 
-    private func getOverlayAlpha() -> CGFloat{
+    fileprivate func getOverlayAlpha() -> CGFloat{
         if(lecture?.locked)!{
             return CGFloat(1)
         }else{

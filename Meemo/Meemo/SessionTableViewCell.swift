@@ -31,7 +31,7 @@ class SessionTableViewCell: UITableViewCell {
         }
     }
     
-    private func updateUI(){
+    fileprivate func updateUI(){
         
         if let session = session {
             titleLabel.text = session.title
@@ -50,7 +50,7 @@ class SessionTableViewCell: UITableViewCell {
         
     }
     
-    private func getFont(_ size: Int) -> UIFont{
+    fileprivate func getFont(_ size: Int) -> UIFont{
         if(session?.watched)!{
             return UIFont (name: "Avenir-Light", size: CGFloat(size))!
         }else if (session?.next)!{
@@ -60,7 +60,7 @@ class SessionTableViewCell: UITableViewCell {
         }
     }
     
-    private func getAlpha()-> CGFloat{
+    fileprivate func getAlpha()-> CGFloat{
         if(session?.watched)!{
             return 1.0
         }else if (session?.next)!{
@@ -70,7 +70,7 @@ class SessionTableViewCell: UITableViewCell {
         }
     }
 
-    private func getButtonImage() -> UIImage{
+    fileprivate func getButtonImage() -> UIImage{
         if(session?.watched)!{
             return UIImage(named: "playButtonEmptyGreen")!
         }else if(session?.next)!{
@@ -80,7 +80,7 @@ class SessionTableViewCell: UITableViewCell {
         }
     }
     
-    private func timeAsString() -> String{
+    fileprivate func timeAsString() -> String{
         let minutes = Int((session?.duration)! / 60)
         let seconds = (session?.duration)! - (minutes * 60)
         var secondsString = String(seconds)

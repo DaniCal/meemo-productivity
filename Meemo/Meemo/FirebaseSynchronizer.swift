@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 
 @objc protocol FirebaseSynchornizeDelegate{
-    @objc optional func firebaseDidLoadLectures(lectures: [Lecture])
+    @objc optional func firebaseDidLoadLectures(_ lectures: [Lecture])
 }
 
 
@@ -35,15 +35,15 @@ class FirebaseSynchronizer: NSObject{
             let enumerator = snapshot.children
             
             while let lecture = enumerator.nextObject() as? FIRDataSnapshot{
-                lectures.append(parseLecture(lectureSnapshot: lecture))
+                lectures.append(parseLecture(lecture))
             }
             
-            self.delegate?.firebaseDidLoadLectures!(lectures: lectures)
+            self.delegate?.firebaseDidLoadLectures!(lectures)
             
         })
     }
     
-    static func parseLecture(lectureSnapshot: FIRDataSnapshot)->Lecture{
+    static func parseLecture(_ lectureSnapshot: FIRDataSnapshot)->Lecture{
         
         let lecture = Lecture()
         lecture.title = (lectureSnapshot.childSnapshot(forPath: "title").value as? String)!
@@ -54,13 +54,13 @@ class FirebaseSynchronizer: NSObject{
         let enumerator = sessions.children
 
         while let session = enumerator.nextObject() as? FIRDataSnapshot{
-            lecture.sessions.append(parseSession(sessionSnapshot: session))
+            lecture.sessions.append(parseSession(session))
         }
         
         return lecture
     }
     
-    static func parseSession(sessionSnapshot: FIRDataSnapshot)->Session{
+    static func parseSession(_ sessionSnapshot: FIRDataSnapshot)->Session{
         let session = Session()
         session.title = (sessionSnapshot.childSnapshot(forPath: "title").value as? String)!
         session.url = (sessionSnapshot.childSnapshot(forPath: "url").value as? String)!

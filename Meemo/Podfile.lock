@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.4.0)
   - Firebase/Analytics (3.6.0):
     - FirebaseAnalytics (= 3.4.2)
   - Firebase/Core (3.6.0):
@@ -22,11 +23,13 @@ PODS:
   - MXParallaxHeader (0.5.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.4)
   - Firebase/Core
   - Firebase/Database
   - MXParallaxHeader
 
 SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseDatabase: 750a4a0fe18ef114318876fd654b2d9c671e0992
@@ -36,6 +39,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   MXParallaxHeader: 5070ba8e8af27ec793c0d32ae82cfd2318e59635
 
-PODFILE CHECKSUM: 9ed5bbfe3b32fd77b9ec59055117c930da4d824c
+PODFILE CHECKSUM: 41283ef0f5578bca575c79e8592654e6f63c9388
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1

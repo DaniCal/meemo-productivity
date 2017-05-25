@@ -24,7 +24,7 @@ class SummaryTableViewCell: UITableViewCell {
         }
     }
     
-    private func updateUI(){
+    fileprivate func updateUI(){
         
         if let advice = advice {
             title.text = advice.title

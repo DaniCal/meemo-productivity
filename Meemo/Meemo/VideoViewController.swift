@@ -135,7 +135,7 @@ class VideoViewController: UIViewController {
         spinner.isHidden = false
         spinner.startAnimating()
         
-        let url = NSURL(string: (currentSession?.url)!)
+        let url = URL(string: (currentSession?.url)!)
         self.player = AVPlayer(url: url as! URL)
         
         playerLayer = AVPlayerLayer(player: player)

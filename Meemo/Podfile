@@ -1,9 +1,12 @@
-platform :ios, '8.0'
+
+platform :ios, '10.0'
 use_frameworks!
 
 target 'Meemo' do
 	pod 'MXParallaxHeader'
+    pod 'Alamofire', '~> 4.4'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
+
 end
 

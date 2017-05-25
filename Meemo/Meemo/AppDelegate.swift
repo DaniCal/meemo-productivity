@@ -10,12 +10,15 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseInstanceID
+import Alamofire
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelegate {
 
     var window: UIWindow?
     var lectures:[Lecture] = []
+    var loadedImages: Int = 0
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -25,9 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         return true
     }
     
-    func firebaseDidLoadLectures(lectures:[Lecture]){
+    func firebaseDidLoadLectures(_ lectures:[Lecture]){
         self.lectures = lectures
-        showLecturesViewController()
+        loadImages()
     }
     
     
@@ -42,6 +45,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
+    }
+    
+    func setUpDataModel(){
+        let lecture = LectureMO()
+        lecture.number = 1
+        lecture.watched = false
+        lecture.locked = false
+        
+        let session = SessionMO()
+        session.next = true
+        session.watched = false
+        lecture.sessions?.adding(session)
+        
+    }
+    
+    func loadImages(){
+        for lecture in lectures {
+            loadImage(lecture: lecture)
+        }
+    }
+    
+    func loadImage(lecture: Lecture){
+        Alamofire.request(lecture.imageURL).response { response in
+            debugPrint(response)
+            if let data = response.data {
+                lecture.featuredImage = UIImage(data: data)!
+            }else{
+            }
+            
+            self.loadedImages = self.loadedImages + 1
+            if(self.loadedImages >= self.lectures.count){
+                self.showLecturesViewController()
+            }
+            
+        }
     }
 
     func loadContentFromFB(){

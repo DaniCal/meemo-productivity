@@ -8,9 +8,10 @@
 
 import UIKit
 
-class Lecture{
+class Lecture:NSObject{
     
     var title = ""
+    var imageURL = ""
     var featuredImage: UIImage
     var number: Int
     var locked: Bool
@@ -32,6 +33,16 @@ class Lecture{
         self.locked = locked
         self.watched = watched
         self.sessions = Session.fetchSessions()
+    }
+    
+    override init(){
+        self.title = ""
+        self.featuredImage = UIImage(named: "carouselBackgroundPlaceholder")!
+        self.number = 0
+        self.locked = true
+        self.watched = false
+        self.sessions = []
+
     }
     
     static func fetchLectures() -> [Lecture]{

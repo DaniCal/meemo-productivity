@@ -12,10 +12,7 @@ import FirebaseDatabase
 
 
 @objc protocol FirebaseSynchornizeDelegate{
-    @objc optional func firebaseDataDidUpdate(key: String, value: String)
-//    @objc optional func firebaseDidReceiveJourney(journeyContent: [Lecture])
-//    @objc optional func firebaseDidLoadContent(content: Lecture)
-    
+    @objc optional func firebaseDidLoadLectures(lectures: [Lecture])
 }
 
 
@@ -33,25 +30,45 @@ class FirebaseSynchronizer: NSObject{
     static func subscribeToContent(){
         let conditionRef = rootRef.child("lectures")
         conditionRef.observe(.value, with: { (snapshot: FIRDataSnapshot) in
-            print(snapshot)
             
-//            let content = Content()
-//            
-            let dailyPushUpShot =  snapshot.childSnapshot(forPath: "lecture1")
-            print(dailyPushUpShot)
-//            content.dailyPushUp = parseDailyPushup(dailyPushUpShot: dailyPushUpShot)
-//            
-//            let programs = snapshot.childSnapshot(forPath: "programs")
-//            let enumerator = programs.children
-//            
-//            while let program = enumerator.nextObject() as? FIRDataSnapshot {
-//                content.programs.append(parseProgram(programShot: program))
-//            }
-//            
-//            self.delegate?.firebaseDidLoadContent!(content: content)
+            var lectures:[Lecture] = []
+            let enumerator = snapshot.children
+            
+            while let lecture = enumerator.nextObject() as? FIRDataSnapshot{
+                lectures.append(parseLecture(lectureSnapshot: lecture))
+            }
+            
+            self.delegate?.firebaseDidLoadLectures!(lectures: lectures)
             
         })
     }
+    
+    static func parseLecture(lectureSnapshot: FIRDataSnapshot)->Lecture{
+        
+        let lecture = Lecture()
+        lecture.title = (lectureSnapshot.childSnapshot(forPath: "title").value as? String)!
+        lecture.imageURL = (lectureSnapshot.childSnapshot(forPath: "imageURL").value as? String)!
+        lecture.number = (lectureSnapshot.childSnapshot(forPath: "number").value as? Int)!
+        
+        let sessions = lectureSnapshot.childSnapshot(forPath: "sessions")
+        let enumerator = sessions.children
+
+        while let session = enumerator.nextObject() as? FIRDataSnapshot{
+            lecture.sessions.append(parseSession(sessionSnapshot: session))
+        }
+        
+        return lecture
+    }
+    
+    static func parseSession(sessionSnapshot: FIRDataSnapshot)->Session{
+        let session = Session()
+        session.title = (sessionSnapshot.childSnapshot(forPath: "title").value as? String)!
+        session.url = (sessionSnapshot.childSnapshot(forPath: "url").value as? String)!
+        session.duration = (sessionSnapshot.childSnapshot(forPath: "duration").value as? Int)!
+        return session
+    }
+    
+    
     
     
 //    static func parseDailyPushup(dailyPushUpShot: FIRDataSnapshot)->DailyPushUp{

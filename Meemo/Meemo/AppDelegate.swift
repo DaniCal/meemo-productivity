@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         return true
     }
     
-    func firebaseDidLoadContent(content:Lecture){
-    
+    func firebaseDidLoadLectures(lectures:[Lecture]){
+        print(lectures)
     }
 
     func loadContentFromFB(){

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class Session{
+class Session:NSObject{
     var title = ""
     var duration:Int
     var watched:Bool
@@ -34,6 +34,14 @@ class Session{
         self.watched = watched
         self.next = next
         self.url = url
+    }
+    
+    override init(){
+        self.title = ""
+        self.duration = 0
+        self.watched = false
+        self.next = false
+        self.url = ""
     }
     
     static func fetchSessions() -> [Session]{

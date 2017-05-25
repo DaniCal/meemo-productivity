@@ -8,10 +8,10 @@
 
 import UIKit
 
-class Advice{
+class Advice:NSObject{
     
     var title:String
-    var description:String
+    var text:String
     var number:Int
     
     static let testDescription01 = "Capture everything that is around you. Take all physical things and put them in 1 place."
@@ -21,18 +21,18 @@ class Advice{
     static let testDescription03 = "Use a tool to action plan all your ideas and braindump so you can take it into action."
     
     
-    init(title: String, description:String, number: Int){
+    init(title: String, text:String, number: Int){
         self.title = title
-        self.description = description
+        self.text = text
         self.number = number
      
     }
     
     static func fetchAdvices() -> [Advice]{
         return [
-        Advice(title: "Capture", description: testDescription01, number: 1),
-        Advice(title: "Braindump", description: testDescription02, number: 2),
-        Advice(title: "Action Plan", description: testDescription03, number: 3)
+        Advice(title: "Capture", text: testDescription01, number: 1),
+        Advice(title: "Braindump", text: testDescription02, number: 2),
+        Advice(title: "Action Plan", text: testDescription03, number: 3)
         ]
     }
     

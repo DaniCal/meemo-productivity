@@ -49,6 +49,10 @@ class LecturesViewController: UIViewController {
         collectionView?.delegate = self
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //Triggers when segues to ProgramView

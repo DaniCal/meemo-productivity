@@ -160,6 +160,30 @@ class VideoViewController: UIViewController {
         sessions[sessionNumber].watched = true
         sessions[sessionNumber].next = false
         
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        var lecturesMO: [LectureMO] = []
+        do{
+            lecturesMO = try context.fetch(LectureMO.fetchRequest())
+            let sessionsMO = lecturesMO[lectureNumber].sessions?.allObjects as! [SessionMO]
+            sessionsMO[sessionNumber].watched = true
+            sessionsMO[sessionNumber].next = false
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+
+        }catch{
+            print("Fetching failed!")
+        }
+    
+        
+        let lecture = LectureMO(context: context)
+        lecture.number = 1
+        lecture.watched = false
+        lecture.locked = false
+        
+        
+        
+        
         timer.invalidate()
         overlay?.setPogress(1)
         overlay?.removeFromSuperview()
@@ -168,9 +192,51 @@ class VideoViewController: UIViewController {
         if(sessionNumber < (sessions.count - 1)){
             sessionNumber = sessionNumber + 1
             sessions[sessionNumber].next = true
+            
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            var lecturesMO: [LectureMO] = []
+            do{
+                lecturesMO = try context.fetch(LectureMO.fetchRequest())
+                let session = SessionMO(context: context)
+                session.next = true
+                session.watched = false
+                lecturesMO[lectureNumber].addToSessions(session)
+                
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+            }catch{
+                print("Fetching failed!")
+            }
+
+            
             self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
         }else{
-            self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
+            lectures[lectureNumber].watched = true
+            if(lectureNumber < lectures.count - 1){
+                lectures[lectureNumber + 1].locked = false
+                lectures[lectureNumber + 1].sessions[0].next = true
+                
+                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                
+                let lecture = LectureMO(context: context)
+                lecture.number = lectureNumber + 1
+                lecture.watched = false
+                lecture.locked = false
+                
+                let session = SessionMO(context: context)
+                session.next = true
+                session.watched = false
+                
+                lecture.addToSessions(session)
+                
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                
+                self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
+            }else{
+                //Show you've finished the course badge
+            }
         }
         
     }
@@ -183,5 +249,4 @@ class VideoViewController: UIViewController {
         }
         overlay?.setPogress(ratio)
     }
-    
 }

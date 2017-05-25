@@ -50,6 +50,16 @@ class SessionsListViewController: UIViewController{
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        if(lecture?.watched)!{
+            watchButton.setImage(UIImage(named: "watchAgainButton"), for: .normal)
+        }else if(lecture?.sessions[0].next)!{
+            watchButton.setImage(UIImage(named: "watchCourseButton"), for: .normal)
+        }else{
+            watchButton.setImage(UIImage(named: "watchContinueButton"), for: .normal)
+        }
+    }
+    
     @IBAction func watchButtonAction(_ sender: AnyObject) {
         
         if(lecture?.watched)!{

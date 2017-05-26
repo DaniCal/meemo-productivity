@@ -8,6 +8,7 @@ target 'Meemo' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Mixpanel'
+    pod 'Firebase/Messaging'
 
 
 end

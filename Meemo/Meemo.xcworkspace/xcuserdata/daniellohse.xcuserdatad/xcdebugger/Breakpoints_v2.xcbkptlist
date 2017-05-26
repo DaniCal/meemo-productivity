@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Meemo/AppDelegate.swift"
-            timestampString = "517499653.672958"
+            timestampString = "517503157.813178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "AppDelegate"
             landmarkType = "3">
          </BreakpointContent>

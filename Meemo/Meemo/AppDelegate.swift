@@ -12,6 +12,8 @@ import Firebase
 import FirebaseInstanceID
 import Alamofire
 import Mixpanel
+import FirebaseMessaging
+import UserNotifications
 
 
 
@@ -55,9 +57,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         
         getData()
         
+        connectToFBCloudMessages()
+        
+        configureFBCloudMessages(application)
+        
         FIRApp.configure()
         loadContentFromFB()
         return true
+    }
+    
+    func connectToFBCloudMessages(){
+        FIRMessaging.messaging().connect{(error) in
+            if error != nil{
+                print("Unable to concect \(error)")
+            }else{
+                print("Connected to FCM")
+            }
+        }
+    }
+    
+    func configureFBCloudMessages(_ application: UIApplication){
+        if #available(iOS 10.0, *) {
+            //options and settings for iOS 10 devices
+            let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_,_ in })
+            
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            // For iOS 10 data message (sent via FCM)
+            FIRMessaging.messaging().remoteMessageDelegate = self
+            
+        } else {
+            //TODO: Other versions than iOS 10
+        }
+        
     }
     
     func initMixpanel(){
@@ -270,7 +308,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
             }
         }
     }
+}
 
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    }
+}
 
+extension AppDelegate : FIRMessagingDelegate {
+    // Receive data message on iOS 10 devices.
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+    }
 }
 

@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
             
             self.loadedImages = self.loadedImages + 1
             if(self.loadedImages >= self.lectures.count){
-                self.showLecturesViewController()
+//                self.showLecturesViewController()
             }
             
         }

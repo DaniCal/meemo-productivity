@@ -10,9 +10,22 @@ import UIKit
 
 class FinalBadgeViewController: UIViewController {
 
+    var courseCompleted:Bool = false
+    
+    @IBOutlet weak var iconImageView: UIImageView!
     var sourceView: VideoViewController?
     
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var reminderLabel: UILabel!
+    @IBOutlet weak var bellImageView: UIImageView!
+
+    @IBOutlet weak var lineUIView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
+    
     @IBOutlet weak var popupView: UIView!
+
+    
     @IBAction func backButtonTouch(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
         sourceView?.lectureCompleted()
@@ -30,6 +43,17 @@ class FinalBadgeViewController: UIViewController {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
+        
+        
+        if(courseCompleted){
+            button.setTitle("Learn More",for: .normal)
+            reminderLabel.isHidden = true
+            bellImageView.isHidden = true
+            lineUIView.isHidden = true
+            titleLabel.text = "Congrats!"
+            textLabel.text = "You know how to get things done!! Nothing can stop you. Elon better watch out."
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -1184,12 +1184,8 @@ video. On to the next one!</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've completed your first day!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-2T-tX2">
-                                        <rect key="frame" x="26" y="230" width="207" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="6K2-L4-fFU"/>
-                                            <constraint firstAttribute="width" constant="207" id="vKa-eZ-hcL"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've completed your first day!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-2T-tX2">
+                                        <rect key="frame" x="26" y="230" width="207" height="58"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1244,8 +1240,10 @@ video. On to the next one!</string>
                                     <constraint firstItem="dGo-PO-eFf" firstAttribute="leading" secondItem="imc-k2-T5d" secondAttribute="leading" constant="21" id="2uq-ix-I5b"/>
                                     <constraint firstAttribute="bottom" secondItem="OJ4-uV-dC9" secondAttribute="bottom" id="3Zm-9O-SPY"/>
                                     <constraint firstItem="OJ4-uV-dC9" firstAttribute="top" secondItem="Kbl-KM-y1L" secondAttribute="bottom" constant="15" id="7pD-3E-Ves"/>
+                                    <constraint firstItem="Plz-2T-tX2" firstAttribute="top" secondItem="o5m-jn-meE" secondAttribute="bottom" constant="8" id="ANE-0k-N2r"/>
                                     <constraint firstAttribute="height" constant="425" id="EAf-yf-evo"/>
                                     <constraint firstAttribute="trailing" secondItem="J56-qC-CJh" secondAttribute="trailing" constant="13" id="G8r-SX-j9Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Plz-2T-tX2" secondAttribute="trailing" constant="27" id="H8u-HR-NnA"/>
                                     <constraint firstItem="J56-qC-CJh" firstAttribute="top" secondItem="imc-k2-T5d" secondAttribute="top" constant="13" id="IMA-9n-jtx"/>
                                     <constraint firstItem="OJ4-uV-dC9" firstAttribute="centerX" secondItem="imc-k2-T5d" secondAttribute="centerX" id="MD8-gK-leq"/>
                                     <constraint firstAttribute="trailing" secondItem="OJ4-uV-dC9" secondAttribute="trailing" id="MSw-Gs-1Mi"/>
@@ -1254,13 +1252,13 @@ video. On to the next one!</string>
                                     <constraint firstItem="o5m-jn-meE" firstAttribute="centerX" secondItem="imc-k2-T5d" secondAttribute="centerX" id="Vbi-vG-EdH"/>
                                     <constraint firstItem="OJ4-uV-dC9" firstAttribute="top" secondItem="dGo-PO-eFf" secondAttribute="bottom" constant="15" id="Vbs-h4-aNW"/>
                                     <constraint firstAttribute="trailing" secondItem="Kbl-KM-y1L" secondAttribute="trailing" constant="21" id="Vyb-hu-wZA"/>
-                                    <constraint firstItem="Plz-2T-tX2" firstAttribute="top" secondItem="o5m-jn-meE" secondAttribute="bottom" constant="8" id="bhG-zW-iCQ"/>
                                     <constraint firstItem="ZfP-t1-lE6" firstAttribute="leading" secondItem="imc-k2-T5d" secondAttribute="leading" id="dWW-S9-9UX"/>
                                     <constraint firstItem="Kbl-KM-y1L" firstAttribute="top" secondItem="ZfP-t1-lE6" secondAttribute="bottom" constant="15" id="fbj-IH-7Cv"/>
-                                    <constraint firstItem="Plz-2T-tX2" firstAttribute="centerX" secondItem="imc-k2-T5d" secondAttribute="centerX" id="gbL-0i-WcY"/>
                                     <constraint firstAttribute="width" constant="260" id="hFP-lF-bqe"/>
                                     <constraint firstItem="OJ4-uV-dC9" firstAttribute="leading" secondItem="imc-k2-T5d" secondAttribute="leading" id="t0X-cf-5Eh"/>
+                                    <constraint firstItem="Plz-2T-tX2" firstAttribute="centerX" secondItem="imc-k2-T5d" secondAttribute="centerX" id="tjY-dF-hHl"/>
                                     <constraint firstItem="ZfP-t1-lE6" firstAttribute="centerX" secondItem="imc-k2-T5d" secondAttribute="centerX" id="w7W-4N-LuF"/>
+                                    <constraint firstItem="Plz-2T-tX2" firstAttribute="leading" secondItem="imc-k2-T5d" secondAttribute="leading" constant="26" id="wAg-Tb-EH9"/>
                                     <constraint firstItem="o5m-jn-meE" firstAttribute="top" secondItem="RPw-tC-j4C" secondAttribute="bottom" constant="14" id="yCl-to-HfX"/>
                                     <constraint firstItem="RPw-tC-j4C" firstAttribute="top" secondItem="imc-k2-T5d" secondAttribute="top" constant="13" id="ycH-Nr-lOg"/>
                                 </constraints>
@@ -1279,7 +1277,14 @@ video. On to the next one!</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bellImageView" destination="dGo-PO-eFf" id="jh1-DT-aXU"/>
+                        <outlet property="button" destination="90J-zo-sP5" id="HvJ-pr-Jzn"/>
+                        <outlet property="iconImageView" destination="RPw-tC-j4C" id="fdz-Md-pTw"/>
+                        <outlet property="lineUIView" destination="ZfP-t1-lE6" id="Lha-dX-yak"/>
                         <outlet property="popupView" destination="imc-k2-T5d" id="bA8-1O-B9K"/>
+                        <outlet property="reminderLabel" destination="Kbl-KM-y1L" id="NJE-JR-rMr"/>
+                        <outlet property="textLabel" destination="Plz-2T-tX2" id="wlD-gP-r7q"/>
+                        <outlet property="titleLabel" destination="o5m-jn-meE" id="e95-mE-RgR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJS-az-PMB" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,6 +17,8 @@ class VideoViewController: UIViewController {
     var lectures:[Lecture] = []
     var sessionNumber:Int = 0
     var lectureNumber:Int = 0
+    
+    var courseCompleted:Bool = false
 
     var interactor:Interactor? = nil
     var timer = Timer.init()
@@ -71,6 +73,7 @@ class VideoViewController: UIViewController {
             }
         }else if (segue.identifier == showFinalBadgeIdentidier){
             if let destination = segue.destination as? FinalBadgeViewController{
+                destination.courseCompleted = courseCompleted
                 destination.sourceView = self
             }
         }
@@ -218,9 +221,9 @@ class VideoViewController: UIViewController {
                 self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
             }else{
                 Mixpanel.sharedInstance()?.track("finished_course")
+                courseCompleted = true
+                self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
 
-                
-                //Show you've finished the course badge
             }
         }
         

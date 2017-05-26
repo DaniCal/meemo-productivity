@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 class SessionsListViewController: UIViewController{
     
@@ -113,6 +114,7 @@ class SessionsListViewController: UIViewController{
     }
     
     @IBAction func readSummary(_ sender: AnyObject) {
+        Mixpanel.sharedInstance()?.track("read_summary", properties: ["lecture" : "\(lectureNumber)"])
         self.performSegue(withIdentifier: summarySegueIdentifier , sender: nil)
     }
     

@@ -11,6 +11,8 @@ import CoreData
 import Firebase
 import FirebaseInstanceID
 import Alamofire
+import Mixpanel
+
 
 
 @UIApplicationMain
@@ -20,10 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     var lectures:[Lecture] = []
     var lecturesMO:[LectureMO] = []
     var loadedImages: Int = 0
+    
+    var mixpanel:Mixpanel!
+    let mixpanelTestToken = "961d5f96adf20b0bb0a9096a9a524ffa"
+    let mixpanelProductionToken = ""
+    var mixpanelToken = "961d5f96adf20b0bb0a9096a9a524ffa"
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        initMixpanel()
         
         let context = persistentContainer.viewContext
         do{
@@ -41,6 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         FIRApp.configure()
         loadContentFromFB()
         return true
+    }
+    
+    func initMixpanel(){
+        self.mixpanelToken = self.mixpanelTestToken
+        mixpanel = Mixpanel.sharedInstance(withToken: mixpanelToken)
+        mixpanel.track("App launched")
+        
     }
     
     func getData(){

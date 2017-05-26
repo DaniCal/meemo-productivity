@@ -20,12 +20,14 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - Mixpanel (3.1.5)
   - MXParallaxHeader (0.5.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - Firebase/Core
   - Firebase/Database
+  - Mixpanel
   - MXParallaxHeader
 
 SPEC CHECKSUMS:
@@ -37,8 +39,9 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  Mixpanel: 9b33e5de998cd42597767f67e2b8fcd1d158c71d
   MXParallaxHeader: 5070ba8e8af27ec793c0d32ae82cfd2318e59635
 
-PODFILE CHECKSUM: 41283ef0f5578bca575c79e8592654e6f63c9388
+PODFILE CHECKSUM: daf89464b9f9230a9a1ccaa08097e42bd8f4ffbb
 
 COCOAPODS: 1.2.1

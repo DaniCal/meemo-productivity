@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Mixpanel
+
 
 
 class VideoViewController: UIViewController {
@@ -29,6 +31,8 @@ class VideoViewController: UIViewController {
     
     let showBadgeIdentidier = "showBadge"
     let showFinalBadgeIdentidier = "showFinalBadge"
+    
+    var isPlaying = false
 
     
     /*
@@ -46,6 +50,7 @@ class VideoViewController: UIViewController {
     
     func playNextVideo(){
             sessionNumber = sessionNumber + 1
+            Mixpanel.sharedInstance()?.track("play_next", properties: ["video" : "\(lectureNumber) = \(sessionNumber)"])
             playVideo()
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
             overlay = VideoView()
@@ -99,6 +104,9 @@ class VideoViewController: UIViewController {
     
     func playVideo(){
         
+        Mixpanel.sharedInstance()?.track("play_video", properties: ["video" : "\(lectureNumber) - \(sessionNumber)"])
+
+        
         spinner.isHidden = false
         spinner.startAnimating()
         
@@ -118,8 +126,11 @@ class VideoViewController: UIViewController {
     
     func updateVideoProgress(){
         let time = Float((self.player?.currentTime().seconds)!)
+        
         let ratio = time / Float((lectures[lectureNumber].sessions[sessionNumber].duration))
-        if(ratio > 0){
+        if(ratio > 0 && isPlaying == false){
+            isPlaying = true
+            print("started playing")
             spinner.isHidden = true
         }
         overlay?.setPogress(ratio)
@@ -140,8 +151,10 @@ class VideoViewController: UIViewController {
         
         switch sender.state {
         case .began:
-            player?.pause()
+            
             timer.invalidate()
+            player?.pause()
+
             interactor.hasStarted = true
             dismiss(animated: true, completion: nil)
         case .changed:
@@ -154,6 +167,11 @@ class VideoViewController: UIViewController {
             interactor.hasStarted = false
             if(interactor.shouldFinish){
                 interactor.finish()
+                if(isPlaying){
+                    let time = Float((self.player?.currentTime().seconds)!)
+                    let timeInt = Int(time)
+                    Mixpanel.sharedInstance()?.track("stopped_video", properties: ["video" : "\(lectureNumber) - \(sessionNumber) - \(timeInt)"])
+                }
             }else{
                 interactor.cancel()
                 player?.play()
@@ -170,6 +188,8 @@ class VideoViewController: UIViewController {
     
     func playerDidFinishPlaying(){
         
+        isPlaying = false
+        print("stopped playing")
         timer.invalidate()
         overlay?.setPogress(1)
         overlay?.removeFromSuperview()
@@ -197,6 +217,9 @@ class VideoViewController: UIViewController {
                 
                 self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
             }else{
+                Mixpanel.sharedInstance()?.track("finished_course")
+
+                
                 //Show you've finished the course badge
             }
         }
@@ -209,6 +232,8 @@ class VideoViewController: UIViewController {
      */
     
     func sessionWatched(){
+        Mixpanel.sharedInstance()?.track("watched_video", properties: ["video" : "\(lectureNumber) - \(sessionNumber)"])
+
         //Set Session as watched and not the next
         var sessions = lectures[lectureNumber].sessions
         sessions[sessionNumber].watched = true
@@ -256,6 +281,8 @@ class VideoViewController: UIViewController {
     }
     
     func lectureWatched(){
+        Mixpanel.sharedInstance()?.track("watched_lecture", properties: ["lecture" : "\(lectureNumber)"])
+
         lectures[lectureNumber].watched = true
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

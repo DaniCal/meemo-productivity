@@ -97,8 +97,6 @@ class SessionsListViewController: UIViewController{
         {
             destination.transitioningDelegate = self
             destination.interactor = interactor
-//            destination.lecture = lecture
-//            destination.sessions = lecture?.sessions
             destination.lectureNumber = self.lectureNumber
             destination.sessionNumber = selectedRow
             destination.sourceView = self
@@ -148,9 +146,12 @@ extension SessionsListViewController: UITableViewDataSource{
 extension SessionsListViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(lectures[lectureNumber].sessions[indexPath.row].next == true ||
+            lectures[lectureNumber].sessions[indexPath.row].watched == true){
+            selectedRow = indexPath.row
+            self.performSegue(withIdentifier: videoSegueIdentifier , sender: indexPath)
+        }
         
-        selectedRow = indexPath.row
-        self.performSegue(withIdentifier: videoSegueIdentifier , sender: indexPath)
     }
     
     

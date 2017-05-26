@@ -27,6 +27,7 @@ class IntroVideoViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
         
         overlay = VideoView()
+        overlay?.setSkipTarget(selector: #selector(self.skipIntro), target: self)
         overlay?.frame = self.view.bounds
         self.view.addSubview(overlay!)
         // Do any additional setup after loading the view.
@@ -39,6 +40,13 @@ class IntroVideoViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func skipIntro(){
+        player?.pause()
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
+        timer.invalidate()
+        (UIApplication.shared.delegate as! AppDelegate).showLecturesViewController()
     }
     
     func playVideo(){
@@ -67,6 +75,7 @@ class IntroVideoViewController: UIViewController {
     
     func playerDidFinishPlaying(){
         UserDefaults.standard.set(true, forKey: "launchedBefore")
+        timer.invalidate()
         (UIApplication.shared.delegate as! AppDelegate).showLecturesViewController()
     }
 

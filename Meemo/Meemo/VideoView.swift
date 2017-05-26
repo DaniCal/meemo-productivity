@@ -12,11 +12,18 @@ import UIKit
 
     var view: UIView!
 
+    @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var videoProgress: UIProgressView!
     open func setPogress(_ progress: Float){
         videoProgress.setProgress(progress, animated: true)
     }
     
+    
+    open func setSkipTarget(selector: Selector, target: Any?){
+        self.skipButton.isHidden = false
+        self.skipButton.addTarget(target, action: selector, for: .touchUpInside)
+//        self.skipButton.target(forAction: selector, withSender: sender)
+    }
     func xibSetup() {
         
         view = loadViewFromNib()

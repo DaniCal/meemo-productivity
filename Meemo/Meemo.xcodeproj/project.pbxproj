@@ -38,6 +38,7 @@
 		823A6ECD1ED5D86B005EF673 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 823A6ECB1ED5D86B005EF673 /* Model.xcdatamodeld */; };
 		826203361ED6C79100470CDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 826203351ED6C79100470CDB /* GoogleService-Info.plist */; };
 		826203381ED6CA0400470CDB /* FirebaseSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826203371ED6CA0400470CDB /* FirebaseSynchronizer.swift */; };
+		82BB74E31ED85FC000116907 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BB74E21ED85FC000116907 /* SurveyViewController.swift */; };
 		82CAEBBE1ED83CE100256F33 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CAEBBD1ED83CE100256F33 /* OnboardingPageViewController.swift */; };
 		82CAEBC01ED8445300256F33 /* IntroVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CAEBBF1ED8445300256F33 /* IntroVideoViewController.swift */; };
 		82CAEBC21ED844B100256F33 /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CAEBC11ED844B100256F33 /* GetStartedViewController.swift */; };
@@ -99,6 +100,7 @@
 		823A6ECC1ED5D86B005EF673 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		826203351ED6C79100470CDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		826203371ED6CA0400470CDB /* FirebaseSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSynchronizer.swift; sourceTree = "<group>"; };
+		82BB74E21ED85FC000116907 /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		82CAEBBD1ED83CE100256F33 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		82CAEBBF1ED8445300256F33 /* IntroVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVideoViewController.swift; sourceTree = "<group>"; };
 		82CAEBC11ED844B100256F33 /* GetStartedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				82038E1B1ED4213400665C1E /* SessionsView */,
 				821D60A01ED32AB600A8574C /* Model */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
+				82BB74E21ED85FC000116907 /* SurveyViewController.swift */,
 				82CAEBC31ED848EA00256F33 /* Intro.mp4 */,
 				82CAEBC11ED844B100256F33 /* GetStartedViewController.swift */,
 				82CAEBBF1ED8445300256F33 /* IntroVideoViewController.swift */,
@@ -480,6 +483,7 @@
 				82CAEBBE1ED83CE100256F33 /* OnboardingPageViewController.swift in Sources */,
 				82038E211ED4227B00665C1E /* Interactor.swift in Sources */,
 				82038E1F1ED4219400665C1E /* VideoViewController.swift in Sources */,
+				82BB74E31ED85FC000116907 /* SurveyViewController.swift in Sources */,
 				82038E271ED42BE300665C1E /* VideoView.swift in Sources */,
 				82CAEBC21ED844B100256F33 /* GetStartedViewController.swift in Sources */,
 				82038E181ED37F0700665C1E /* DismissView.swift in Sources */,

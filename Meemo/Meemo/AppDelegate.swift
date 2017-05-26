@@ -105,8 +105,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         lecture.addToSessions(session)
     
         self.saveContext()
+        
+        disableSurveyForToday()
+        
     }
     
+    func disableSurveyForToday(){
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        let year =  components.year
+        let month = components.month
+        let day = components.day!
+        
+        let code = "surveyed_\(month!)_\(day)_\(year!)"
+        UserDefaults.standard.set(true, forKey: code)        
+        
+    }
     
     
     func firebaseDidLoadLectures(_ lectures:[Lecture]){

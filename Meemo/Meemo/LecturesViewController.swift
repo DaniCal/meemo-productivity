@@ -18,6 +18,7 @@ class LecturesViewController: UIViewController {
     var cellScalingX:CGFloat = 0.72
     var cellScalingY:CGFloat = 0.70
     let sessionsSegueIdentifier = "showSessions"
+    let surveySegueIdentifier = "showSurvey"
 
     var selectedIndex:Int = 0
     
@@ -57,7 +58,30 @@ class LecturesViewController: UIViewController {
         self.progressLabel.text = "\(progressString)% completed"
     }
     
+    func checkIfSurveyed(){
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        let year =  components.year
+        let month = components.month
+        let day = components.day! + 1
+        
+        let code = "surveyed_\(month!)_\(day)_\(year!)"
+        
+        let surveyedToday = UserDefaults.standard.bool(forKey: code)
+
+        if(!surveyedToday){
+            UserDefaults.standard.set(true, forKey: code)
+            self.performSegue(withIdentifier: surveySegueIdentifier , sender: nil)
+        }
+
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        
+        checkIfSurveyed()
+        
         let progress = calculateUserProgress()
         self.progressView.setProgress(progress, animated: true)
         let progressString = Int(progress * 100)

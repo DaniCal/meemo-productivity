@@ -83,8 +83,6 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
 
-    
-        
         self.player?.pause()
         playVideo()
         

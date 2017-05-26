@@ -12,29 +12,28 @@ import AVFoundation
 
 class VideoViewController: UIViewController {
 
-    var interactor:Interactor? = nil
-    var timer = Timer.init()
-    
     var lectures:[Lecture] = []
     var sessionNumber:Int = 0
     var lectureNumber:Int = 0
+
+    var interactor:Interactor? = nil
+    var timer = Timer.init()
+    
     var sourceView:SessionsListViewController?
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    var overlay:VideoView?
     
+    var overlay:VideoView?
     var player:AVPlayer?
     var playerLayer:AVPlayerLayer?
     
     let showBadgeIdentidier = "showBadge"
     let showFinalBadgeIdentidier = "showFinalBadge"
 
-
-//    var sessions:[Session]?
-//    var index:Int?
-//    var currentSession:Session?
     
-//    let videoTestURL = "https://firebasestorage.googleapis.com/v0/b/meemo-external-test.appspot.com/o/01_capture_6_min.mp4?alt=media&token=db5eac20-ee3e-422c-980f-b8e1c4004e6b"
+    /*
+     --------------------------------------------- Public Functions --------------------------
+     */
 
     func dismissVideoView(){
         dismiss(animated: true, completion: nil)
@@ -54,7 +53,9 @@ class VideoViewController: UIViewController {
             self.view.addSubview(overlay!)
     }
     
-    
+    /*
+     --------------------------------------------- UI Lifecycle --------------------------
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == showBadgeIdentidier){
@@ -70,6 +71,59 @@ class VideoViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+
+    
+        
+        self.player?.pause()
+        playVideo()
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
+        
+        overlay = VideoView()
+        overlay?.frame = self.view.bounds
+        self.view.addSubview(overlay!)
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    func playVideo(){
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
+        let url = URL(string: (lectures[lectureNumber].sessions[sessionNumber].url))
+        self.player = AVPlayer(url: url!)
+        
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.frame = self.view.bounds
+        self.view.layer.addSublayer(playerLayer!)
+        self.player?.play()
+        NotificationCenter.default.addObserver(self,selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+    }
+    
+    /*
+     --------------------------------------------- UI Functions --------------------------
+     */
+    
+    func updateVideoProgress(){
+        let time = Float((self.player?.currentTime().seconds)!)
+        let ratio = time / Float((lectures[lectureNumber].sessions[sessionNumber].duration))
+        if(ratio > 0){
+            spinner.isHidden = true
+        }
+        overlay?.setPogress(ratio)
+    }
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let percentThreshold:CGFloat = 0.3
@@ -108,53 +162,51 @@ class VideoViewController: UIViewController {
         default: break
             
         }
-   
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
-
+    /*
+     --------------------------------------------- Player Delegate Functions --------------------------
+     */
+    
+    func playerDidFinishPlaying(){
         
-//        currentSession = sessions?[index!]
+        timer.invalidate()
+        overlay?.setPogress(1)
+        overlay?.removeFromSuperview()
+        playerLayer?.removeFromSuperlayer()
         
-        self.player?.pause()
-        playVideo()
+        sessionWatched()
         
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateVideoProgress), userInfo: nil,repeats: true)
+        if(sessionNumber < (lectures[lectureNumber].sessions.count - 1)){ // Are there more sessions to watch?
+            
+            //Is the next session un-watched?
+            if(lectures[lectureNumber].sessions[sessionNumber + 1].watched == false){
+                //Set next session as next
+                sessionNext()
+            }
+            
+            self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
+        }
+        else{ // Lecture was completed - no more sessions to watch
+            
+            lectureWatched()
+            
+            //Set next lecture as unlocked
+            if(lectureNumber < lectures.count - 1){
+                lectureUnlock()
+                
+                self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
+            }else{
+                //Show you've finished the course badge
+            }
+        }
         
-        overlay = VideoView()
-        overlay?.frame = self.view.bounds
-        self.view.addSubview(overlay!)
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     
-    func playVideo(){
-        
-        spinner.isHidden = false
-        spinner.startAnimating()
-        
-        let url = URL(string: (lectures[lectureNumber].sessions[sessionNumber].url))
-        self.player = AVPlayer(url: url!)
-        
-        playerLayer = AVPlayerLayer(player: player)
-        playerLayer?.frame = self.view.bounds
-        self.view.layer.addSublayer(playerLayer!)
-        self.player?.play()
-        NotificationCenter.default.addObserver(self,selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
-
-        
-
-    }
+    /*
+    --------------------------------------------- UPDATE DATA STRUCTURE AND CORE DATA --------------------------
+     */
     
     func sessionWatched(){
         //Set Session as watched and not the next
@@ -228,7 +280,7 @@ class VideoViewController: UIViewController {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let lecture = LectureMO(context: context)
-        lecture.number = lectureNumber + 1
+        lecture.number = Int16(lectureNumber) + 1
         lecture.watched = false
         lecture.locked = false
         
@@ -241,48 +293,7 @@ class VideoViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
-    func playerDidFinishPlaying(){
-        
-        timer.invalidate()
-        overlay?.setPogress(1)
-        overlay?.removeFromSuperview()
-        playerLayer?.removeFromSuperlayer()
-        
-        sessionWatched()
-        
-        if(sessionNumber < (lectures[lectureNumber].sessions.count - 1)){ // Are there more sessions to watch?
-            
-            //Set next session as next
-            if(lectures[lectureNumber].sessions[sessionNumber + 1].watched == false){
-                
-                sessionNext()
-            }
-            
-            
-            self.performSegue(withIdentifier: showBadgeIdentidier , sender: nil)
-        }
-        else{ // Lecture was completed
-            
-           lectureWatched()
-            
-            //Set next lecture as unlocked
-            if(lectureNumber < lectures.count - 1){
-               lectureUnlock()
-                
-                self.performSegue(withIdentifier: showFinalBadgeIdentidier , sender: nil)
-            }else{
-                //Show you've finished the course badge
-            }
-        }
-        
-    }
     
-    func updateVideoProgress(){
-        let time = Float((self.player?.currentTime().seconds)!)
-        let ratio = time / Float((lectures[lectureNumber].sessions[sessionNumber].duration))
-        if(ratio > 0){
-           spinner.isHidden = true
-        }
-        overlay?.setPogress(ratio)
-    }
+    
+   
 }

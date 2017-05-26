@@ -65,7 +65,7 @@ class LecturesViewController: UIViewController {
         
         let year =  components.year
         let month = components.month
-        let day = components.day! + 2
+        let day = components.day!
         
         let code = "surveyed_\(month!)_\(day)_\(year!)"
         

@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         
         connectToFBCloudMessages()
         
-        configureFBCloudMessages(application)
+//        configureFBCloudMessages(application)
         
         FIRApp.configure()
         loadContentFromFB()
@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     func connectToFBCloudMessages(){
         FIRMessaging.messaging().connect{(error) in
             if error != nil{
-                print("Unable to concect \(error)")
+                print("Unable to concect")
             }else{
                 print("Connected to FCM")
             }
@@ -78,11 +78,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     
     func configureFBCloudMessages(_ application: UIApplication){
         if #available(iOS 10.0, *) {
+            
+        
+            
             //options and settings for iOS 10 devices
             let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: {_,_ in })
+            
+        
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            // For iOS 10 data message (sent via FCM)
+            FIRMessaging.messaging().remoteMessageDelegate = self
+            
+        } else {
+            //TODO: Other versions than iOS 10
+        }
+        
+    }
+    
+    func enableNotification(){
+        
+        let application = UIApplication.shared
+        
+        if #available(iOS 10.0, *) {
+            //options and settings for iOS 10 devices
+            let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_,_ in })
+            
             
             let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
@@ -97,6 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         }
         
     }
+
     
     func initMixpanel(){
         self.mixpanelToken = self.mixpanelTestToken

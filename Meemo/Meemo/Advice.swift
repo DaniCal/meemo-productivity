@@ -28,6 +28,12 @@ class Advice:NSObject{
      
     }
     
+    override init(){
+        self.title = ""
+        self.text = ""
+        self.number = 0
+    }
+    
     static func fetchAdvices() -> [Advice]{
         return [
         Advice(title: "Capture", text: testDescription01, number: 1),

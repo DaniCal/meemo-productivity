@@ -12,6 +12,8 @@ class SummaryViewController: UIViewController {
 
     var interactor:Interactor? = nil
     var testAdvices = Advice.fetchAdvices()
+    var lectureNumber = 0
+    var lectures:[Lecture] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -51,6 +53,8 @@ class SummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+
         tableView.dataSource = self
     }
 
@@ -65,13 +69,13 @@ class SummaryViewController: UIViewController {
 
 extension SummaryViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (testAdvices.count)
+        return (lectures[lectureNumber].advices.count)
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath) as! SummaryTableViewCell
-        cell.advice = self.testAdvices[indexPath.row]
+        cell.advice = lectures[lectureNumber].advices[indexPath.row]
         return cell
     }
 }

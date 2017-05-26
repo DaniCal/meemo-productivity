@@ -67,23 +67,30 @@ class FirebaseSynchronizer: NSObject{
         }
         
         
+        //Parse Summary
+        
+        let advices = lectureSnapshot.childSnapshot(forPath: "summary")
+        let adviceEnumerator = advices.children
+        
+        while let advice = adviceEnumerator.nextObject() as? FIRDataSnapshot{
+            lecture.advices.append(parseAdvice(advice))
+        }
+        
+        
+        //Parse Sessions
         let sessions = lectureSnapshot.childSnapshot(forPath: "sessions")
         let enumerator = sessions.children
         
         var index = 0
         while let session = enumerator.nextObject() as? FIRDataSnapshot{
-            
             if((lecture.number - 1) < lecturesMO.count && index < (lecturesMO[lecture.number - 1].sessions?.count)!){
                 let sessions = lecturesMO[lecture.number - 1].sessions?.allObjects as! [SessionMO]
-                
                 for sessionMO in sessions{
                     if(sessionMO.number == Int16(index)){
                         print(sessionMO.number)
                         lecture.sessions.append(parseSession(session, next: sessionMO.next, watched: sessionMO.watched))
                     }
                 }
-                
-                
                 
             }else{
                 lecture.sessions.append(parseSession(session, next: false, watched: false))
@@ -105,60 +112,13 @@ class FirebaseSynchronizer: NSObject{
         return session
     }
     
-    
-    
-    
-//    static func parseDailyPushup(dailyPushUpShot: FIRDataSnapshot)->DailyPushUp{
-//
-//        let dailyPushUp = DailyPushUp()
-//        
-//        dailyPushUp.author = (dailyPushUpShot.childSnapshot(forPath: "author").value as? String)!
-//        dailyPushUp.biography = (dailyPushUpShot.childSnapshot(forPath: "biography").value as? String)!
-//        dailyPushUp.desc = (dailyPushUpShot.childSnapshot(forPath: "description").value as? String)!
-//        dailyPushUp.file = (dailyPushUpShot.childSnapshot(forPath: "file").value as? String)!
-//        dailyPushUp.pictureOverview = (dailyPushUpShot.childSnapshot(forPath: "pictureOverview").value as? String)!
-//        dailyPushUp.picturePlayer = (dailyPushUpShot.childSnapshot(forPath: "picturePlayer").value as? String)!
-//        dailyPushUp.readMore = (dailyPushUpShot.childSnapshot(forPath: "readMore").value as? String)!
-//        dailyPushUp.time = (dailyPushUpShot.childSnapshot(forPath: "time").value as? String)!
-//        dailyPushUp.title = (dailyPushUpShot.childSnapshot(forPath: "title").value as? String)!
-//        
-//        return dailyPushUp
-//    }
-//    
-//    
-//    static func parseProgram(programShot: FIRDataSnapshot)-> Program{
-//        
-//        let program = Program()
-//        
-//        program.title = (programShot.childSnapshot(forPath: "title").value as? String)!
-//        program.teaser = (programShot.childSnapshot(forPath: "teaser").value as? String)!
-//        program.subtitle = (programShot.childSnapshot(forPath: "subtitle").value as? String)!
-//        program.descr = (programShot.childSnapshot(forPath: "description").value as? String)!
-//        program.pictureOverview = (programShot.childSnapshot(forPath: "pictureOverview").value as? String)!
-//        program.pictureSquare = (programShot.childSnapshot(forPath: "pictureSquare").value as? String)!
-//        program.picturePlayer = (programShot.childSnapshot(forPath: "picturePlayer").value as? String)!
-//        
-//        let sessions = programShot.childSnapshot(forPath: "sessions")
-//        
-//        let enumerator = sessions.children
-//        while let sessionShot = enumerator.nextObject() as? FIRDataSnapshot {
-//            program.sessions.append(parseSession(sessionShot: sessionShot))
-//        }
-//        return program
-//    }
-//    
-//    
-//    static func parseSession(sessionShot: FIRDataSnapshot)->Session{
-//        
-//        let session = Session()
-//        
-//        session.author = (sessionShot.childSnapshot(forPath: "author").value as? String)!
-//        session.biography = (sessionShot.childSnapshot(forPath: "biography").value as? String)!
-//        session.desc = (sessionShot.childSnapshot(forPath: "description").value as? String)!
-//        session.file = (sessionShot.childSnapshot(forPath: "file").value as? String)!
-//        session.readMore = (sessionShot.childSnapshot(forPath: "readMore").value as? String)!
-//        session.time = (sessionShot.childSnapshot(forPath: "time").value as? String)!
-//        session.title = (sessionShot.childSnapshot(forPath: "title").value as? String)!
-//        return session
-//    }
+    static func parseAdvice(_ adviceSnapshot: FIRDataSnapshot) -> Advice{
+        let advice = Advice()
+        advice.title = (adviceSnapshot.childSnapshot(forPath: "title").value as? String)!
+        advice.text = (adviceSnapshot.childSnapshot(forPath: "text").value as? String)!
+        advice.number = (adviceSnapshot.childSnapshot(forPath: "number").value as? Int)!
+
+        return advice
+    }
+
 }

@@ -17,6 +17,7 @@ class Lecture:NSObject{
     var locked: Bool
     var watched: Bool
     var sessions:[Session]
+    var advices: [Advice]
     
     
     /*
@@ -33,6 +34,7 @@ class Lecture:NSObject{
         self.locked = locked
         self.watched = watched
         self.sessions = Session.fetchSessions()
+        self.advices = Advice.fetchAdvices()
     }
     
     override init(){
@@ -42,6 +44,7 @@ class Lecture:NSObject{
         self.locked = false
         self.watched = false
         self.sessions = []
+        self.advices = []
 
     }
     

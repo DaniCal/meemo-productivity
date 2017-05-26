@@ -107,6 +107,7 @@ class SessionsListViewController: UIViewController{
         {
             destination.transitioningDelegate = self
             destination.interactor = interactor
+            destination.lectureNumber = lectureNumber
         }
 
     }

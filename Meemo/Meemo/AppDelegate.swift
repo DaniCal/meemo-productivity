@@ -34,6 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         
         initMixpanel()
         
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if(!launchedBefore){
+            showOnboarding()
+        }else{
+            showLoadingScreen()
+        }
+        
+        
         let context = persistentContainer.viewContext
         do{
             lecturesMO = try context.fetch(LectureMO.fetchRequest())
@@ -107,6 +115,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     }
     
     
+    func showLoadingScreen(){
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoadingScreen")
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func showOnboarding(){
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingPageViewController")
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+
+    }
     
     func showLecturesViewController(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -138,7 +168,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
             
             self.loadedImages = self.loadedImages + 1
             if(self.loadedImages >= self.lectures.count){
-//                self.showLecturesViewController()
+                let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+                if(launchedBefore){
+                    self.showLecturesViewController()
+                }
+
             }
             
         }

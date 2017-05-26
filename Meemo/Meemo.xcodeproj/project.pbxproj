@@ -40,6 +40,8 @@
 		826203381ED6CA0400470CDB /* FirebaseSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826203371ED6CA0400470CDB /* FirebaseSynchronizer.swift */; };
 		82CAEBBE1ED83CE100256F33 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CAEBBD1ED83CE100256F33 /* OnboardingPageViewController.swift */; };
 		82CAEBC01ED8445300256F33 /* IntroVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CAEBBF1ED8445300256F33 /* IntroVideoViewController.swift */; };
+		82CAEBC21ED844B100256F33 /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CAEBC11ED844B100256F33 /* GetStartedViewController.swift */; };
+		82CAEBC41ED84A3100256F33 /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 82CAEBC31ED848EA00256F33 /* Intro.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		826203371ED6CA0400470CDB /* FirebaseSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSynchronizer.swift; sourceTree = "<group>"; };
 		82CAEBBD1ED83CE100256F33 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		82CAEBBF1ED8445300256F33 /* IntroVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVideoViewController.swift; sourceTree = "<group>"; };
+		82CAEBC11ED844B100256F33 /* GetStartedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
+		82CAEBC31ED848EA00256F33 /* Intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Intro.mp4; sourceTree = "<group>"; };
 		87E55D6B8B9E22B494404C4F /* Pods-Meemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meemo/Pods-Meemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD17427DE877CC8134440F18 /* Pods_Meemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -222,6 +226,8 @@
 				82038E1B1ED4213400665C1E /* SessionsView */,
 				821D60A01ED32AB600A8574C /* Model */,
 				821D60761ED3258B00A8574C /* Main.storyboard */,
+				82CAEBC31ED848EA00256F33 /* Intro.mp4 */,
+				82CAEBC11ED844B100256F33 /* GetStartedViewController.swift */,
 				82CAEBBF1ED8445300256F33 /* IntroVideoViewController.swift */,
 				82CAEBBD1ED83CE100256F33 /* OnboardingPageViewController.swift */,
 				821D60721ED3258B00A8574C /* AppDelegate.swift */,
@@ -381,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CAEBC41ED84A3100256F33 /* Intro.mp4 in Resources */,
 				821D607D1ED3258B00A8574C /* LaunchScreen.storyboard in Resources */,
 				821D607A1ED3258B00A8574C /* Assets.xcassets in Resources */,
 				821D60781ED3258B00A8574C /* Main.storyboard in Resources */,
@@ -474,6 +481,7 @@
 				82038E211ED4227B00665C1E /* Interactor.swift in Sources */,
 				82038E1F1ED4219400665C1E /* VideoViewController.swift in Sources */,
 				82038E271ED42BE300665C1E /* VideoView.swift in Sources */,
+				82CAEBC21ED844B100256F33 /* GetStartedViewController.swift in Sources */,
 				82038E181ED37F0700665C1E /* DismissView.swift in Sources */,
 				823A6EC81ED4CF23005EF673 /* FinalBadgeViewController.swift in Sources */,
 				821D60A41ED33BAC00A8574C /* LectureCollectionViewCell.swift in Sources */,

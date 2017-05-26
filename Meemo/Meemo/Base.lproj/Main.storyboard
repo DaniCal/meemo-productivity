@@ -785,33 +785,45 @@ than yesterday?</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="FkU-ML-fnS">
-                                <rect key="frame" x="46.5" y="246" width="282" height="175"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRed" translatesAutoresizingMaskIntoConstraints="NO" id="FkU-ML-fnS">
+                                <rect key="frame" x="46.5" y="246" width="282" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="175" id="K6i-Gu-xuX"/>
+                                    <constraint firstAttribute="height" constant="130" id="K6i-Gu-xuX"/>
                                     <constraint firstAttribute="width" constant="282" id="cKF-dH-UhY"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ha8-tI-su5">
-                                <rect key="frame" x="177.5" y="465" width="20" height="20"/>
+                                <rect key="frame" x="177" y="612" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="KOK-8F-el4"/>
-                                    <constraint firstAttribute="width" constant="20" id="kKm-Zd-ZVg"/>
+                                    <constraint firstAttribute="height" constant="20" id="J9U-Ho-x2N"/>
+                                    <constraint firstAttribute="width" constant="20" id="kBm-TL-lO8"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best with headphones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMo-iG-CAG">
+                                <rect key="frame" x="52" y="566" width="270" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ec3-2Y-Pts"/>
+                                    <constraint firstAttribute="width" constant="270" id="Qlv-qE-p0k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10161010175943375" green="0.10917959362268448" blue="0.14236947894096375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="qMo-iG-CAG" firstAttribute="centerX" secondItem="fsY-gt-orA" secondAttribute="centerX" id="6WX-NH-WNK"/>
                             <constraint firstItem="FkU-ML-fnS" firstAttribute="centerX" secondItem="fsY-gt-orA" secondAttribute="centerX" id="6g1-d5-xK5"/>
-                            <constraint firstItem="FkU-ML-fnS" firstAttribute="centerY" secondItem="fsY-gt-orA" secondAttribute="centerY" id="ByB-h9-6qu"/>
-                            <constraint firstItem="ha8-tI-su5" firstAttribute="top" secondItem="FkU-ML-fnS" secondAttribute="bottom" constant="44" id="RSK-i9-uwh"/>
-                            <constraint firstItem="ha8-tI-su5" firstAttribute="centerX" secondItem="fsY-gt-orA" secondAttribute="centerX" id="XXT-4N-rUe"/>
+                            <constraint firstItem="FkU-ML-fnS" firstAttribute="centerY" secondItem="fsY-gt-orA" secondAttribute="centerY" constant="-22.5" id="ByB-h9-6qu"/>
+                            <constraint firstItem="73X-En-Ptg" firstAttribute="top" secondItem="ha8-tI-su5" secondAttribute="bottom" constant="35" id="Hhi-4m-2xm"/>
+                            <constraint firstItem="ha8-tI-su5" firstAttribute="centerX" secondItem="fsY-gt-orA" secondAttribute="centerX" id="kxQ-l6-YAJ"/>
+                            <constraint firstItem="ha8-tI-su5" firstAttribute="top" secondItem="qMo-iG-CAG" secondAttribute="bottom" constant="25" id="mSE-lB-d3Y"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CF3-mp-tmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13" y="816"/>
+            <point key="canvasLocation" x="12" y="815.44227886056979"/>
         </scene>
         <!--Sessions View Controller-->
         <scene sceneID="gaP-sa-wMY">
@@ -861,16 +873,6 @@ than yesterday?</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientSessionsList" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-QU-yRC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSm-Sx-WFJ">
-                                <rect key="frame" x="159" y="39" width="58" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="92h-lG-sS8"/>
-                                    <constraint firstAttribute="height" constant="29" id="9eD-KW-MFE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F94-Tn-ln8">
                                 <rect key="frame" x="84" y="66" width="207" height="164"/>
                                 <constraints>
@@ -898,8 +900,6 @@ than yesterday?</string>
                             <constraint firstItem="jtm-Wm-eOg" firstAttribute="top" secondItem="ots-W9-YgK" secondAttribute="top" id="NLH-jO-dXW"/>
                             <constraint firstItem="qUb-mj-1LU" firstAttribute="top" secondItem="F94-Tn-ln8" secondAttribute="bottom" constant="70" id="Ocs-N5-v5i"/>
                             <constraint firstItem="jtm-Wm-eOg" firstAttribute="leading" secondItem="ots-W9-YgK" secondAttribute="leading" id="YPp-nM-ZWb"/>
-                            <constraint firstItem="F94-Tn-ln8" firstAttribute="top" secondItem="uSm-Sx-WFJ" secondAttribute="bottom" constant="-2" id="fCK-2l-8rq"/>
-                            <constraint firstItem="uSm-Sx-WFJ" firstAttribute="centerX" secondItem="ots-W9-YgK" secondAttribute="centerX" id="k0l-sr-Xr4"/>
                             <constraint firstAttribute="trailing" secondItem="eGy-QU-yRC" secondAttribute="trailing" id="k9Y-aU-voh"/>
                             <constraint firstItem="eGy-QU-yRC" firstAttribute="leading" secondItem="ots-W9-YgK" secondAttribute="leading" id="kea-9g-Y0E"/>
                             <constraint firstItem="qUb-mj-1LU" firstAttribute="top" secondItem="eGy-QU-yRC" secondAttribute="bottom" id="vJc-sL-USt"/>
@@ -1573,7 +1573,7 @@ video. On to the next one!</string>
         <image name="davidAllen" width="170" height="170"/>
         <image name="gradientSessionsList" width="187" height="209"/>
         <image name="gradientWatchButton" width="750" height="204"/>
-        <image name="launchscreenImage" width="335" height="287"/>
+        <image name="logoRed" width="118" height="118"/>
         <image name="overviewtest" width="257" height="257"/>
         <image name="playButtonEmptyGreen" width="51" height="51"/>
         <image name="summaryButton" width="236" height="52"/>

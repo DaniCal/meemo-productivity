@@ -114,6 +114,14 @@ class VideoViewController: UIViewController {
         let url = URL(string: (lectures[lectureNumber].sessions[sessionNumber].url))
         self.player = AVPlayer(url: url!)
         
+
+        
+//        guard let path = Bundle.main.path(forResource: "suster", ofType:"mp4") else {
+//            debugPrint("video not found")
+//            return
+//        }
+//        self.player = AVPlayer(url: URL(fileURLWithPath: path))
+        
         playerLayer = AVPlayerLayer(player: player)
         playerLayer?.frame = self.view.bounds
         self.view.layer.addSublayer(playerLayer!)

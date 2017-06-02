@@ -18,7 +18,6 @@ class SessionsViewController: MXScrollViewController {
 //    var testLecture = Lecture.fetchLecture()
     var lectures:[Lecture] = []
 
-    var lectureNumber:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,6 @@ class SessionsViewController: MXScrollViewController {
             button.setImage(UIImage(named: "badgeCloseIconWhite"), for: .normal)
             button.addTarget(self, action: #selector(closeButtonTouch), for: .touchUpInside)
             destination.view.addSubview(button)
-            destination.lectureNumber = self.lectureNumber!
             
             
             
@@ -65,7 +63,6 @@ class SessionsViewController: MXScrollViewController {
             let destination = segue.destination as? SessionsListViewController
         {
 //            destination.lecture = self.lecture
-            destination.lectureNumber = self.lectureNumber!
             destination.sourceView = self
         }
     }

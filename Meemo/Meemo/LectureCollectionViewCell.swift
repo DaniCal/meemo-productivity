@@ -10,6 +10,7 @@ import UIKit
 
 class LectureCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var chapterView: UIView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -42,29 +43,40 @@ class LectureCollectionViewCell: UICollectionViewCell {
             self.featuredImageView.image = lecture.featuredImage
             self.dayLabel.text = lecture.dayTitle()
             self.watchImageView.image = lecture.watchButtonImage()
+            self.chapterView.layer.cornerRadius = 10
+            self.chapterView.layer.masksToBounds = true
+
             switch(lecture.number){
             case 1:
+                self.chapterView.backgroundColor = blue
                 self.mainView.backgroundColor = blue
                 break
             case 2:
+                self.chapterView.backgroundColor = red
                 self.mainView.backgroundColor = red
                 break
             case 3:
+                self.chapterView.backgroundColor = green
                 self.mainView.backgroundColor = green
                 break
             case 4:
+                self.chapterView.backgroundColor = yellow
                 self.mainView.backgroundColor = yellow
                 break
             case 5:
+                self.chapterView.backgroundColor = green2
                 self.mainView.backgroundColor = green2
                 break
             case 6:
+                self.chapterView.backgroundColor = purple
                 self.mainView.backgroundColor = purple
                 break
             case 7:
+                self.chapterView.backgroundColor = pink
                 self.mainView.backgroundColor = pink
                 break
             default:
+                self.chapterView.backgroundColor = green
                 self.mainView.backgroundColor = green
                 break
             }

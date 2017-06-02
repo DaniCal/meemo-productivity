@@ -19,36 +19,49 @@ class SurveyViewController: UIViewController {
     @IBOutlet weak var label2: UIView!
     @IBOutlet weak var label1: UIView!
     
+    var date = ""
+    
     @IBAction func closeSurveyAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "\(date): -1"])
     }
     
     
     @IBAction func selected5(_ sender: Any) {
-        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "5"])
+        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "\(date): 5"])
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func selected4(_ sender: Any) {
-        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "4"])
+        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "\(date): 4"])
         dismiss(animated: true, completion: nil)
     }
     @IBAction func selected3(_ sender: Any) {
-        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "3"])
+        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "\(date): 3"])
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func selected2(_ sender: Any) {
-        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "2"])
+        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "\(date): 2"])
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func selected1(_ sender: Any) {
-        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "1"])
+        Mixpanel.sharedInstance()?.track("answer_survey", properties: ["answer" : "\(date): 1"])
         dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        let year =  components.year
+        let month = components.month
+        let day = components.day!
+        
+        self.date = "\(day)_\(month!)_\(year!)"
 
         label5.layer.cornerRadius = 13
         label5.layer.masksToBounds = true

@@ -29,6 +29,7 @@ class SessionsListViewController: UIViewController{
         super.viewDidLoad()
         
         lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+        lectureNumber = (UIApplication.shared.delegate as! AppDelegate).selectedLecture
         lecture = lectures[lectureNumber]
         
         tableView.separatorStyle = .none
@@ -51,18 +52,18 @@ class SessionsListViewController: UIViewController{
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
-        lecture = lectures[lectureNumber]
-
-        if(lecture?.watched)!{
-            watchButton.setImage(UIImage(named: "watchAgainButton"), for: .normal)
-        }else if(lecture?.sessions[0].next)!{
-            watchButton.setImage(UIImage(named: "watchCourseButton"), for: .normal)
-        }else{
-            watchButton.setImage(UIImage(named: "watchContinueButton"), for: .normal)
-        }
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+//        lecture = lectures[lectureNumber]
+//
+//        if(lecture?.watched)!{
+//            watchButton.setImage(UIImage(named: "watchAgainButton"), for: .normal)
+//        }else if(lecture?.sessions[0].next)!{
+//            watchButton.setImage(UIImage(named: "watchCourseButton"), for: .normal)
+//        }else{
+//            watchButton.setImage(UIImage(named: "watchContinueButton"), for: .normal)
+//        }
+//    }
     
     @IBAction func watchButtonAction(_ sender: AnyObject) {
         
@@ -156,6 +157,4 @@ extension SessionsListViewController: UITableViewDelegate{
         }
         
     }
-    
-    
 }

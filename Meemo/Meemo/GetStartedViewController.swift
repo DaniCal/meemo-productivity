@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 class GetStartedViewController: UIViewController {
     override func viewDidLoad() {
@@ -20,6 +21,8 @@ class GetStartedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func skipIntro(_ sender: Any) {
+        Mixpanel.sharedInstance()?.track("skip_intro")
+
         UserDefaults.standard.set(true, forKey: "launchedBefore")
         (UIApplication.shared.delegate as! AppDelegate).showLecturesViewController()
     }

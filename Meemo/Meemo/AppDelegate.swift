@@ -14,7 +14,9 @@ import Alamofire
 import Mixpanel
 import FirebaseMessaging
 import UserNotifications
-
+import TouchVisualizer
+import Fabric
+import Crashlytics
 
 
 @UIApplicationMain
@@ -22,18 +24,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
 
     var window: UIWindow?
     var lectures:[Lecture] = []
+    var selectedLecture = 0
     var lecturesMO:[LectureMO] = []
     var loadedImages: Int = 0
     
     var mixpanel:Mixpanel!
     let mixpanelTestToken = "961d5f96adf20b0bb0a9096a9a524ffa"
-    let mixpanelProductionToken = ""
+    let mixpanelProductionToken = "cf7f7b02a3f2c9f5e9621db336e785c4"
     var mixpanelToken = "961d5f96adf20b0bb0a9096a9a524ffa"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        Visualizer.start()
+
         
+        Fabric.with([Crashlytics.self])
+        
+
         initMixpanel()
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
@@ -63,6 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         
         FIRApp.configure()
         loadContentFromFB()
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "Avenir-Light", size: 20)!
+        ]
         return true
     }
     
@@ -130,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
 
     
     func initMixpanel(){
-        self.mixpanelToken = self.mixpanelTestToken
+        self.mixpanelToken = self.mixpanelProductionToken
         mixpanel = Mixpanel.sharedInstance(withToken: mixpanelToken)
         mixpanel.track("App launched")
         
@@ -202,7 +214,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     
     func showLoadingScreen(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        
+
+//        self.window = MBFingerTipWindow(frame: UIScreen.main.bounds)
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoadingScreen")
@@ -213,7 +227,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     
     func showOnboarding(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        
+
+//        self.window = MBFingerTipWindow(frame: UIScreen.main.bounds)
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingPageViewController")
@@ -226,6 +242,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
     func showLecturesViewController(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
+        
+//        self.window = MBFingerTipWindow(frame: UIScreen.main.bounds)
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LecturesViewController")
@@ -233,6 +252,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
+    }
+    
+    func showHomeViewController(){
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        
+        //        self.window = MBFingerTipWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "NavigationController")
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
     }
     
 
@@ -247,7 +280,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
         Alamofire.request(lecture.imageURL).response { response in
             debugPrint(response)
             if let data = response.data {
-                lecture.featuredImage = UIImage(data: data)!
+                    lecture.featuredImage = UIImage(data: data)!
             }else{
             }
             
@@ -256,6 +289,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FirebaseSynchornizeDelega
                 let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
                 if(launchedBefore){
                     self.showLecturesViewController()
+//                    self.showHomeViewController()
                 }
 
             }

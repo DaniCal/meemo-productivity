@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (4.4.0)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
+  - Fingertips (0.5.0)
   - Firebase/Analytics (3.6.0):
     - FirebaseAnalytics (= 3.4.2)
   - Firebase/Core (3.6.0):
@@ -34,17 +38,25 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - Mixpanel (3.1.5)
   - MXParallaxHeader (0.5.2)
+  - TouchVisualizer (2.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - Crashlytics
+  - Fabric
+  - Fingertips
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
   - Mixpanel
   - MXParallaxHeader
+  - TouchVisualizer (~> 2.0.1)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  Fingertips: 8e557eed25253fcb4bfa25ac4418f8e8add1ad9a
   Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseDatabase: 750a4a0fe18ef114318876fd654b2d9c671e0992
@@ -56,7 +68,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Mixpanel: 9b33e5de998cd42597767f67e2b8fcd1d158c71d
   MXParallaxHeader: 5070ba8e8af27ec793c0d32ae82cfd2318e59635
+  TouchVisualizer: d1bd1b438d084245332c222d9e14416c271c5f25
 
-PODFILE CHECKSUM: 1afd70b0041ea721be97b982b9636e4894ea7cd4
+PODFILE CHECKSUM: 5220c58e613b89671d9e75262a49b7b47d8b7f13
 
 COCOAPODS: 1.2.1

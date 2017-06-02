@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Meemo/AppDelegate.swift"
-            timestampString = "517507284.442585"
+            timestampString = "518083952.144067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "AppDelegate"
             landmarkType = "3">
          </BreakpointContent>
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Meemo/AppDelegate.swift"
-            timestampString = "517507284.442585"
+            timestampString = "518083952.144067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "enableNotification()"
             landmarkType = "7">
          </BreakpointContent>

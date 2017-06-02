@@ -16,11 +16,9 @@ class LecturesViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     var lectures:[Lecture] = []
     var cellScalingX:CGFloat = 0.72
-    var cellScalingY:CGFloat = 0.70
+    var cellScalingY:CGFloat = 0.71
     let sessionsSegueIdentifier = "showSessions"
     let surveySegueIdentifier = "showSurvey"
-
-    var selectedIndex:Int = 0
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -42,12 +40,12 @@ class LecturesViewController: UIViewController {
         let cellHeight = floor(screenSize.height * cellScalingY)
 
         let insetX = (view.bounds.width - cellWidth) / 2
-        let insetY = (view.bounds.height - cellHeight) / 2
+        let insetY = CGFloat(0) //(view.bounds.height - cellHeight) / 8
 
         let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth , height: cellHeight)
 
-        collectionView?.contentInset = UIEdgeInsets(top: insetY ,left: insetX , bottom: insetY, right: insetX)
+        collectionView?.contentInset = UIEdgeInsets(top: insetY ,left: insetX , bottom: insetY, right: CGFloat(65))
 
         collectionView?.dataSource = self
         collectionView?.delegate = self
@@ -56,6 +54,7 @@ class LecturesViewController: UIViewController {
         self.progressView.setProgress(progress, animated: true)
         let progressString = Int(progress * 100)
         self.progressLabel.text = "\(progressString)% completed"
+        
     }
     
     func checkIfSurveyed(){
@@ -92,6 +91,7 @@ class LecturesViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         collectionView.reloadData()
     }
+
     
     func calculateUserProgress()-> Float{
         var total = 0
@@ -115,7 +115,7 @@ class LecturesViewController: UIViewController {
             let destination = segue.destination as? SessionsViewController
         {
 //            destination.lecture = lectures[selectedIndex]
-            destination.lectureNumber = selectedIndex
+//            destination.lectureNumber = selectedIndex
         }
     }
 
@@ -154,8 +154,7 @@ extension LecturesViewController: UIScrollViewDelegate, UICollectionViewDelegate
         if(self.lectures[indexPath.item].locked){
             return
         }
-        
-        selectedIndex = indexPath.item
+        (UIApplication.shared.delegate as! AppDelegate).selectedLecture = indexPath.item
         self.performSegue(withIdentifier: sessionsSegueIdentifier , sender: indexPath)
         
 

@@ -18,10 +18,13 @@ class SessionsHeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lectures = (UIApplication.shared.delegate as! AppDelegate).lectures
+        lectureNumber = (UIApplication.shared.delegate as! AppDelegate).selectedLecture
         titleLabel.text = lectures[lectureNumber].title
         backgroundImageView.image = lectures[lectureNumber].featuredImage
 
+
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

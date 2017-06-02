@@ -67,7 +67,7 @@ class Lecture:NSObject{
     }
     
     func dayTitle()-> String{
-        return "Lecture \(String(number))"
+        return "Chapter \(String(number))"
     }
     
     func watchButtonImage() -> UIImage{

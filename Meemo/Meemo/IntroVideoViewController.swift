@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Mixpanel
 
 class IntroVideoViewController: UIViewController {
 
@@ -17,6 +18,7 @@ class IntroVideoViewController: UIViewController {
     var playerLayer:AVPlayerLayer?
     var timer = Timer.init()
     var duration:Float = 170
+    
     
     
     override func viewDidLoad() {
@@ -43,6 +45,8 @@ class IntroVideoViewController: UIViewController {
     }
     
     func skipIntro(){
+        Mixpanel.sharedInstance()?.track("sopped_intro", properties: ["time" : "\(String(describing: player?.currentTime().seconds))"])
+
         player?.pause()
         UserDefaults.standard.set(true, forKey: "launchedBefore")
         timer.invalidate()
@@ -50,6 +54,8 @@ class IntroVideoViewController: UIViewController {
     }
     
     func playVideo(){
+        Mixpanel.sharedInstance()?.track("play_intro")
+
         
         guard let path = Bundle.main.path(forResource: "Intro", ofType:"mp4") else {
             debugPrint("video not found")
@@ -74,6 +80,7 @@ class IntroVideoViewController: UIViewController {
     }
     
     func playerDidFinishPlaying(){
+        Mixpanel.sharedInstance()?.track("watched_intro")
         UserDefaults.standard.set(true, forKey: "launchedBefore")
         timer.invalidate()
         (UIApplication.shared.delegate as! AppDelegate).showLecturesViewController()

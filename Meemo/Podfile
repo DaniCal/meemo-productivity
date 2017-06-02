@@ -9,6 +9,10 @@ target 'Meemo' do
     pod 'Firebase/Database'
     pod 'Mixpanel'
     pod 'Firebase/Messaging'
+    pod 'Fingertips'
+    pod 'TouchVisualizer', '~>2.0.1'
+    pod 'Fabric'
+    pod 'Crashlytics'
 
 
 end

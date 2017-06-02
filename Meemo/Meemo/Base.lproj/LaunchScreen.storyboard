@@ -22,19 +22,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRed" translatesAutoresizingMaskIntoConstraints="NO" id="Ta1-wS-okk">
-                                <rect key="frame" x="46" y="268" width="282" height="130"/>
+                                <rect key="frame" x="128" y="274" width="118" height="118"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="dcv-k8-0fk"/>
-                                    <constraint firstAttribute="width" constant="282" id="tYS-ha-ZHH"/>
+                                    <constraint firstAttribute="height" constant="118" id="NJU-Ji-pMm"/>
+                                    <constraint firstAttribute="width" constant="118" id="syL-VK-Lke"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.078431372549019607" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.10980392156862745" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ta1-wS-okk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Ip6-c5-I9f"/>
-                            <constraint firstItem="Ta1-wS-okk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="k0s-TN-IaG"/>
-                            <constraint firstItem="Ta1-wS-okk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lBL-he-Tqq"/>
-                            <constraint firstItem="Ta1-wS-okk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="on4-J3-b8V"/>
+                            <constraint firstItem="Ta1-wS-okk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4Yy-2n-qH7"/>
+                            <constraint firstItem="Ta1-wS-okk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Otb-au-BkD"/>
                         </constraints>
                     </view>
                 </viewController>
